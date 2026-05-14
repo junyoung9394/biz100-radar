@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import AdBanner from "@/components/AdBanner";
 import { getUsCompanyBySlug, usCompanies } from "@/data/us-companies";
 import UsStockQuote from "@/components/UsStockQuote";
+import RecentSecFilings from "@/components/RecentSecFilings";
 import RelatedUsCompanies from "@/components/RelatedUsCompanies";
 
 type UsCompanyPageProps = {
@@ -92,7 +93,7 @@ export default async function UsCompanyDetailPage({
             </div>
           </section>
 <UsStockQuote ticker={company.ticker} />
-
+<RecentSecFilings cik={company.cik} />
           <section className="card article-section seo-section">
             <h2>{company.name}는 어떤 회사인가요?</h2>
 

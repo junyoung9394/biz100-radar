@@ -40,6 +40,7 @@ export const usCompanies: UsCompany[] = [
     initials: "AAPL",
     market: "NASDAQ",
     ticker: "AAPL",
+    cik: "0000320193",
     industry: "Consumer Electronics · Software",
     businessSummary:
       "Apple은 iPhone, Mac, iPad, Apple Watch, 서비스 사업을 중심으로 운영되는 글로벌 소비자 전자·소프트웨어 기업입니다.",
@@ -55,6 +56,7 @@ export const usCompanies: UsCompany[] = [
     initials: "MSFT",
     market: "NASDAQ",
     ticker: "MSFT",
+    cik: "0000789019",
     industry: "Software · Cloud",
     businessSummary:
       "Microsoft는 Windows, Microsoft 365, Azure, LinkedIn, Xbox 등 소프트웨어와 클라우드 사업을 운영하는 글로벌 기술 기업입니다.",
@@ -70,6 +72,7 @@ export const usCompanies: UsCompany[] = [
     initials: "NVDA",
     market: "NASDAQ",
     ticker: "NVDA",
+    cik: "0001045810",
     industry: "Semiconductors · AI",
     businessSummary:
       "NVIDIA는 GPU, AI 가속기, 데이터센터, 게이밍, 전문 시각화, 자동차 컴퓨팅 사업을 운영하는 반도체 기업입니다.",
@@ -85,6 +88,7 @@ export const usCompanies: UsCompany[] = [
     initials: "AMZN",
     market: "NASDAQ",
     ticker: "AMZN",
+    cik: "0001018724",
     industry: "E-commerce · Cloud",
     businessSummary:
       "Amazon은 전자상거래, AWS 클라우드, 광고, 구독 서비스, 물류 인프라를 중심으로 사업을 운영하는 글로벌 플랫폼 기업입니다.",
@@ -100,6 +104,7 @@ export const usCompanies: UsCompany[] = [
     initials: "GOOGL",
     market: "NASDAQ",
     ticker: "GOOGL",
+    cik: "0001652044",
     industry: "Internet · Advertising · Cloud",
     businessSummary:
       "Alphabet은 Google 검색, YouTube, 광고, Google Cloud, Android 등 인터넷·기술 플랫폼 사업을 운영하는 지주회사입니다.",
@@ -115,6 +120,7 @@ export const usCompanies: UsCompany[] = [
     initials: "META",
     market: "NASDAQ",
     ticker: "META",
+    cik: "0001326801",
     industry: "Social Media · Advertising",
     businessSummary:
       "Meta Platforms는 Facebook, Instagram, WhatsApp, Threads, 광고 플랫폼, Reality Labs 사업을 운영하는 소셜 플랫폼 기업입니다.",
@@ -130,6 +136,7 @@ export const usCompanies: UsCompany[] = [
     initials: "TSLA",
     market: "NASDAQ",
     ticker: "TSLA",
+    cik: "0001318605",
     industry: "Electric Vehicles · Energy",
     businessSummary:
       "Tesla는 전기차, 에너지 저장장치, 태양광, 자율주행 소프트웨어 관련 사업을 운영하는 전기차·에너지 기업입니다.",
@@ -160,6 +167,7 @@ export const usCompanies: UsCompany[] = [
     initials: "JPM",
     market: "NYSE",
     ticker: "JPM",
+    cik: "0000019617",
     industry: "Banking · Financial Services",
     businessSummary:
       "JPMorgan Chase는 소비자금융, 투자은행, 자산관리, 상업은행 서비스를 제공하는 글로벌 금융회사입니다.",
@@ -175,6 +183,7 @@ export const usCompanies: UsCompany[] = [
     initials: "V",
     market: "NYSE",
     ticker: "V",
+    cik: "0001403161",
     industry: "Payments",
     businessSummary:
       "Visa는 글로벌 카드 결제 네트워크와 디지털 결제 인프라를 제공하는 결제 기술 기업입니다.",
@@ -190,6 +199,7 @@ export const usCompanies: UsCompany[] = [
     initials: "MA",
     market: "NYSE",
     ticker: "MA",
+    cik: "0001141391",
     industry: "Payments",
     businessSummary:
       "Mastercard는 글로벌 결제 네트워크, 카드 결제, 데이터·보안 솔루션을 제공하는 결제 기술 기업입니다.",
@@ -205,6 +215,7 @@ export const usCompanies: UsCompany[] = [
     initials: "AVGO",
     market: "NASDAQ",
     ticker: "AVGO",
+    cik: "0001730168",
     industry: "Semiconductors · Infrastructure Software",
     businessSummary:
       "Broadcom은 반도체 솔루션과 인프라 소프트웨어 사업을 운영하는 글로벌 기술 기업입니다.",
@@ -220,6 +231,7 @@ export const usCompanies: UsCompany[] = [
     initials: "ORCL",
     market: "NYSE",
     ticker: "ORCL",
+    cik: "0001341439",
     industry: "Software · Cloud",
     businessSummary:
       "Oracle은 데이터베이스, 클라우드 인프라, 기업용 소프트웨어, ERP 솔루션을 제공하는 소프트웨어 기업입니다.",
@@ -235,6 +247,7 @@ export const usCompanies: UsCompany[] = [
     initials: "WMT",
     market: "NYSE",
     ticker: "WMT",
+    cik: "0000104169",
     industry: "Retail",
     businessSummary:
       "Walmart는 대형마트, 식료품, 전자상거래, 멤버십 서비스를 운영하는 글로벌 유통 기업입니다.",
@@ -250,6 +263,7 @@ export const usCompanies: UsCompany[] = [
     initials: "LLY",
     market: "NYSE",
     ticker: "LLY",
+    cik: "0000059478",
     industry: "Pharmaceuticals",
     businessSummary:
       "Eli Lilly는 당뇨, 비만, 항암, 면역질환, 신경계 치료제 등을 개발·판매하는 글로벌 제약 기업입니다.",
@@ -265,6 +279,7 @@ export const usCompanies: UsCompany[] = [
     initials: "UNH",
     market: "NYSE",
     ticker: "UNH",
+    cik: "0000731766",
     industry: "Healthcare · Insurance",
     businessSummary:
       "UnitedHealth Group은 건강보험, 의료서비스, 약국관리, 헬스케어 데이터 사업을 운영하는 의료·보험 기업입니다.",
@@ -280,6 +295,7 @@ export const usCompanies: UsCompany[] = [
     initials: "XOM",
     market: "NYSE",
     ticker: "XOM",
+    cik: "0000034088",
     industry: "Energy · Oil & Gas",
     businessSummary:
       "Exxon Mobil은 원유·천연가스 탐사, 생산, 정유, 화학 사업을 운영하는 글로벌 에너지 기업입니다.",
@@ -295,6 +311,7 @@ export const usCompanies: UsCompany[] = [
     initials: "CVX",
     market: "NYSE",
     ticker: "CVX",
+    cik: "0000093410",
     industry: "Energy · Oil & Gas",
     businessSummary:
       "Chevron은 석유·가스 탐사, 생산, 정제, 화학, 에너지 솔루션 사업을 운영하는 글로벌 에너지 기업입니다.",
@@ -310,6 +327,7 @@ export const usCompanies: UsCompany[] = [
     initials: "COST",
     market: "NASDAQ",
     ticker: "COST",
+    cik: "0000909832",
     industry: "Retail · Membership",
     businessSummary:
       "Costco는 창고형 할인점과 멤버십 기반 유통 사업을 운영하는 글로벌 소매 기업입니다.",
@@ -325,6 +343,7 @@ export const usCompanies: UsCompany[] = [
     initials: "NFLX",
     market: "NASDAQ",
     ticker: "NFLX",
+    cik: "0001065280",
     industry: "Streaming · Entertainment",
     businessSummary:
       "Netflix는 스트리밍 구독 서비스, 오리지널 콘텐츠 제작, 글로벌 엔터테인먼트 사업을 운영하는 기업입니다.",
@@ -340,6 +359,7 @@ export const usCompanies: UsCompany[] = [
     initials: "ADBE",
     market: "NASDAQ",
     ticker: "ADBE",
+    cik: "0000796343",
     industry: "Software · Creative Tools",
     businessSummary:
       "Adobe는 Creative Cloud, Document Cloud, Experience Cloud 등 디자인·문서·마케팅 소프트웨어를 제공하는 기업입니다.",
@@ -355,6 +375,7 @@ export const usCompanies: UsCompany[] = [
     initials: "CRM",
     market: "NYSE",
     ticker: "CRM",
+    cik: "0001108524",
     industry: "Cloud Software · CRM",
     businessSummary:
       "Salesforce는 고객관계관리, 클라우드 소프트웨어, 데이터, AI 기반 기업용 솔루션을 제공하는 소프트웨어 기업입니다.",
@@ -370,6 +391,7 @@ export const usCompanies: UsCompany[] = [
     initials: "AMD",
     market: "NASDAQ",
     ticker: "AMD",
+    cik: "0000002488",
     industry: "Semiconductors",
     businessSummary:
       "AMD는 CPU, GPU, 데이터센터 칩, 임베디드 반도체를 개발하는 글로벌 반도체 기업입니다.",
@@ -385,6 +407,7 @@ export const usCompanies: UsCompany[] = [
     initials: "INTC",
     market: "NASDAQ",
     ticker: "INTC",
+    cik: "0000050863",
     industry: "Semiconductors",
     businessSummary:
       "Intel은 CPU, 데이터센터 반도체, 파운드리, 네트워크·엣지 컴퓨팅 관련 사업을 운영하는 반도체 기업입니다.",
@@ -400,6 +423,7 @@ export const usCompanies: UsCompany[] = [
     initials: "KO",
     market: "NYSE",
     ticker: "KO",
+    cik: "0000021344",
     industry: "Beverages",
     businessSummary:
       "Coca-Cola는 탄산음료, 생수, 스포츠음료, 커피, 주스 등 글로벌 음료 브랜드를 운영하는 소비재 기업입니다.",
@@ -415,6 +439,7 @@ export const usCompanies: UsCompany[] = [
     initials: "PEP",
     market: "NASDAQ",
     ticker: "PEP",
+    cik: "0000077476",
     industry: "Beverages · Snacks",
     businessSummary:
       "PepsiCo는 음료, 스낵, 식품 브랜드를 운영하는 글로벌 소비재 기업입니다.",
@@ -430,6 +455,7 @@ export const usCompanies: UsCompany[] = [
     initials: "MCD",
     market: "NYSE",
     ticker: "MCD",
+    cik: "0000063908",
     industry: "Restaurants · Franchise",
     businessSummary:
       "McDonald's는 글로벌 패스트푸드 레스토랑과 프랜차이즈 사업을 운영하는 외식 기업입니다.",
@@ -445,6 +471,7 @@ export const usCompanies: UsCompany[] = [
     initials: "DIS",
     market: "NYSE",
     ticker: "DIS",
+    cik: "0001744489",
     industry: "Media · Entertainment",
     businessSummary:
       "Disney는 영화, TV, 스트리밍, 테마파크, 소비재 등 미디어·엔터테인먼트 사업을 운영하는 기업입니다.",
@@ -460,6 +487,7 @@ export const usCompanies: UsCompany[] = [
     initials: "NKE",
     market: "NYSE",
     ticker: "NKE",
+    cik: "0000320187",
     industry: "Apparel · Footwear",
     businessSummary:
       "Nike는 스포츠 신발, 의류, 장비, 브랜드 마케팅을 중심으로 사업을 운영하는 글로벌 스포츠 소비재 기업입니다.",
@@ -475,6 +503,7 @@ export const usCompanies: UsCompany[] = [
     initials: "BA",
     market: "NYSE",
     ticker: "BA",
+    cik: "0000012927",
     industry: "Aerospace · Defense",
     businessSummary:
       "Boeing은 상업용 항공기, 방산, 우주, 항공 서비스 사업을 운영하는 항공우주 기업입니다.",

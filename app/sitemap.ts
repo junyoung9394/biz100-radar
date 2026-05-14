@@ -1,5 +1,6 @@
 ﻿import type { MetadataRoute } from "next";
 import { companies } from "@/data/companies";
+import { usCompanies } from "@/data/us-companies";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://biz100.luckygrampus.com";
@@ -18,6 +19,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9
     },
     {
+      url: `${baseUrl}/us`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.85
+    },
+    {
       url: `${baseUrl}/disclaimer`,
       lastModified: new Date(),
       changeFrequency: "monthly",
@@ -31,12 +38,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   ];
 
-  const companyPages: MetadataRoute.Sitemap = companies.map((company) => ({
+  const krCompanyPages: MetadataRoute.Sitemap = companies.map((company) => ({
     url: `${baseUrl}/kr/company/${company.slug}`,
     lastModified: new Date(company.updatedAt),
     changeFrequency: "weekly",
     priority: 0.8
   }));
 
-  return [...staticPages, ...companyPages];
+  const usCompanyPages: MetadataRoute.Sitemap = usCompanies.map((company) => ({
+    url: `${baseUrl}/us/company/${company.slug}`,
+    lastModified: new Date(company.updatedAt),
+    changeFrequency: "weekly",
+    priority: 0.75
+  }));
+
+  return [...staticPages, ...krCompanyPages, ...usCompanyPages];
 }

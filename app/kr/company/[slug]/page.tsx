@@ -7,6 +7,7 @@ import FinancialHighlights from "@/components/FinancialHighlights";
 import RecentDisclosures from "@/components/RecentDisclosures";
 import StockQuote from "@/components/StockQuote";
 import { companies, getCompanyBySlug } from "@/data/companies";
+import RelatedCompanies from "@/components/RelatedCompanies";
 
 type CompanyPageProps = {
   params: Promise<{
@@ -108,6 +109,8 @@ export default async function CompanyDetailPage({
           />
 
           <CompanySeoSection company={company} />
+
+<RelatedCompanies currentCompany={company} companies={companies} />
 
           <AdBanner slot="9393781074" label="AdSense 본문중간 광고 영역" />
 

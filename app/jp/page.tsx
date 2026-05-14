@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import AdBanner from "@/components/AdBanner";
+import JpCompanySearchList from "@/components/JpCompanySearchList";
 import { jpCompanies } from "@/data/jp-companies";
 
 export const metadata: Metadata = {
@@ -27,8 +27,8 @@ export default function JpCompaniesPage() {
 
         <p>
           Toyota, Sony, Nintendo, SoftBank Group 등 일본 대표 기업의 사업 구조와
-          공식자료 링크를 확인할 수 있습니다. 향후 EDINET API를 연결해 최근 공시와
-          재무정보도 자동 표시할 예정입니다.
+          공식자료 링크를 확인할 수 있습니다. EDINET API를 통해 최근 공시와
+          재무정보 자동 연동을 확장할 수 있는 구조로 정리합니다.
         </p>
 
         <div className="kr-info-grid">
@@ -43,8 +43,8 @@ export default function JpCompaniesPage() {
           </div>
 
           <div>
-            <strong>일본 확장 준비</strong>
-            <span>EDINET 공시와 재무정보 자동 연동을 위한 1차 구조입니다.</span>
+            <strong>EDINET 공시</strong>
+            <span>일본 기업의 최근 공시 확인 기능을 단계적으로 연결합니다.</span>
           </div>
         </div>
 
@@ -56,40 +56,7 @@ export default function JpCompaniesPage() {
 
       <AdBanner slot="4333026081" label="AdSense 상단 광고 영역" />
 
-      <section className="company-list">
-        {jpCompanies.map((company, index) => (
-          <Link
-            key={company.slug}
-            href={`/jp/company/${company.slug}`}
-            className="card company-list-card"
-          >
-            <div className="company-list-card-inner">
-              <div className="company-row">
-                <div className="initial">{company.initials}</div>
-
-                <div>
-                  <div className="meta">
-                    JP Company {String(index + 1).padStart(3, "0")}
-                  </div>
-
-                  <h3>{company.name}</h3>
-
-                  <div className="meta">
-                    Market: {company.market} · Code: {company.ticker} ·
-                    Industry: {company.industry}
-                  </div>
-
-                  <div className="summary">{company.businessSummary}</div>
-                </div>
-              </div>
-
-              <strong style={{ color: "#2563eb", whiteSpace: "nowrap" }}>
-                기업정보 보기 →
-              </strong>
-            </div>
-          </Link>
-        ))}
-      </section>
+      <JpCompanySearchList companies={jpCompanies} />
     </main>
   );
 }

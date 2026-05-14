@@ -106,9 +106,9 @@ export default function JpCompanySearchList({
                     JP Company {String(index + 1).padStart(3, "0")}
                   </div>
 
-                  <div className="company-title-row">
-                    <h3>{company.name}</h3>
-                  </div>
+<div className="company-title-row">
+  <h3>{company.name}</h3>
+</div>
 
                   <div className="meta">
                     Market: {company.market} · Code: {company.ticker} ·

@@ -93,7 +93,6 @@ export default async function JpCompanyDetailPage({
 
 <RecentEdinetDisclosures ticker={company.ticker} />
 
-
           <section className="card article-section seo-section">
             <h2>{company.name}는 어떤 회사인가요?</h2>
 

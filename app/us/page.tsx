@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import AdBanner from "@/components/AdBanner";
+import UsCompanySearchList from "@/components/UsCompanySearchList";
 import { usCompanies } from "@/data/us-companies";
 
 export const metadata: Metadata = {
   title: "미국 주요 기업",
   description:
-    "미국 주요 상장기업의 사업 개요, 티커, 거래소, 공식 홈페이지, IR 페이지, SEC 공시 검색 링크를 정리합니다."
+    "미국 주요 상장기업의 사업 개요, 티커, 거래소, 공식 홈페이지, IR 페이지, SEC 공시 검색 링크와 시장 데이터를 정리합니다."
 };
 
 export default function UsCompaniesPage() {
@@ -17,8 +17,8 @@ export default function UsCompaniesPage() {
         <h1>미국 주요 기업</h1>
         <p>
           미국 주요 상장기업의 사업 개요, 티커, 거래소, 공식 홈페이지, IR 페이지,
-          SEC EDGAR 공시 검색 링크를 정리합니다. 이 페이지는 투자 추천이 아닌
-          기업정보 확인용 페이지입니다.
+          SEC EDGAR 공시 검색 링크와 시장 데이터를 정리합니다. 이 페이지는 투자
+          추천이 아닌 기업정보 확인용 페이지입니다.
         </p>
       </section>
 
@@ -26,9 +26,9 @@ export default function UsCompaniesPage() {
         <h2>미국 주요 기업 정보 한눈에 보기</h2>
 
         <p>
-          Apple, Microsoft, NVIDIA, Amazon, Alphabet 등 미국 대표 기업의
-          사업 구조와 공식자료 링크를 확인할 수 있습니다. 향후 SEC EDGAR API를
-          연결해 최근 공시와 재무정보도 자동 표시할 예정입니다.
+          Apple, Microsoft, NVIDIA, Amazon, Alphabet 등 미국 대표 기업의 사업
+          구조와 공식자료 링크를 확인할 수 있습니다. 주요 기업의 티커, 거래소,
+          업종, 시장 데이터와 SEC EDGAR 검색 링크를 함께 정리합니다.
         </p>
 
         <div className="kr-info-grid">
@@ -38,53 +38,25 @@ export default function UsCompaniesPage() {
           </div>
 
           <div>
-            <strong>공식자료 링크</strong>
-            <span>공식 홈페이지, IR 페이지, SEC EDGAR 검색 링크를 제공합니다.</span>
+            <strong>시장 데이터</strong>
+            <span>미국 주식의 상승·하락과 등락률을 표시합니다.</span>
           </div>
 
           <div>
-            <strong>미국 확장 준비</strong>
-            <span>SEC 공시와 재무정보 자동 연동을 위한 1차 구조입니다.</span>
+            <strong>공식자료 링크</strong>
+            <span>공식 홈페이지, IR 페이지, SEC EDGAR 검색 링크를 제공합니다.</span>
           </div>
         </div>
+
+        <p className="kr-info-notice">
+          본 페이지는 투자 추천, 매수·매도 의견, 목표가 제시를 제공하지 않으며
+          기업정보 확인을 돕기 위한 정보성 페이지입니다.
+        </p>
       </section>
 
       <AdBanner slot="4333026081" label="AdSense 상단 광고 영역" />
 
-      <section className="company-list">
-        {usCompanies.map((company, index) => (
-          <Link
-            key={company.slug}
-            href={`/us/company/${company.slug}`}
-            className="card company-list-card"
-          >
-            <div className="company-list-card-inner">
-              <div className="company-row">
-                <div className="initial">{company.initials}</div>
-
-                <div>
-                  <div className="meta">
-                    US Company {String(index + 1).padStart(3, "0")}
-                  </div>
-
-                  <h3>{company.name}</h3>
-
-                  <div className="meta">
-                    Market: {company.market} · Ticker: {company.ticker} ·
-                    Industry: {company.industry}
-                  </div>
-
-                  <div className="summary">{company.businessSummary}</div>
-                </div>
-              </div>
-
-              <strong style={{ color: "#2563eb", whiteSpace: "nowrap" }}>
-                기업정보 보기 →
-              </strong>
-            </div>
-          </Link>
-        ))}
-      </section>
+      <UsCompanySearchList companies={usCompanies} />
     </main>
   );
 }

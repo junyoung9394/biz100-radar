@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import AdBanner from "@/components/AdBanner";
 import { getUsCompanyBySlug, usCompanies } from "@/data/us-companies";
+import UsStockQuote from "@/components/UsStockQuote";
 
 type UsCompanyPageProps = {
   params: Promise<{
@@ -89,6 +90,7 @@ export default async function UsCompanyDetailPage({
               ))}
             </div>
           </section>
+<UsStockQuote ticker={company.ticker} />
 
           <section className="card article-section seo-section">
             <h2>{company.name}는 어떤 회사인가요?</h2>

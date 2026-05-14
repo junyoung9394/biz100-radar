@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { Company } from "@/data/companies";
+import StockDirectionBadge from "@/components/StockDirectionBadge";
 
 type CompanySearchListProps = {
   companies: Company[];
@@ -10,7 +11,9 @@ type CompanySearchListProps = {
 
 const ALL_INDUSTRY = "전체";
 
-export default function CompanySearchList({ companies }: CompanySearchListProps) {
+export default function CompanySearchList({
+  companies
+}: CompanySearchListProps) {
   const [keyword, setKeyword] = useState("");
   const [selectedIndustry, setSelectedIndustry] = useState(ALL_INDUSTRY);
 
@@ -104,11 +107,14 @@ export default function CompanySearchList({ companies }: CompanySearchListProps)
                     주요 기업 {String(index + 1).padStart(3, "0")}
                   </div>
 
-                  <h3>{company.name}</h3>
+                  <div className="company-title-row">
+                    <h3>{company.name}</h3>
+                    <StockDirectionBadge stockCode={company.ticker} />
+                  </div>
 
                   <div className="meta">
-                    상장시장: {company.market} · 종목코드: {company.ticker} · 업종:{" "}
-                    {company.industry}
+                    상장시장: {company.market} · 종목코드: {company.ticker} ·
+                    업종: {company.industry}
                   </div>
 
                   <div className="summary">{company.businessSummary}</div>
@@ -126,8 +132,8 @@ export default function CompanySearchList({ companies }: CompanySearchListProps)
           <div className="card empty-state">
             <h2>검색 결과가 없습니다</h2>
             <p>
-              기업명, 종목코드, 업종 키워드를 다시 입력해보세요.
-              예: 삼성전자, 005930, 반도체, 금융지주
+              기업명, 종목코드, 업종 키워드를 다시 입력해보세요. 예: 삼성전자,
+              005930, 반도체, 금융지주
             </p>
           </div>
         )}

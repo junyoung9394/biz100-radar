@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AdBanner from "@/components/AdBanner";
+import FinancialHighlights from "@/components/FinancialHighlights";
 import { companies, getCompanyBySlug } from "@/data/companies";
+import StockQuote from "@/components/StockQuote";
 import RecentDisclosures from "@/components/RecentDisclosures";
 
 type CompanyPageProps = {
@@ -96,36 +98,9 @@ export default async function CompanyDetailPage({
             </div>
           </section>
 
-          <section className="card article-section">
-            <h2>실적 변화 카드</h2>
-            <p>
-              아래 영역은 향후 OpenDART 또는 공식 실적 자료와 연결할 자리입니다.
-              현재는 잘못된 숫자를 표시하지 않기 위해 공식자료 연결 예정 상태로
-              표시합니다.
-            </p>
+<FinancialHighlights dartCorpCode={company.identifiers.dartCorpCode} />
 
-            <div className="metric-grid">
-              <div className="metric">
-                <div className="metric-label">매출액</div>
-                <div className="metric-value">공식자료 연결 예정</div>
-              </div>
-
-              <div className="metric">
-                <div className="metric-label">영업이익</div>
-                <div className="metric-value">공식자료 연결 예정</div>
-              </div>
-
-              <div className="metric">
-                <div className="metric-label">순이익</div>
-                <div className="metric-value">공식자료 연결 예정</div>
-              </div>
-
-              <div className="metric">
-                <div className="metric-label">부채비율</div>
-                <div className="metric-value">공식자료 연결 예정</div>
-              </div>
-            </div>
-          </section>
+<StockQuote stockCode={company.ticker} />
 
 <RecentDisclosures
   companyName={company.name}

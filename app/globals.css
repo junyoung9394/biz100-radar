@@ -353,7 +353,8 @@ input {
 
 .company-list {
   display: grid;
-  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
   padding-bottom: 70px;
 }
 
@@ -426,9 +427,10 @@ input {
 
 .detail-layout {
   display: grid;
-  grid-template-columns: 1fr 320px;
+  grid-template-columns: minmax(0, 1fr) 320px;
   gap: 24px;
   padding: 24px 0 70px;
+  align-items: start;
 }
 
 .article-section {
@@ -466,7 +468,7 @@ input {
 
 .metric-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
   margin-top: 18px;
 }
@@ -592,6 +594,44 @@ input {
   .feature-grid,
   .company-grid,
   .detail-layout,
+  .metric-grid,
+  .company-list {
+    grid-template-columns: 1fr;
+  }
+
+  .section-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .company-list-card-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .detail-title {
+    align-items: flex-start;
+  }
+
+  .detail-title h1 {
+    font-size: 38px;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .filter-actions {
+    max-height: 210px;
+  }
+
+  .stock-summary {
+    grid-template-columns: 1fr;
+  }
+}
+  .feature-grid,
+  .company-grid,
+  .detail-layout,
   .metric-grid {
     grid-template-columns: 1fr;
   }
@@ -621,7 +661,6 @@ input {
   .filter-actions {
     max-height: 210px;
   }
-}
 
 .disclosure-state {
   margin-top: 16px;
@@ -674,4 +713,206 @@ input {
   margin-top: 5px;
   color: #64748b;
   font-size: 13px;
+}
+
+.financial-standard {
+  display: inline-flex;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  padding: 7px 11px;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.metric-desc {
+  margin-top: 8px;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.stock-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.stock-summary > div {
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  border-radius: 18px;
+  padding: 18px;
+}
+
+.stock-label {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.stock-price {
+  margin-top: 8px;
+  color: #0f172a;
+  font-size: 28px;
+  font-weight: 950;
+  letter-spacing: -0.03em;
+}
+
+.stock-change-value {
+  margin-top: 8px;
+  font-size: 22px;
+  font-weight: 950;
+  letter-spacing: -0.03em;
+}
+
+.stock-up .stock-change-value {
+  color: #dc2626;
+}
+
+.stock-down .stock-change-value {
+  color: #2563eb;
+}
+
+.stock-flat .stock-change-value,
+.stock-unknown .stock-change-value {
+  color: #64748b;
+}
+
+.stock-meta {
+  margin-top: 14px;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.stock-notice {
+  margin-top: 14px;
+  border: 1px solid #fed7aa;
+  background: #fff7ed;
+  color: #9a3412;
+  border-radius: 16px;
+  padding: 14px;
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .stock-summary {
+    grid-template-columns: 1fr;
+  }
+}
+
+.company-title-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.stock-direction-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 999px;
+  padding: 5px 9px;
+  font-size: 12px;
+  font-weight: 950;
+  line-height: 1;
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.stock-direction-rate {
+  font-size: 11px;
+  font-weight: 950;
+}
+
+.stock-direction-up {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.stock-direction-down {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.stock-direction-flat {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.stock-direction-unknown {
+  background: #f8fafc;
+  color: #94a3b8;
+}
+/* ===== Final layout override ===== */
+
+/* 메인 페이지 기업 카드: PC 2개씩 */
+.company-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+}
+
+/* /kr 기업 목록 카드: PC 2개씩 */
+.company-list {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  padding-bottom: 70px !important;
+}
+
+/* 기업 상세 페이지: 본문 + 오른쪽 사이드바 */
+.detail-layout {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 320px !important;
+  gap: 24px !important;
+  padding: 24px 0 70px !important;
+  align-items: start !important;
+}
+
+/* 실적 변화 카드: PC 2개씩 */
+.metric-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  margin-top: 18px !important;
+}
+
+/* 오른쪽 사이드바 */
+.sidebar {
+  position: sticky !important;
+  top: 88px !important;
+  display: grid !important;
+  gap: 14px !important;
+  align-content: start !important;
+}
+
+/* 모바일에서는 전부 1개씩 */
+@media (max-width: 900px) {
+  .company-grid,
+  .company-list,
+  .detail-layout,
+  .metric-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .company-list-card-inner {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+  }
+
+  .sidebar {
+    position: static !important;
+  }
+
+  .stock-summary {
+    grid-template-columns: 1fr !important;
+  }
 }

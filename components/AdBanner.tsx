@@ -13,19 +13,18 @@ type AdBannerProps = {
   label?: string;
 };
 
-export default function AdBanner({ slot, label = "AdSense 광고 영역" }: AdBannerProps) {
+export default function AdBanner({ slot }: AdBannerProps) {
   useEffect(() => {
     try {
       window.adsbygoogle = window.adsbygoogle || [];
       window.adsbygoogle.push({});
     } catch {
-      // 개발 환경 또는 광고 차단 환경에서는 무시합니다.
+      // 광고 차단 환경이나 개발 환경에서는 조용히 무시합니다.
     }
   }, []);
 
   return (
     <div className="ad-box">
-      <div className="ad-label">{label}</div>
       <ins
         className="adsbygoogle"
         style={{ display: "block" }}

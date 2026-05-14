@@ -68,7 +68,6 @@ export default function HomePage() {
       <section className="container section">
         <div className="section-head">
           <div>
-            <span className="badge">공식자료 연결 준비 기업</span>
             <h2>한국 주요 기업</h2>
           </div>
 

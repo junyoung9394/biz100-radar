@@ -45,6 +45,10 @@ function makeDartSearchUrl(companyName: string) {
   return `https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=${encodeURIComponent(companyName)}`;
 }
 
+const companyDartCorpCodes: Record<string, string> = {
+  "samsung-electronics": "00126380"
+};
+
 const companyOfficialLinks: Record<
   string,
   {
@@ -151,10 +155,11 @@ function createCompany(raw: RawCompany): Company {
     dartSearchUrl: makeDartSearchUrl(name),
     officialWebsite: companyOfficialLinks[slug]?.officialWebsite ?? "",
     irUrl: companyOfficialLinks[slug]?.irUrl ?? "",
-    identifiers: {
-      ticker,
-      stockCode: ticker
-    },
+identifiers: {
+  ticker,
+  stockCode: ticker,
+  dartCorpCode: companyDartCorpCodes[slug]
+},
     apiStatus: {
       dartReady: false,
       financialReady: false,

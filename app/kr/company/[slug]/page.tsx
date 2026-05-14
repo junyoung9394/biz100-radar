@@ -127,10 +127,11 @@ export default async function CompanyDetailPage({
             </div>
           </section>
 
-         <RecentDisclosures
-           companyName={company.name}
-           stockCode={company.ticker}
-          />
+<RecentDisclosures
+  companyName={company.name}
+  stockCode={company.ticker}
+  dartCorpCode={company.identifiers.dartCorpCode}
+/>
 
           <AdBanner slot="9393781074" label="AdSense 본문중간 광고 영역" />
 

@@ -174,16 +174,22 @@ export async function findDartCorpCode({
 export async function fetchRecentDisclosures({
   stockCode,
   companyName,
+  dartCorpCode,
   days = 730
 }: {
   stockCode: string;
   companyName: string;
+  dartCorpCode?: string;
   days?: number;
 }): Promise<DartDisclosure[]> {
   const apiKey = getDartApiKey();
-  const corp = await findDartCorpCode({ stockCode, companyName });
 
-  if (!corp) {
+  const corpCode =
+    dartCorpCode && dartCorpCode.trim().length > 0
+      ? dartCorpCode.trim().padStart(8, "0")
+      : (await findDartCorpCode({ stockCode, companyName }))?.corpCode;
+
+  if (!corpCode) {
     return [];
   }
 
@@ -191,7 +197,7 @@ export async function fetchRecentDisclosures({
 
   const url = new URL("https://opendart.fss.or.kr/api/list.json");
   url.searchParams.set("crtfc_key", apiKey);
-  url.searchParams.set("corp_code", corp.corpCode);
+  url.searchParams.set("corp_code", corpCode);
   url.searchParams.set("bgn_de", bgnDe);
   url.searchParams.set("end_de", endDe);
   url.searchParams.set("page_no", "1");

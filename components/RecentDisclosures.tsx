@@ -16,6 +16,7 @@ type Disclosure = {
 type RecentDisclosuresProps = {
   companyName: string;
   stockCode: string;
+  dartCorpCode?: string;
 };
 
 function formatDate(dateText: string) {
@@ -28,7 +29,8 @@ function formatDate(dateText: string) {
 
 export default function RecentDisclosures({
   companyName,
-  stockCode
+  stockCode,
+  dartCorpCode
 }: RecentDisclosuresProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [message, setMessage] = useState("");
@@ -41,10 +43,14 @@ export default function RecentDisclosures({
       try {
         setIsLoading(true);
 
-        const params = new URLSearchParams({
-          companyName,
-          stockCode
-        });
+const params = new URLSearchParams({
+  companyName,
+  stockCode
+});
+
+if (dartCorpCode) {
+  params.set("dartCorpCode", dartCorpCode);
+}
 
         const response = await fetch(`/api/dart/disclosures?${params.toString()}`);
         const data = await response.json();

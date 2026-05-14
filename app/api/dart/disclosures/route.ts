@@ -6,6 +6,7 @@ export async function GET(request: Request) {
 
   const stockCode = searchParams.get("stockCode") ?? "";
   const companyName = searchParams.get("companyName") ?? "";
+  const dartCorpCode = searchParams.get("dartCorpCode") ?? "";
 
   if (!stockCode || !companyName) {
     return NextResponse.json(
@@ -21,7 +22,8 @@ export async function GET(request: Request) {
   try {
     const disclosures = await fetchRecentDisclosures({
       stockCode,
-      companyName
+      companyName,
+      dartCorpCode
     });
 
     return NextResponse.json({

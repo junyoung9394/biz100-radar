@@ -1056,3 +1056,68 @@ input {
     grid-template-columns: 1fr;
   }
 }
+
+.kr-info-section {
+  padding: 26px;
+  margin: 8px 0 24px;
+}
+
+.kr-info-section h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 26px;
+  letter-spacing: -0.03em;
+}
+
+.kr-info-section p {
+  margin: 14px 0 0;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.kr-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.kr-info-grid div {
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.kr-info-grid strong {
+  display: block;
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 950;
+}
+
+.kr-info-grid span {
+  display: block;
+  margin-top: 8px;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: 700;
+}
+
+.kr-info-notice {
+  border: 1px solid #fed7aa;
+  background: #fff7ed;
+  color: #9a3412 !important;
+  border-radius: 16px;
+  padding: 14px;
+  font-size: 13px !important;
+  font-weight: 800;
+}
+
+@media (max-width: 900px) {
+  .kr-info-grid {
+    grid-template-columns: 1fr;
+  }
+}

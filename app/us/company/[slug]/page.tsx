@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import AdBanner from "@/components/AdBanner";
 import { getUsCompanyBySlug, usCompanies } from "@/data/us-companies";
 import UsStockQuote from "@/components/UsStockQuote";
+import RelatedUsCompanies from "@/components/RelatedUsCompanies";
 
 type UsCompanyPageProps = {
   params: Promise<{
@@ -117,7 +118,7 @@ export default async function UsCompanyDetailPage({
               돕기 위한 정보성 페이지입니다.
             </p>
           </section>
-
+<RelatedUsCompanies currentCompany={company} companies={usCompanies} />
           <AdBanner slot="9393781074" label="AdSense 본문중간 광고 영역" />
 
           <section className="notice">

@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   },
   description:
     "뉴스와 주가가 아닌 공식 공시와 공개자료를 기반으로 기업의 사업, 실적, 공시 정보를 정리합니다.",
+  verification: {
+    other: {
+      "naver-site-verification": "7fca9af91a8defde8571a8f5b9cc7040646af9ab"
+    }
+  },
   openGraph: {
     title: "Biz100 Radar",
     description: "공식자료 기반 기업정보 대시보드",

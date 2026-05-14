@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import AdBanner from "@/components/AdBanner";
 import { companies, getCompanyBySlug } from "@/data/companies";
+import RecentDisclosures from "@/components/RecentDisclosures";
 
 type CompanyPageProps = {
   params: Promise<{
@@ -125,6 +126,11 @@ export default async function CompanyDetailPage({
               </div>
             </div>
           </section>
+
+         <RecentDisclosures
+           companyName={company.name}
+           stockCode={company.ticker}
+          />
 
           <AdBanner slot="9393781074" label="AdSense 본문중간 광고 영역" />
 

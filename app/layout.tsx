@@ -55,6 +55,7 @@ export default function RootLayout({
 <nav className="nav">
   <Link href="/kr">한국 기업</Link>
   <Link href="/us">미국 기업</Link>
+  <Link href="/jp">일본 기업</Link>
   <Link href="/disclaimer">면책문구</Link>
   <Link href="/privacy">개인정보</Link>
 </nav>

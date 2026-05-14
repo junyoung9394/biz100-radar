@@ -913,3 +913,16 @@ input {
     grid-template-columns: 1fr !important;
   }
 }
+.seo-section h3 {
+  margin: 24px 0 0;
+  color: #0f172a;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
+.seo-section p {
+  margin: 12px 0 0;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.9;
+}

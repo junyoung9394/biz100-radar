@@ -5,6 +5,7 @@ import AdBanner from "@/components/AdBanner";
 import FinancialHighlights from "@/components/FinancialHighlights";
 import { companies, getCompanyBySlug } from "@/data/companies";
 import StockQuote from "@/components/StockQuote";
+import CompanySeoSection from "@/components/CompanySeoSection";
 import RecentDisclosures from "@/components/RecentDisclosures";
 
 type CompanyPageProps = {
@@ -107,6 +108,7 @@ export default async function CompanyDetailPage({
   stockCode={company.ticker}
   dartCorpCode={company.identifiers.dartCorpCode}
 />
+<CompanySeoSection company={company} />
 
           <AdBanner slot="9393781074" label="AdSense 본문중간 광고 영역" />
 

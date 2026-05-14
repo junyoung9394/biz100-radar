@@ -3,8 +3,34 @@ import AdBanner from "@/components/AdBanner";
 import StockDirectionBadge from "@/components/StockDirectionBadge";
 import { companies } from "@/data/companies";
 
+function getTodaySeed() {
+  const now = new Date();
+  const koreaTime = new Date(
+    now.toLocaleString("en-US", { timeZone: "Asia/Seoul" })
+  );
+
+  const year = koreaTime.getFullYear();
+  const month = koreaTime.getMonth() + 1;
+  const date = koreaTime.getDate();
+
+  return year * 10000 + month * 100 + date;
+}
+
+function getDailyWatchCompanies() {
+  const seed = getTodaySeed();
+  const startIndex = seed % companies.length;
+  const selectedCompanies = [];
+
+  for (let index = 0; index < 5; index += 1) {
+    const companyIndex = (startIndex + index * 7) % companies.length;
+    selectedCompanies.push(companies[companyIndex]);
+  }
+
+  return selectedCompanies;
+}
+
 export default function HomePage() {
-  const watchCompanies = companies.slice(0, 5);
+  const watchCompanies = getDailyWatchCompanies();
   const featuredCompanies = companies.slice(0, 10);
 
   return (
@@ -37,7 +63,7 @@ export default function HomePage() {
       <section className="container section">
         <div className="section-head">
           <div>
-            <span className="badge">Today Watch</span>
+            <span className="badge">Daily Watch</span>
             <h2>오늘 확인할 주요 기업</h2>
           </div>
 

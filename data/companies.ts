@@ -45,6 +45,95 @@ function makeDartSearchUrl(companyName: string) {
   return `https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=${encodeURIComponent(companyName)}`;
 }
 
+const companyOfficialLinks: Record<
+  string,
+  {
+    officialWebsite: string;
+    irUrl: string;
+  }
+> = {
+  "samsung-electronics": {
+    officialWebsite: "https://www.samsung.com/sec/",
+    irUrl: "https://www.samsung.com/sec/ir/"
+  },
+  "hyundai-motor": {
+    officialWebsite: "https://www.hyundai.com/worldwide/ko",
+    irUrl: "https://www.hyundai.com/worldwide/ko/company/ir"
+  },
+  "sk-hynix": {
+    officialWebsite: "https://www.skhynix.com/",
+    irUrl: "https://www.skhynix.com/ir/UI-FR-IR01/"
+  },
+  "lg-energy-solution": {
+    officialWebsite: "https://www.lgensol.com/kr/index",
+    irUrl: "https://www.lgensol.com/kr/ir"
+  },
+  kia: {
+    officialWebsite: "https://www.kia.com/kr",
+    irUrl: "https://worldwide.kia.com/kr/company/ir"
+  },
+  naver: {
+    officialWebsite: "https://www.navercorp.com/",
+    irUrl: "https://www.navercorp.com/investment"
+  },
+  kakao: {
+    officialWebsite: "https://www.kakaocorp.com/",
+    irUrl: "https://www.kakaocorp.com/ir/main"
+  },
+  "posco-holdings": {
+    officialWebsite: "https://www.posco-inc.com/",
+    irUrl: "https://www.posco-inc.com/poscoinc/v4/kor/investor/s91e1000100c.jsp"
+  },
+  "hanwha-aerospace": {
+    officialWebsite: "https://www.hanwhaaerospace.co.kr/",
+    irUrl: "https://www.hanwhaaerospace.co.kr/kor/investors/irData.do"
+  },
+  "hyundai-mobis": {
+    officialWebsite: "https://www.mobis.com/kr/index.do",
+    irUrl: "https://www.mobis.com/kr/ir/irdisclosure.do"
+  },
+  "lg-chem": {
+    officialWebsite: "https://www.lgchem.com/",
+    irUrl: "https://www.lgchem.com/company/investment-information/ir-events"
+  },
+  "samsung-sdi": {
+    officialWebsite: "https://www.samsungsdi.co.kr/",
+    irUrl: "https://www.samsungsdi.co.kr/ir/main.html"
+  },
+  "samsung-biologics": {
+    officialWebsite: "https://samsungbiologics.com/",
+    irUrl: "https://samsungbiologics.com/ir/overview"
+  },
+  celltrion: {
+    officialWebsite: "https://www.celltrion.com/",
+    irUrl: "https://www.celltrion.com/ko-kr/investment/ir"
+  },
+  "samsung-c-and-t": {
+    officialWebsite: "https://www.samsungcnt.com/",
+    irUrl: "https://www.samsungcnt.com/ir/overview.do"
+  },
+  "hd-hyundai": {
+    officialWebsite: "https://www.hd-hyundai.com/",
+    irUrl: "https://www.hd-hyundai.com/investor"
+  },
+  "hd-korea-shipbuilding": {
+    officialWebsite: "https://www.hd-ksoe.com/",
+    irUrl: "https://www.hd-ksoe.com/ir"
+  },
+  "hyundai-heavy-industries": {
+    officialWebsite: "https://www.hhi.co.kr/",
+    irUrl: "https://www.hhi.co.kr/ir"
+  },
+  "doosan-enerbility": {
+    officialWebsite: "https://www.doosanenerbility.com/",
+    irUrl: "https://www.doosanenerbility.com/kr/investors"
+  },
+  "lg-electronics": {
+    officialWebsite: "https://www.lge.co.kr/",
+    irUrl: "https://www.lg.com/global/investor-relations"
+  }
+};
+
 function createCompany(raw: RawCompany): Company {
   const [slug, name, initials, market, ticker, industry, businessSummary, keyBusinesses] = raw;
 
@@ -60,8 +149,8 @@ function createCompany(raw: RawCompany): Company {
     businessSummary,
     keyBusinesses,
     dartSearchUrl: makeDartSearchUrl(name),
-    officialWebsite: "",
-    irUrl: "",
+    officialWebsite: companyOfficialLinks[slug]?.officialWebsite ?? "",
+    irUrl: companyOfficialLinks[slug]?.irUrl ?? "",
     identifiers: {
       ticker,
       stockCode: ticker

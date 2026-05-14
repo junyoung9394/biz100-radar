@@ -47,6 +47,9 @@ export default async function CompanyDetailPage({
     notFound();
   }
 
+  const hasOfficialWebsite = Boolean(company.officialWebsite);
+  const hasIrUrl = Boolean(company.irUrl);
+
   return (
     <main>
       <section className="container detail-hero">
@@ -61,7 +64,8 @@ export default async function CompanyDetailPage({
               <span className="badge">KR Company · 정보 제공 페이지</span>
               <h1>{company.name}</h1>
               <div className="meta">
-                상장시장: {company.market} · 종목코드: {company.ticker} · 업종: {company.industry}
+                상장시장: {company.market} · 종목코드: {company.ticker} · 업종:{" "}
+                {company.industry}
               </div>
             </div>
           </div>
@@ -95,7 +99,8 @@ export default async function CompanyDetailPage({
             <h2>실적 변화 카드</h2>
             <p>
               아래 영역은 향후 OpenDART 또는 공식 실적 자료와 연결할 자리입니다.
-              현재는 잘못된 숫자를 표시하지 않기 위해 공식자료 연결 예정 상태로 표시합니다.
+              현재는 잘못된 숫자를 표시하지 않기 위해 공식자료 연결 예정 상태로
+              표시합니다.
             </p>
 
             <div className="metric-grid">
@@ -131,8 +136,9 @@ export default async function CompanyDetailPage({
           </section>
 
           <section className="notice">
-            이 페이지는 기업의 사업 개요와 공식자료 링크를 정리하는 정보성 페이지입니다.
-            매수·매도 추천, 목표가, 수익률 전망을 제공하지 않습니다.
+            이 페이지는 기업의 사업 개요와 공식자료 링크를 정리하는 정보성
+            페이지입니다. 매수·매도 추천, 목표가, 수익률 전망을 제공하지
+            않습니다.
           </section>
         </article>
 
@@ -150,15 +156,39 @@ export default async function CompanyDetailPage({
               <span>↗</span>
             </a>
 
-            <div className="side-link">
-              <span>공식 홈페이지</span>
-              <span>추후 검증</span>
-            </div>
+            {hasOfficialWebsite ? (
+              <a
+                className="side-link"
+                href={company.officialWebsite}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>공식 홈페이지</span>
+                <span>↗</span>
+              </a>
+            ) : (
+              <div className="side-link">
+                <span>공식 홈페이지</span>
+                <span>검증 예정</span>
+              </div>
+            )}
 
-            <div className="side-link">
-              <span>IR 페이지</span>
-              <span>추후 검증</span>
-            </div>
+            {hasIrUrl ? (
+              <a
+                className="side-link"
+                href={company.irUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>IR 페이지</span>
+                <span>↗</span>
+              </a>
+            ) : (
+              <div className="side-link">
+                <span>IR 페이지</span>
+                <span>검증 예정</span>
+              </div>
+            )}
           </div>
 
           <div className="card side-box">

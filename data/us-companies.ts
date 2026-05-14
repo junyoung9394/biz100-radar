@@ -6,6 +6,7 @@ export type UsCompany = {
   country: "US";
   market: string;
   ticker: string;
+cik?: string;
   industry: string;
   businessSummary: string;
   keyBusinesses: string[];
@@ -480,7 +481,327 @@ export const usCompanies: UsCompany[] = [
     keyBusinesses: ["Commercial Airplanes", "Defense", "Space", "Services"],
     officialWebsite: "https://www.boeing.com/",
     irUrl: "https://investors.boeing.com/"
+  }),
+  createUsCompany({
+    slug: "qualcomm",
+    name: "Qualcomm",
+    shortName: "Qualcomm",
+    initials: "QCOM",
+    market: "NASDAQ",
+    ticker: "QCOM",
+    cik: "0000804328",
+    industry: "Semiconductors · Wireless Technology",
+    businessSummary:
+      "Qualcomm은 모바일 AP, 통신 칩셋, 5G, 자동차 반도체, IoT 관련 기술을 제공하는 글로벌 반도체 기업입니다.",
+    keyBusinesses: ["5G", "Mobile Chips", "Automotive", "IoT", "Licensing"],
+    officialWebsite: "https://www.qualcomm.com/",
+    irUrl: "https://investor.qualcomm.com/"
+  }),
+
+  createUsCompany({
+    slug: "micron",
+    name: "Micron Technology",
+    shortName: "Micron",
+    initials: "MU",
+    market: "NASDAQ",
+    ticker: "MU",
+    cik: "0000723125",
+    industry: "Semiconductors · Memory",
+    businessSummary:
+      "Micron Technology는 DRAM, NAND, SSD, 데이터센터 및 AI용 메모리 솔루션을 제공하는 미국 반도체 기업입니다.",
+    keyBusinesses: ["DRAM", "NAND", "SSD", "Data Center", "AI Memory"],
+    officialWebsite: "https://www.micron.com/",
+    irUrl: "https://investors.micron.com/"
+  }),
+
+  createUsCompany({
+    slug: "applied-materials",
+    name: "Applied Materials",
+    shortName: "Applied Materials",
+    initials: "AMAT",
+    market: "NASDAQ",
+    ticker: "AMAT",
+    cik: "0000006951",
+    industry: "Semiconductor Equipment",
+    businessSummary:
+      "Applied Materials는 반도체와 디스플레이 제조 공정에 필요한 장비, 서비스, 소재 엔지니어링 솔루션을 제공하는 기업입니다.",
+    keyBusinesses: ["Semiconductor Equipment", "Display Equipment", "Materials Engineering", "Services"],
+    officialWebsite: "https://www.appliedmaterials.com/",
+    irUrl: "https://ir.appliedmaterials.com/"
+  }),
+
+  createUsCompany({
+    slug: "lam-research",
+    name: "Lam Research",
+    shortName: "Lam Research",
+    initials: "LRCX",
+    market: "NASDAQ",
+    ticker: "LRCX",
+    cik: "0000707549",
+    industry: "Semiconductor Equipment",
+    businessSummary:
+      "Lam Research는 반도체 식각, 증착, 웨이퍼 공정 장비와 서비스를 제공하는 글로벌 반도체 장비 기업입니다.",
+    keyBusinesses: ["Etch", "Deposition", "Wafer Processing", "Semiconductor Services"],
+    officialWebsite: "https://www.lamresearch.com/",
+    irUrl: "https://investor.lamresearch.com/"
+  }),
+
+  createUsCompany({
+    slug: "servicenow",
+    name: "ServiceNow",
+    shortName: "ServiceNow",
+    initials: "NOW",
+    market: "NYSE",
+    ticker: "NOW",
+    cik: "0001373715",
+    industry: "Cloud Software · Workflow Automation",
+    businessSummary:
+      "ServiceNow는 기업 업무 자동화, IT 서비스 관리, 워크플로우 플랫폼, AI 기반 업무 솔루션을 제공하는 클라우드 소프트웨어 기업입니다.",
+    keyBusinesses: ["Workflow Automation", "ITSM", "Cloud Platform", "AI", "Enterprise Software"],
+    officialWebsite: "https://www.servicenow.com/",
+    irUrl: "https://investors.servicenow.com/"
+  }),
+
+  createUsCompany({
+    slug: "intuit",
+    name: "Intuit",
+    shortName: "Intuit",
+    initials: "INTU",
+    market: "NASDAQ",
+    ticker: "INTU",
+    cik: "0000896878",
+    industry: "Financial Software",
+    businessSummary:
+      "Intuit은 TurboTax, QuickBooks, Credit Karma, Mailchimp 등을 운영하는 개인·중소기업용 금융 소프트웨어 기업입니다.",
+    keyBusinesses: ["Tax Software", "Accounting Software", "Credit Services", "Small Business", "Marketing Tools"],
+    officialWebsite: "https://www.intuit.com/",
+    irUrl: "https://investors.intuit.com/"
+  }),
+
+  createUsCompany({
+    slug: "palantir",
+    name: "Palantir Technologies",
+    shortName: "Palantir",
+    initials: "PLTR",
+    market: "NASDAQ",
+    ticker: "PLTR",
+    cik: "0001321655",
+    industry: "Data Analytics · AI Software",
+    businessSummary:
+      "Palantir Technologies는 정부와 기업을 대상으로 데이터 분석, AI 플랫폼, 운영 의사결정 소프트웨어를 제공하는 기업입니다.",
+    keyBusinesses: ["Data Analytics", "AI Platform", "Government Software", "Enterprise Software"],
+    officialWebsite: "https://www.palantir.com/",
+    irUrl: "https://investors.palantir.com/"
+  }),
+
+  createUsCompany({
+    slug: "shopify",
+    name: "Shopify",
+    shortName: "Shopify",
+    initials: "SHOP",
+    market: "NYSE",
+    ticker: "SHOP",
+    cik: "0001594805",
+    industry: "E-commerce Software",
+    businessSummary:
+      "Shopify는 온라인 쇼핑몰 구축, 결제, 물류, 판매자 도구를 제공하는 글로벌 전자상거래 소프트웨어 플랫폼 기업입니다.",
+    keyBusinesses: ["E-commerce Platform", "Payments", "Merchant Tools", "Logistics", "SaaS"],
+    officialWebsite: "https://www.shopify.com/",
+    irUrl: "https://investors.shopify.com/"
+  }),
+
+  createUsCompany({
+    slug: "johnson-and-johnson",
+    name: "Johnson & Johnson",
+    shortName: "Johnson & Johnson",
+    initials: "JNJ",
+    market: "NYSE",
+    ticker: "JNJ",
+    cik: "0000200406",
+    industry: "Healthcare · Pharmaceuticals",
+    businessSummary:
+      "Johnson & Johnson은 의약품, 의료기기, 헬스케어 솔루션을 제공하는 글로벌 헬스케어 기업입니다.",
+    keyBusinesses: ["Pharmaceuticals", "Medical Devices", "Healthcare", "Immunology", "Oncology"],
+    officialWebsite: "https://www.jnj.com/",
+    irUrl: "https://www.investor.jnj.com/"
+  }),
+
+  createUsCompany({
+    slug: "merck",
+    name: "Merck & Co.",
+    shortName: "Merck",
+    initials: "MRK",
+    market: "NYSE",
+    ticker: "MRK",
+    cik: "0000310158",
+    industry: "Pharmaceuticals",
+    businessSummary:
+      "Merck & Co.는 항암제, 백신, 감염질환, 동물의약품 사업을 운영하는 글로벌 제약 기업입니다.",
+    keyBusinesses: ["Pharmaceuticals", "Oncology", "Vaccines", "Animal Health"],
+    officialWebsite: "https://www.merck.com/",
+    irUrl: "https://www.merck.com/investor-relations/"
+  }),
+
+  createUsCompany({
+    slug: "pfizer",
+    name: "Pfizer",
+    shortName: "Pfizer",
+    initials: "PFE",
+    market: "NYSE",
+    ticker: "PFE",
+    cik: "0000078003",
+    industry: "Pharmaceuticals",
+    businessSummary:
+      "Pfizer는 백신, 항암제, 희귀질환, 감염질환, 내과질환 치료제를 개발·판매하는 글로벌 제약 기업입니다.",
+    keyBusinesses: ["Vaccines", "Pharmaceuticals", "Oncology", "Rare Diseases", "Internal Medicine"],
+    officialWebsite: "https://www.pfizer.com/",
+    irUrl: "https://investors.pfizer.com/"
+  }),
+
+  createUsCompany({
+    slug: "abbvie",
+    name: "AbbVie",
+    shortName: "AbbVie",
+    initials: "ABBV",
+    market: "NYSE",
+    ticker: "ABBV",
+    cik: "0001551152",
+    industry: "Pharmaceuticals · Biotechnology",
+    businessSummary:
+      "AbbVie는 면역질환, 항암, 신경과학, 안과, 미용의학 분야 치료제를 개발·판매하는 글로벌 제약 기업입니다.",
+    keyBusinesses: ["Immunology", "Oncology", "Neuroscience", "Eye Care", "Aesthetics"],
+    officialWebsite: "https://www.abbvie.com/",
+    irUrl: "https://investors.abbvie.com/"
+  }),
+
+  createUsCompany({
+    slug: "abbott",
+    name: "Abbott Laboratories",
+    shortName: "Abbott",
+    initials: "ABT",
+    market: "NYSE",
+    ticker: "ABT",
+    cik: "0000001800",
+    industry: "Healthcare · Medical Devices",
+    businessSummary:
+      "Abbott Laboratories는 의료기기, 진단, 영양, 의약품 사업을 운영하는 글로벌 헬스케어 기업입니다.",
+    keyBusinesses: ["Medical Devices", "Diagnostics", "Nutrition", "Healthcare"],
+    officialWebsite: "https://www.abbott.com/",
+    irUrl: "https://www.abbottinvestor.com/"
+  }),
+
+  createUsCompany({
+    slug: "bank-of-america",
+    name: "Bank of America",
+    shortName: "Bank of America",
+    initials: "BAC",
+    market: "NYSE",
+    ticker: "BAC",
+    cik: "0000070858",
+    industry: "Banking · Financial Services",
+    businessSummary:
+      "Bank of America는 소비자금융, 기업금융, 투자은행, 자산관리 서비스를 제공하는 미국 대형 금융회사입니다.",
+    keyBusinesses: ["Banking", "Consumer Finance", "Investment Banking", "Wealth Management"],
+    officialWebsite: "https://www.bankofamerica.com/",
+    irUrl: "https://investor.bankofamerica.com/"
+  }),
+
+  createUsCompany({
+    slug: "morgan-stanley",
+    name: "Morgan Stanley",
+    shortName: "Morgan Stanley",
+    initials: "MS",
+    market: "NYSE",
+    ticker: "MS",
+    cik: "0000895421",
+    industry: "Investment Banking · Wealth Management",
+    businessSummary:
+      "Morgan Stanley는 투자은행, 자산관리, 기관증권, 투자관리 서비스를 제공하는 글로벌 금융회사입니다.",
+    keyBusinesses: ["Investment Banking", "Wealth Management", "Institutional Securities", "Asset Management"],
+    officialWebsite: "https://www.morganstanley.com/",
+    irUrl: "https://www.morganstanley.com/about-us-ir"
+  }),
+
+  createUsCompany({
+    slug: "goldman-sachs",
+    name: "Goldman Sachs",
+    shortName: "Goldman Sachs",
+    initials: "GS",
+    market: "NYSE",
+    ticker: "GS",
+    cik: "0000886982",
+    industry: "Investment Banking · Financial Services",
+    businessSummary:
+      "Goldman Sachs는 투자은행, 자산관리, 트레이딩, 소비자금융 서비스를 제공하는 글로벌 금융회사입니다.",
+    keyBusinesses: ["Investment Banking", "Trading", "Asset Management", "Financial Services"],
+    officialWebsite: "https://www.goldmansachs.com/",
+    irUrl: "https://www.goldmansachs.com/investor-relations/"
+  }),
+
+  createUsCompany({
+    slug: "home-depot",
+    name: "Home Depot",
+    shortName: "Home Depot",
+    initials: "HD",
+    market: "NYSE",
+    ticker: "HD",
+    cik: "0000354950",
+    industry: "Home Improvement Retail",
+    businessSummary:
+      "Home Depot은 건축자재, 주택개선용품, 공구, 정원용품을 판매하는 미국 대표 홈임프루브먼트 유통 기업입니다.",
+    keyBusinesses: ["Home Improvement", "Retail", "Building Materials", "Tools", "Garden"],
+    officialWebsite: "https://www.homedepot.com/",
+    irUrl: "https://ir.homedepot.com/"
+  }),
+
+  createUsCompany({
+    slug: "procter-and-gamble",
+    name: "Procter & Gamble",
+    shortName: "P&G",
+    initials: "PG",
+    market: "NYSE",
+    ticker: "PG",
+    cik: "0000080424",
+    industry: "Consumer Goods",
+    businessSummary:
+      "Procter & Gamble은 생활용품, 세제, 위생용품, 뷰티, 헬스케어 브랜드를 운영하는 글로벌 소비재 기업입니다.",
+    keyBusinesses: ["Consumer Goods", "Beauty", "Grooming", "Healthcare", "Home Care"],
+    officialWebsite: "https://www.pg.com/",
+    irUrl: "https://www.pginvestor.com/"
+  }),
+
+  createUsCompany({
+    slug: "starbucks",
+    name: "Starbucks",
+    shortName: "Starbucks",
+    initials: "SBUX",
+    market: "NASDAQ",
+    ticker: "SBUX",
+    cik: "0000829224",
+    industry: "Restaurants · Coffee",
+    businessSummary:
+      "Starbucks는 커피 전문점, 음료, 식품, 리워드 멤버십, 글로벌 매장 네트워크를 운영하는 외식 기업입니다.",
+    keyBusinesses: ["Coffee", "Restaurants", "Beverages", "Membership", "Global Stores"],
+    officialWebsite: "https://www.starbucks.com/",
+    irUrl: "https://investor.starbucks.com/"
+  }),
+
+  createUsCompany({
+    slug: "lockheed-martin",
+    name: "Lockheed Martin",
+    shortName: "Lockheed Martin",
+    initials: "LMT",
+    market: "NYSE",
+    ticker: "LMT",
+    cik: "0000936468",
+    industry: "Aerospace · Defense",
+    businessSummary:
+      "Lockheed Martin은 항공우주, 방산, 미사일, 우주 시스템, 군용 항공기 사업을 운영하는 미국 대표 방산 기업입니다.",
+    keyBusinesses: ["Aerospace", "Defense", "Missiles", "Space Systems", "Military Aircraft"],
+    officialWebsite: "https://www.lockheedmartin.com/",
+    irUrl: "https://investors.lockheedmartin.com/"
   })
+
 ];
 
 export function getUsCompanyBySlug(slug: string) {

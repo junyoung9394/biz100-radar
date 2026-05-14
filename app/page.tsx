@@ -4,6 +4,7 @@ import StockDirectionBadge from "@/components/StockDirectionBadge";
 import { companies } from "@/data/companies";
 
 export default function HomePage() {
+  const watchCompanies = companies.slice(0, 5);
   const featuredCompanies = companies.slice(0, 10);
 
   return (
@@ -30,6 +31,51 @@ export default function HomePage() {
               서비스 기준 확인
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="container section">
+        <div className="section-head">
+          <div>
+            <span className="badge">Today Watch</span>
+            <h2>오늘 확인할 주요 기업</h2>
+          </div>
+
+          <Link href="/kr" style={{ color: "#2563eb", fontWeight: 950 }}>
+            전체 기업 보기 →
+          </Link>
+        </div>
+
+        <div className="watch-grid">
+          {watchCompanies.map((company) => (
+            <Link
+              key={company.slug}
+              href={`/kr/company/${company.slug}`}
+              className="card watch-card"
+            >
+              <div className="watch-card-top">
+                <div className="initial">{company.initials}</div>
+
+                <div>
+                  <div className="company-title-row">
+                    <h3>{company.name}</h3>
+                    <StockDirectionBadge stockCode={company.ticker} />
+                  </div>
+
+                  <div className="meta">
+                    {company.market} · {company.ticker} · {company.industry}
+                  </div>
+                </div>
+              </div>
+
+              <p>{company.businessSummary}</p>
+
+              <div className="watch-card-footer">
+                <span>공시 · 실적 · 시장 데이터 보기</span>
+                <strong>→</strong>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 

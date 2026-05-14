@@ -926,3 +926,58 @@ input {
   font-size: 15px;
   line-height: 1.9;
 }
+.watch-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.watch-card {
+  padding: 18px;
+  transition: 0.2s;
+}
+
+.watch-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.09);
+}
+
+.watch-card-top {
+  display: grid;
+  gap: 14px;
+}
+
+.watch-card h3 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.watch-card p {
+  margin: 14px 0 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.watch-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 16px;
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 950;
+}
+
+@media (max-width: 1100px) {
+  .watch-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .watch-grid {
+    grid-template-columns: 1fr;
+  }
+}

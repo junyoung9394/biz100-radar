@@ -173,85 +173,477 @@ const companyOfficialLinks: Record<
     irUrl: string;
   }
 > = {
-  "samsung-electronics": {
-    officialWebsite: "https://www.samsung.com/sec/",
-    irUrl: "https://www.samsung.com/sec/ir/"
+  "alteogen": {
+    officialWebsite: "https://www.alteogen.com",
+    irUrl: ""
   },
-  "hyundai-motor": {
-    officialWebsite: "https://www.hyundai.com/worldwide/ko",
-    irUrl: "https://www.hyundai.com/worldwide/ko/company/ir"
+  "amorepacific": {
+    officialWebsite: "https://www.apgroup.com",
+    irUrl: ""
   },
-  "sk-hynix": {
-    officialWebsite: "https://www.skhynix.com/",
-    irUrl: "https://www.skhynix.com/ir/UI-FR-IR01/"
+  "asiana-airlines": {
+    officialWebsite: "https://www.flyasiana.com",
+    irUrl: ""
   },
-  "lg-energy-solution": {
-    officialWebsite: "https://www.lgensol.com/kr/index",
-    irUrl: "https://www.lgensol.com/kr/ir"
+  "celltrion": {
+    officialWebsite: "https://www.celltrion.com",
+    irUrl: "https://www.celltrion.com/ko-kr/investment/ir/"
   },
-  kia: {
-    officialWebsite: "https://www.kia.com/kr",
-    irUrl: "https://worldwide.kia.com/kr/company/ir"
+  "cj": {
+    officialWebsite: "https://www.cj.net",
+    irUrl: ""
   },
-  naver: {
-    officialWebsite: "https://www.navercorp.com/",
-    irUrl: "https://www.navercorp.com/investment"
+  "cj-cheiljedang": {
+    officialWebsite: "https://www.cj.co.kr",
+    irUrl: ""
   },
-  kakao: {
-    officialWebsite: "https://www.kakaocorp.com/",
-    irUrl: "https://www.kakaocorp.com/ir/main"
+  "cj-enm": {
+    officialWebsite: "https://www.cjmall.com",
+    irUrl: ""
   },
-  "posco-holdings": {
-    officialWebsite: "https://www.posco-inc.com/",
-    irUrl: "https://www.posco-inc.com/poscoinc/v4/kor/investor/s91e1000100c.jsp"
+  "cj-logistics": {
+    officialWebsite: "https://www.cjlogistics.com",
+    irUrl: "https://www.cjlogistics.com"
   },
-  "hanwha-aerospace": {
-    officialWebsite: "https://www.hanwhaaerospace.co.kr/",
-    irUrl: "https://www.hanwhaaerospace.co.kr/kor/investors/irData.do"
+  "cosmo-advanced-materials": {
+    officialWebsite: "https://www.cosmoamt.com",
+    irUrl: ""
   },
-  "hyundai-mobis": {
-    officialWebsite: "https://www.mobis.com/kr/index.do",
-    irUrl: "https://www.mobis.com/kr/ir/irdisclosure.do"
+  "coway": {
+    officialWebsite: "https://company.coway.com",
+    irUrl: "https://www.cowayir.co.kr"
   },
-  "lg-chem": {
-    officialWebsite: "https://www.lgchem.com/",
-    irUrl: "https://www.lgchem.com/company/investment-information/ir-events"
+  "daou-technology": {
+    officialWebsite: "https://www.daou.co.kr",
+    irUrl: ""
   },
-  "samsung-sdi": {
-    officialWebsite: "https://www.samsungsdi.co.kr/",
-    irUrl: "https://www.samsungsdi.co.kr/ir/main.html"
+  "db-hi-tek": {
+    officialWebsite: "https://www.dbhitek.co.kr",
+    irUrl: ""
   },
-  "samsung-biologics": {
-    officialWebsite: "https://samsungbiologics.com/",
-    irUrl: "https://samsungbiologics.com/ir/overview"
+  "db-insurance": {
+    officialWebsite: "https://www.idbins.com",
+    irUrl: ""
   },
-  celltrion: {
-    officialWebsite: "https://www.celltrion.com/",
-    irUrl: "https://www.celltrion.com/ko-kr/investment/ir"
+  "dl-enc": {
+    officialWebsite: "https://www.dlenc.co.kr",
+    irUrl: ""
   },
-  "samsung-c-and-t": {
-    officialWebsite: "https://www.samsungcnt.com/",
-    irUrl: "https://www.samsungcnt.com/ir/overview.do"
-  },
-  "hd-hyundai": {
-    officialWebsite: "https://www.hd-hyundai.com/",
-    irUrl: "https://www.hd-hyundai.com/investor"
-  },
-  "hd-korea-shipbuilding": {
-    officialWebsite: "https://www.hd-ksoe.com/",
-    irUrl: "https://www.hd-ksoe.com/ir"
-  },
-  "hyundai-heavy-industries": {
-    officialWebsite: "https://www.hhi.co.kr/",
-    irUrl: "https://www.hhi.co.kr/ir"
+  "dongjin-semiconductor": {
+    officialWebsite: "https://www.dongjin.com",
+    irUrl: ""
   },
   "doosan-enerbility": {
-    officialWebsite: "https://www.doosanenerbility.com/",
-    irUrl: "https://www.doosanenerbility.com/kr/investors"
+    officialWebsite: "https://www.doosanenerbility.com/kr",
+    irUrl: "https://www.doosanenerbility.com/kr/investment/ir_data"
+  },
+  "ecopro": {
+    officialWebsite: "https://www.ecopro.co.kr",
+    irUrl: "https://ecopro.co.kr/sub020403"
+  },
+  "ecopro-bm": {
+    officialWebsite: "https://www.ecoprobm.co.kr",
+    irUrl: ""
+  },
+  "emart": {
+    officialWebsite: "https://emartcompany.com/ko/main.do",
+    irUrl: "http://emartcompany.com/ko/investor/governance_01.do"
+  },
+  "fandf": {
+    officialWebsite: "https://www.fnf.co.kr",
+    irUrl: ""
+  },
+  "green-cross": {
+    officialWebsite: "https://www.gcbiopharma.com",
+    irUrl: ""
+  },
+  "gs-engineering-construction": {
+    officialWebsite: "https://www.gsenc.com",
+    irUrl: "https://www.gsenc.com/IR/Data/Schedule.aspx"
+  },
+  "gs-holdings": {
+    officialWebsite: "",
+    irUrl: ""
+  },
+  "hana-financial-group": {
+    officialWebsite: "https://www.hanafn.com",
+    irUrl: "https://www.hanafn.com"
+  },
+  "hanmi-pharm": {
+    officialWebsite: "",
+    irUrl: "https://www.hanmi.co.kr/main.hm"
+  },
+  "hanmi-semiconductor": {
+    officialWebsite: "https://www.hanmisemi.com",
+    irUrl: ""
+  },
+  "hanwha": {
+    officialWebsite: "https://www.hanwhacorp.co.kr",
+    irUrl: "https://www.hanwhacorp.co.kr"
+  },
+  "hanwha-aerospace": {
+    officialWebsite: "https://www.hanwhaaerospace.com",
+    irUrl: ""
+  },
+  "hanwha-ocean": {
+    officialWebsite: "https://www.hanwhaocean.com/pub/main/index.do",
+    irUrl: "https://www.hanwhaocean.com/"
+  },
+  "hanwha-solutions": {
+    officialWebsite: "https://hcc.hanwha.co.kr",
+    irUrl: ""
+  },
+  "hd-hyundai": {
+    officialWebsite: "https://www.hd.com",
+    irUrl: "https://www.hd.com"
+  },
+  "hd-korea-shipbuilding": {
+    officialWebsite: "https://www.ksoe.co.kr",
+    irUrl: ""
+  },
+  "hlb": {
+    officialWebsite: "https://hlbbio.co.kr",
+    irUrl: "https://www.hlbbio.co.kr"
+  },
+  "hmm": {
+    officialWebsite: "https://www.hmm21.com",
+    irUrl: ""
+  },
+  "hotel-shilla": {
+    officialWebsite: "https://www.hotelshilla.net",
+    irUrl: "http://www.hotelshilla.net/kr/ir/public_info.jsp"
+  },
+  "hpsp": {
+    officialWebsite: "https://www.thehpsp.com/",
+    irUrl: ""
+  },
+  "hybe": {
+    officialWebsite: "https://hybecorp.com",
+    irUrl: "https://hybecorp.com/"
+  },
+  "hyosung-advanced-materials": {
+    officialWebsite: "https://www.hyosungadvancedmaterials.com",
+    irUrl: ""
+  },
+  "hyosung-heavy-industries": {
+    officialWebsite: "https://www.hyosungheavyindustries.com",
+    irUrl: ""
+  },
+  "hyosung-t-and-c": {
+    officialWebsite: "https://www.hyosungtnc.com",
+    irUrl: ""
+  },
+  "hyundai-department-store": {
+    officialWebsite: "https://home.e-hyundai.com",
+    irUrl: ""
+  },
+  "hyundai-engineering-construction": {
+    officialWebsite: "https://www.hdec.kr",
+    irUrl: "https://www.hdec.kr/kr/invest/irpt.aspx"
+  },
+  "hyundai-glovis": {
+    officialWebsite: "https://www.glovis.net",
+    irUrl: ""
+  },
+  "hyundai-heavy-industries": {
+    officialWebsite: "https://www.hhi.co.kr",
+    irUrl: ""
+  },
+  "hyundai-marine-fire": {
+    officialWebsite: "https://www.hi.co.kr",
+    irUrl: ""
+  },
+  "hyundai-mobis": {
+    officialWebsite: "https://www.mobis.com",
+    irUrl: "https://www.mobis.com"
+  },
+  "hyundai-motor": {
+    officialWebsite: "https://www.hyundai.com",
+    irUrl: ""
+  },
+  "jyp-entertainment": {
+    officialWebsite: "https://www.jype.com",
+    irUrl: ""
+  },
+  "kakao": {
+    officialWebsite: "https://www.kakaocorp.com",
+    irUrl: "https://www.kakaocorp.com/ir/main"
+  },
+  "kakao-bank": {
+    officialWebsite: "",
+    irUrl: "https://www.kakaobank.com/"
+  },
+  "kakao-pay": {
+    officialWebsite: "https://www.kakaopay.com",
+    irUrl: ""
+  },
+  "kb-financial-group": {
+    officialWebsite: "https://www.kbfg.com",
+    irUrl: ""
+  },
+  "kepco": {
+    officialWebsite: "https://www.kepco.co.kr",
+    irUrl: ""
+  },
+  "kia": {
+    officialWebsite: "https://www.kia.co.kr",
+    irUrl: ""
+  },
+  "kiwoom-securities": {
+    officialWebsite: "https://www.kiwoom.com",
+    irUrl: "https://www.kiwoom.com/h/ir/"
+  },
+  "korea-aerospace-industries": {
+    officialWebsite: "https://www.koreaaero.com",
+    irUrl: ""
+  },
+  "korea-gas": {
+    officialWebsite: "https://www.kogas.or.kr",
+    irUrl: ""
+  },
+  "korean-air": {
+    officialWebsite: "https://www.koreanair.com",
+    irUrl: ""
+  },
+  "krafton": {
+    officialWebsite: "https://www.krafton.com",
+    irUrl: "https://www.krafton.com"
+  },
+  "kt": {
+    officialWebsite: "https://www.kt.com",
+    irUrl: ""
+  },
+  "ktng": {
+    officialWebsite: "https://www.ktng.com",
+    irUrl: ""
+  },
+  "l-and-f": {
+    officialWebsite: "https://www.landf.co.kr/",
+    irUrl: ""
+  },
+  "leeno-industrial": {
+    officialWebsite: "https://leeno.com/kr",
+    irUrl: ""
+  },
+  "lg-chem": {
+    officialWebsite: "https://www.lgchem.com",
+    irUrl: ""
+  },
+  "lg-display": {
+    officialWebsite: "https://www.lgdisplay.com",
+    irUrl: ""
   },
   "lg-electronics": {
-    officialWebsite: "https://www.lge.co.kr/",
-    irUrl: "https://www.lg.com/global/investor-relations"
+    officialWebsite: "https://www.lge.co.kr",
+    irUrl: "https://www.lge.co.kr/company/investor/presentation#com-tabs01"
+  },
+  "lg-energy-solution": {
+    officialWebsite: "https://www.lgensol.com",
+    irUrl: "https://www.lgensol.com/kr/earnings-announcement"
+  },
+  "lg-household-healthcare": {
+    officialWebsite: "https://www.lghnh.com",
+    irUrl: ""
+  },
+  "lg-innotek": {
+    officialWebsite: "https://www.lginnotek.co.kr",
+    irUrl: ""
+  },
+  "lg-uplus": {
+    officialWebsite: "https://www.uplus.co.kr",
+    irUrl: ""
+  },
+  "lig-nex1": {
+    officialWebsite: "https://www.lignex1.com",
+    irUrl: ""
+  },
+  "lotte-chemical": {
+    officialWebsite: "https://www.lottechem.com",
+    irUrl: "https://www.lottechem.com/ko/ir/ir_activity.do"
+  },
+  "lotte-energy-materials": {
+    officialWebsite: "https://www.lotteenergymaterials.com",
+    irUrl: ""
+  },
+  "lotte-holdings-korea": {
+    officialWebsite: "https://www.lotte.co.kr",
+    irUrl: "https://www.lotte.co.kr"
+  },
+  "lotte-shopping": {
+    officialWebsite: "https://www.lotteshoppingir.com/",
+    irUrl: "http://www.lotteshoppingir.com/"
+  },
+  "ls": {
+    officialWebsite: "https://www.lsholdings.co.kr",
+    irUrl: ""
+  },
+  "ls-eco-energy": {
+    officialWebsite: "https://www.lsecoenergy.com",
+    irUrl: ""
+  },
+  "ls-electric": {
+    officialWebsite: "https://www.ls-electric.com",
+    irUrl: ""
+  },
+  "lx-international": {
+    officialWebsite: "https://www.lxinternational.com",
+    irUrl: "https://www.lxinternational.com/kr/investment/result_data"
+  },
+  "meritz-financial": {
+    officialWebsite: "https://www.meritzgroup.com",
+    irUrl: ""
+  },
+  "mirae-asset-securities": {
+    officialWebsite: "https://securities.miraeasset.com",
+    irUrl: "https://ci.securities.miraeasset.com"
+  },
+  "naver": {
+    officialWebsite: "https://www.navercorp.com",
+    irUrl: "https://www.navercorp.com/investment/investors"
+  },
+  "ncsoft": {
+    officialWebsite: "https://www.nc.com",
+    irUrl: ""
+  },
+  "netmarble": {
+    officialWebsite: "https://company.netmarble.com",
+    irUrl: ""
+  },
+  "nexon-games": {
+    officialWebsite: "https://nexongames.co.kr",
+    irUrl: ""
+  },
+  "nh-investment-securities": {
+    officialWebsite: "https://www.nhqv.com",
+    irUrl: ""
+  },
+  "orion": {
+    officialWebsite: "https://www.orionworld.com",
+    irUrl: "https://www.orionworld.com"
+  },
+  "paradise": {
+    officialWebsite: "https://www.paradise.co.kr/ko/main",
+    irUrl: "https://www.paradise.co.kr/ko/invest/ir/reference"
+  },
+  "posco-future-m": {
+    officialWebsite: "https://www.poscofuturem.com",
+    irUrl: ""
+  },
+  "posco-holdings": {
+    officialWebsite: "https://www.posco-inc.com",
+    irUrl: ""
+  },
+  "posco-international": {
+    officialWebsite: "https://www.poscointl.com",
+    irUrl: ""
+  },
+  "s-oil": {
+    officialWebsite: "https://www.s-oil.com",
+    irUrl: ""
+  },
+  "samsung-biologics": {
+    officialWebsite: "https://www.samsungbiologics.com",
+    irUrl: ""
+  },
+  "samsung-c-and-t": {
+    officialWebsite: "https://www.samsungcnt.com",
+    irUrl: ""
+  },
+  "samsung-electronics": {
+    officialWebsite: "https://www.samsung.com/sec",
+    irUrl: ""
+  },
+  "samsung-engineering": {
+    officialWebsite: "https://www.samsungena.com",
+    irUrl: ""
+  },
+  "samsung-fire": {
+    officialWebsite: "https://www.samsungfire.com",
+    irUrl: ""
+  },
+  "samsung-heavy-industries": {
+    officialWebsite: "https://www.samsungshi.com",
+    irUrl: ""
+  },
+  "samsung-life": {
+    officialWebsite: "https://www.samsunglife.com",
+    irUrl: ""
+  },
+  "samsung-sdi": {
+    officialWebsite: "https://www.samsungsdi.co.kr",
+    irUrl: "https://www.samsungsdi.co.kr"
+  },
+  "samsung-sds": {
+    officialWebsite: "https://www.samsungsds.com",
+    irUrl: ""
+  },
+  "samsung-securities": {
+    officialWebsite: "https://www.samsungpop.com",
+    irUrl: ""
+  },
+  "seegene": {
+    officialWebsite: "https://www.seegene.co.kr",
+    irUrl: "https://www.seegene.co.kr/ir_event"
+  },
+  "semco": {
+    officialWebsite: "https://www.sem.samsung.co.kr",
+    irUrl: ""
+  },
+  "shinhan-financial-group": {
+    officialWebsite: "https://www.shinhangroup.com",
+    irUrl: ""
+  },
+  "shinsegye": {
+    officialWebsite: "https://www.shinsegae.com",
+    irUrl: "https://www.shinsegae.com/company/ir-ko/corporate-governance.do#direct_move"
+  },
+  "sk": {
+    officialWebsite: "https://www.sk-inc.com/",
+    irUrl: ""
+  },
+  "sk-biopharmaceuticals": {
+    officialWebsite: "https://www.skbp.com",
+    irUrl: ""
+  },
+  "sk-bioscience": {
+    officialWebsite: "https://www.skbioscience.com",
+    irUrl: ""
+  },
+  "sk-hynix": {
+    officialWebsite: "https://www.skhynix.com",
+    irUrl: ""
+  },
+  "sk-innovation": {
+    officialWebsite: "https://www.SKinnovation.com",
+    irUrl: ""
+  },
+  "sk-telecom": {
+    officialWebsite: "https://www.sktelecom.com",
+    irUrl: ""
+  },
+  "sm-entertainment": {
+    officialWebsite: "https://smentertainment.com",
+    irUrl: "https://smentertainment.com"
+  },
+  "solum": {
+    officialWebsite: "https://www.solum-group.co.kr",
+    irUrl: "http://www.solum-group.com"
+  },
+  "soulbrain": {
+    officialWebsite: "https://www.soulbrain.co.kr",
+    irUrl: ""
+  },
+  "wonik-ips": {
+    officialWebsite: "https://www.ips.co.kr",
+    irUrl: ""
+  },
+  "woori-financial-group": {
+    officialWebsite: "https://www.woorifg.com/",
+    irUrl: ""
+  },
+  "yuhan": {
+    officialWebsite: "https://www.yuhan.co.kr",
+    irUrl: ""
   }
 };
 

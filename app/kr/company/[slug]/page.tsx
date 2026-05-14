@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AdBanner from "@/components/AdBanner";
-import FinancialHighlights from "@/components/FinancialHighlights";
-import { companies, getCompanyBySlug } from "@/data/companies";
-import StockQuote from "@/components/StockQuote";
 import CompanySeoSection from "@/components/CompanySeoSection";
+import FinancialHighlights from "@/components/FinancialHighlights";
 import RecentDisclosures from "@/components/RecentDisclosures";
+import StockQuote from "@/components/StockQuote";
+import { companies, getCompanyBySlug } from "@/data/companies";
 
 type CompanyPageProps = {
   params: Promise<{
@@ -64,9 +64,11 @@ export default async function CompanyDetailPage({
         <div className="card detail-head" style={{ marginTop: 18 }}>
           <div className="detail-title">
             <div className="big-initial">{company.initials}</div>
+
             <div>
               <span className="badge">KR Company · 정보 제공 페이지</span>
               <h1>{company.name}</h1>
+
               <div className="meta">
                 상장시장: {company.market} · 종목코드: {company.ticker} · 업종:{" "}
                 {company.industry}
@@ -79,10 +81,6 @@ export default async function CompanyDetailPage({
           </p>
         </div>
       </section>
-
-      <div className="container">
-        <AdBanner slot="4333026081" label="AdSense 상단 광고 영역" />
-      </div>
 
       <section className="container detail-layout">
         <article>
@@ -99,30 +97,25 @@ export default async function CompanyDetailPage({
             </div>
           </section>
 
-<FinancialHighlights dartCorpCode={company.identifiers.dartCorpCode} />
+          <StockQuote stockCode={company.ticker} />
 
-<StockQuote stockCode={company.ticker} />
+          <FinancialHighlights dartCorpCode={company.identifiers.dartCorpCode} />
 
-<RecentDisclosures
-  companyName={company.name}
-  stockCode={company.ticker}
-  dartCorpCode={company.identifiers.dartCorpCode}
-/>
-<CompanySeoSection company={company} />
+          <RecentDisclosures
+            companyName={company.name}
+            stockCode={company.ticker}
+            dartCorpCode={company.identifiers.dartCorpCode}
+          />
+
+          <CompanySeoSection company={company} />
 
           <AdBanner slot="9393781074" label="AdSense 본문중간 광고 영역" />
-
-          <section className="card article-section">
-            <h2>최근 확인 포인트</h2>
-            {company.latestSignals.map((signal) => (
-              <p key={signal}>{signal}</p>
-            ))}
-          </section>
 
           <section className="notice">
             이 페이지는 기업의 사업 개요와 공식자료 링크를 정리하는 정보성
             페이지입니다. 매수·매도 추천, 목표가, 수익률 전망을 제공하지
-            않습니다.
+            않습니다. 중요한 의사결정 전에는 반드시 공식 공시, 거래소, 증권사
+            원문 자료를 직접 확인하세요.
           </section>
         </article>
 

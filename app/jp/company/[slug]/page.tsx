@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AdBanner from "@/components/AdBanner";
+import RecentEdinetDisclosures from "@/components/RecentEdinetDisclosures";
 import { getJpCompanyBySlug, jpCompanies } from "@/data/jp-companies";
 
 type JpCompanyPageProps = {
@@ -89,6 +90,9 @@ export default async function JpCompanyDetailPage({
               ))}
             </div>
           </section>
+
+<RecentEdinetDisclosures ticker={company.ticker} />
+
 
           <section className="card article-section seo-section">
             <h2>{company.name}는 어떤 회사인가요?</h2>

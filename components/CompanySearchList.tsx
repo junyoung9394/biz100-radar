@@ -2,20 +2,30 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import type { Company } from "@/data/companies";
 import StockDirectionBadge from "@/components/StockDirectionBadge";
+import type { Company } from "@/data/companies";
 
 type CompanySearchListProps = {
   companies: Company[];
 };
 
+const ALL_MARKET = "전체";
 const ALL_INDUSTRY = "전체";
 
 export default function CompanySearchList({
   companies
 }: CompanySearchListProps) {
   const [keyword, setKeyword] = useState("");
+  const [selectedMarket, setSelectedMarket] = useState(ALL_MARKET);
   const [selectedIndustry, setSelectedIndustry] = useState(ALL_INDUSTRY);
+
+  const markets = useMemo(() => {
+    const uniqueMarkets = Array.from(
+      new Set(companies.map((company) => company.market))
+    ).sort();
+
+    return [ALL_MARKET, ...uniqueMarkets];
+  }, [companies]);
 
   const industries = useMemo(() => {
     const uniqueIndustries = Array.from(
@@ -29,6 +39,9 @@ export default function CompanySearchList({
     const normalizedKeyword = keyword.trim().toLowerCase();
 
     return companies.filter((company) => {
+      const matchesMarket =
+        selectedMarket === ALL_MARKET || company.market === selectedMarket;
+
       const matchesIndustry =
         selectedIndustry === ALL_INDUSTRY ||
         company.industry === selectedIndustry;
@@ -50,9 +63,9 @@ export default function CompanySearchList({
         normalizedKeyword.length === 0 ||
         searchableText.includes(normalizedKeyword);
 
-      return matchesIndustry && matchesKeyword;
+      return matchesMarket && matchesIndustry && matchesKeyword;
     });
-  }, [companies, keyword, selectedIndustry]);
+  }, [companies, keyword, selectedMarket, selectedIndustry]);
 
   return (
     <>
@@ -68,6 +81,27 @@ export default function CompanySearchList({
           onChange={(event) => setKeyword(event.target.value)}
           placeholder="예: 삼성전자, 005930, 반도체, 금융지주"
         />
+
+        <div className="filter-group-title">시장 구분</div>
+
+        <div className="filter-actions market-filter-actions">
+          {markets.map((market) => (
+            <button
+              key={market}
+              type="button"
+              className={
+                selectedMarket === market
+                  ? "industry-chip active"
+                  : "industry-chip"
+              }
+              onClick={() => setSelectedMarket(market)}
+            >
+              {market}
+            </button>
+          ))}
+        </div>
+
+        <div className="filter-group-title">업종 구분</div>
 
         <div className="filter-actions">
           {industries.map((industry) => (
@@ -113,7 +147,7 @@ export default function CompanySearchList({
                   </div>
 
                   <div className="meta">
-                    상장시장: {company.market} · 종목코드: {company.ticker} ·
+                    상장시장: {company.market} · 종목코드 {company.ticker} ·
                     업종: {company.industry}
                   </div>
 

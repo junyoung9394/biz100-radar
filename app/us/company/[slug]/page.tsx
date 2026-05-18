@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AdBanner from "@/components/AdBanner";
+import { AD_SLOTS } from "@/lib/adSlots";
 import { getUsCompanyBySlug, usCompanies } from "@/data/us-companies";
 import UsStockQuote from "@/components/UsStockQuote";
 import RecentSecFilings from "@/components/RecentSecFilings";
@@ -120,7 +121,7 @@ export default async function UsCompanyDetailPage({
             </p>
           </section>
 <RelatedUsCompanies currentCompany={company} companies={usCompanies} />
-          <AdBanner slot="9393781074" label="AdSense 본문중간 광고 영역" />
+          <AdBanner slot={AD_SLOTS.company_mid} />
 
           <section className="notice">
             이 페이지는 미국 기업의 사업 개요와 공식자료 링크를 정리하는 정보성
@@ -128,6 +129,8 @@ export default async function UsCompanyDetailPage({
             않습니다. 중요한 의사결정 전에는 반드시 SEC EDGAR, 기업 공식 IR,
             거래소 또는 증권사 원문 자료를 직접 확인하세요.
           </section>
+
+          <AdBanner slot={AD_SLOTS.company_bottom} />
         </article>
 
         <aside className="sidebar">
@@ -176,6 +179,10 @@ export default async function UsCompanyDetailPage({
           <div className="card side-box">
             <h3>데이터 기준</h3>
             <p className="summary">{company.sourceNote}</p>
+          </div>
+
+          <div className="sidebar-ad">
+            <AdBanner slot={AD_SLOTS.sidebar} variant="sidebar" />
           </div>
         </aside>
       </section>

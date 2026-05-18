@@ -1,6 +1,7 @@
 ﻿import Link from "next/link";
 import AdBanner from "@/components/AdBanner";
 import GlobalCompanySearch from "@/components/GlobalCompanySearch";
+import { AD_SLOTS } from "@/lib/adSlots";
 import StockDirectionBadge from "@/components/StockDirectionBadge";
 import UsStockDirectionBadge from "@/components/UsStockDirectionBadge";
 import { companies } from "@/data/companies";
@@ -273,7 +274,7 @@ export default function HomePage() {
       </section>
 
       <div className="container">
-        <AdBanner slot="4333026081" label="AdSense 상단 광고 영역" />
+        <AdBanner slot={AD_SLOTS.home_mid} />
       </div>
 
       <section className="container section">

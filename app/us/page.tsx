@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import AdBanner from "@/components/AdBanner";
 import UsCompanySearchList from "@/components/UsCompanySearchList";
 import { usCompanies } from "@/data/us-companies";
+import { AD_SLOTS } from "@/lib/adSlots";
 
 export const metadata: Metadata = {
   title: "미국 주요 기업",
@@ -54,7 +55,7 @@ export default function UsCompaniesPage() {
         </p>
       </section>
 
-      <AdBanner slot="4333026081" label="AdSense 상단 광고 영역" />
+      <AdBanner slot={AD_SLOTS.us_list_top} />
 
       <UsCompanySearchList companies={usCompanies} />
     </main>

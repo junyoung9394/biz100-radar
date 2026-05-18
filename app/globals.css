@@ -539,8 +539,8 @@ input {
 
 .ad-box {
   margin: 28px 0;
-  min-height: 90px;
   overflow: hidden;
+  max-width: 100%;
 }
 
 .ad-box:empty {
@@ -549,6 +549,20 @@ input {
 
 .ad-label {
   display: none;
+}
+
+.ad-infeed-wrapper {
+  grid-column: 1 / -1;
+}
+
+.sidebar-ad {
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .sidebar-ad {
+    display: none;
+  }
 }
 
 .footer {

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import AdBanner from "@/components/AdBanner";
 import JpCompanySearchList from "@/components/JpCompanySearchList";
 import { jpCompanies } from "@/data/jp-companies";
+import { AD_SLOTS } from "@/lib/adSlots";
 
 export const metadata: Metadata = {
   title: "일본 주요 기업",
@@ -54,7 +55,7 @@ export default function JpCompaniesPage() {
         </p>
       </section>
 
-      <AdBanner slot="4333026081" label="AdSense 상단 광고 영역" />
+      <AdBanner slot={AD_SLOTS.jp_list_top} />
 
       <JpCompanySearchList companies={jpCompanies} />
     </main>

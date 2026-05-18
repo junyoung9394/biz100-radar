@@ -2,6 +2,7 @@
 import AdBanner from "@/components/AdBanner";
 import CompanySearchList from "@/components/CompanySearchList";
 import { companies } from "@/data/companies";
+import { AD_SLOTS } from "@/lib/adSlots";
 
 export const metadata: Metadata = {
   title: "한국 주요 기업",
@@ -55,7 +56,7 @@ export default function KoreaCompaniesPage() {
         </p>
       </section>
 
-      <AdBanner slot="4333026081" label="AdSense 상단 광고 영역" />
+      <AdBanner slot={AD_SLOTS.kr_list_top} />
 
       <CompanySearchList companies={companies} />
     </main>

@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import StockDirectionBadge from "@/components/StockDirectionBadge";
+import AdBanner from "@/components/AdBanner";
 import type { Company } from "@/data/companies";
+import { AD_SLOTS } from "@/lib/adSlots";
 
 type CompanySearchListProps = {
   companies: Company[];
@@ -126,41 +128,58 @@ export default function CompanySearchList({
       </section>
 
       <section className="company-list">
-        {filteredCompanies.map((company, index) => (
-          <Link
-            key={company.slug}
-            href={`/kr/company/${company.slug}`}
-            className="card company-list-card"
-          >
-            <div className="company-list-card-inner">
-              <div className="company-row">
-                <div className="initial">{company.initials}</div>
+        {filteredCompanies.flatMap((company, index) => {
+          const card = (
+            <Link
+              key={company.slug}
+              href={`/kr/company/${company.slug}`}
+              className="card company-list-card"
+            >
+              <div className="company-list-card-inner">
+                <div className="company-row">
+                  <div className="initial">{company.initials}</div>
 
-                <div>
-                  <div className="meta">
-                    주요 기업 {String(index + 1).padStart(3, "0")}
+                  <div>
+                    <div className="meta">
+                      주요 기업 {String(index + 1).padStart(3, "0")}
+                    </div>
+
+                    <div className="company-title-row">
+                      <h3>{company.name}</h3>
+                      <StockDirectionBadge stockCode={company.ticker} />
+                    </div>
+
+                    <div className="meta">
+                      상장시장: {company.market} · 종목코드 {company.ticker} ·
+                      업종: {company.industry}
+                    </div>
+
+                    <div className="summary">{company.businessSummary}</div>
                   </div>
-
-                  <div className="company-title-row">
-                    <h3>{company.name}</h3>
-                    <StockDirectionBadge stockCode={company.ticker} />
-                  </div>
-
-                  <div className="meta">
-                    상장시장: {company.market} · 종목코드 {company.ticker} ·
-                    업종: {company.industry}
-                  </div>
-
-                  <div className="summary">{company.businessSummary}</div>
                 </div>
-              </div>
 
-              <strong style={{ color: "#2563eb", whiteSpace: "nowrap" }}>
-                기업정보 보기 →
-              </strong>
-            </div>
-          </Link>
-        ))}
+                <strong style={{ color: "#2563eb", whiteSpace: "nowrap" }}>
+                  기업정보 보기 →
+                </strong>
+              </div>
+            </Link>
+          );
+
+          if ((index + 1) % 5 === 0) {
+            return [
+              card,
+              <div key={`ad-kr-${index}`} className="ad-infeed-wrapper">
+                <AdBanner
+                  slot={AD_SLOTS.infeed}
+                  variant="infeed"
+                  format="fluid"
+                  layout="in-article"
+                />
+              </div>,
+            ];
+          }
+          return [card];
+        })}
 
         {filteredCompanies.length === 0 && (
           <div className="card empty-state">

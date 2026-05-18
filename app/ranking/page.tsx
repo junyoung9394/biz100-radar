@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import Link from "next/link";
 import AdBanner from "@/components/AdBanner";
 import { businessGroups, formatFairAssetTotal } from "@/data/business-groups";
+import { AD_SLOTS } from "@/lib/adSlots";
 
 export const metadata: Metadata = {
   title: "재계순위",
@@ -64,12 +66,12 @@ export default function RankingPage() {
           기업집단 정보를 이해하기 위한 정보성 페이지입니다.
         </p>
       </section>
-<AdBanner slot="4333026081" label="AdSense 재계순위 광고 영역" />
+<AdBanner slot={AD_SLOTS.ranking_top} />
 
       <section className="ranking-list">
-        {businessGroups.map((group) => (
+        {businessGroups.map((group, index) => (
+          <Fragment key={`${group.rank}-${group.groupName}`}>
           <article
-            key={`${group.rank}-${group.groupName}`}
             className="card ranking-card"
           >
             <div className="ranking-rank">
@@ -131,6 +133,15 @@ export default function RankingPage() {
               )}
             </div>
           </article>
+          {(index + 1) % 5 === 0 && (
+            <AdBanner
+              slot={AD_SLOTS.infeed}
+              variant="infeed"
+              format="fluid"
+              layout="in-article"
+            />
+          )}
+          </Fragment>
         ))}
       </section>
     </main>

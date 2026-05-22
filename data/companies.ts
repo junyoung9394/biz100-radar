@@ -186,6 +186,7 @@ const companyDartCorpCodes: Record<string, string> = {
   "hyundai-heavy-industries": "01390344",
   "hyundai-home-shopping": "00537679",
   "hyundai-marine-fire": "00164973",
+  "hyundai-mipo": "00164765",
   "hyundai-mobis": "00164788",
   "hyundai-motor": "00164742",
   "hyundai-rotem": "00302926",
@@ -195,6 +196,7 @@ const companyDartCorpCodes: Record<string, string> = {
   "ildong-pharmaceutical": "01168383",
   "ilyang-pharmaceutical": "00146454",
   "inbody": "00269922",
+  "innocean": "01283696",
   "inox-advanced-materials": "01237540",
   "intellian-technologies": "00664181",
   "is-dongseo": "00115977",
@@ -217,6 +219,7 @@ const companyDartCorpCodes: Record<string, string> = {
   "kcc-glass": "01428203",
   "kepco": "00159193",
   "kepco-engineering-construction": "00159209",
+  "kepco-kdn": "00432128",
   "kepco-plant-service": "00159218",
   "kg-innocis": "00264547",
   "kg-mobility": "00138242",
@@ -239,6 +242,7 @@ const companyDartCorpCodes: Record<string, string> = {
   "kt-corporation": "00190321",
   "ktng": "00244455",
   "kumho-petrochemical": "00106368",
+  "kumho-tire": "00166535",
   "kyeryong-construction": "00102432",
   "l-and-f": "00398701",
   "leeno-industrial": "00369657",
@@ -247,6 +251,7 @@ const companyDartCorpCodes: Record<string, string> = {
   "lg-display": "00105873",
   "lg-electronics": "00401731",
   "lg-energy-solution": "01515323",
+  "lg-hellovision": "01027364",
   "lg-household-healthcare": "00356370",
   "lg-innotek": "00105961",
   "lg-uplus": "00231363",
@@ -254,10 +259,12 @@ const companyDartCorpCodes: Record<string, string> = {
   "liga-chem-biosciences": "00842619",
   "lotte-chemical": "00165413",
   "lotte-chilsung": "00120571",
+  "lotte-data-communication": "01355261",
   "lotte-energy-materials": "00113997",
   "lotte-holdings": "00120562",
   "lotte-holdings-korea": "00120562",
   "lotte-non-life-insurance": "00113562",
+  "lotte-rental": "00546956",
   "lotte-shopping": "00120526",
   "lotte-wellfood": "01258507",
   "ls": "00105952",
@@ -266,12 +273,15 @@ const companyDartCorpCodes: Record<string, string> = {
   "ls-electric": "00105855",
   "lunit": "01397620",
   "lx-international": "00120076",
+  "maeil-dairies": "01319988",
   "maum-ai": "01297898",
   "medytox": "00580199",
   "megastudyedu": "01074862",
   "meritz-financial": "00860332",
+  "meritz-fire": "00102028",
   "mirae-asset-securities": "00111722",
   "moorim-pnp": "00119007",
+  "namyang-dairy": "00104400",
   "nano-new-material": "00439965",
   "nature-cell": "00117276",
   "naver": "00266961",
@@ -280,6 +290,7 @@ const companyDartCorpCodes: Record<string, string> = {
   "nepes": "00227333",
   "netmarble": "00904672",
   "neuromeka": "01336461",
+  "nexen-tire": "00102524",
   "nexon-games": "01096341",
   "nh-investment-securities": "00120182",
   "nhn-kcp": "00357740",
@@ -307,6 +318,7 @@ const companyDartCorpCodes: Record<string, string> = {
   "robostar": "00536523",
   "robotis": "00946030",
   "s-oil": "00138279",
+  "s1-corporation": "00116474",
   "saltlux": "01050738",
   "samchundang-pharm": "00128546",
   "samsung-card": "00359022",
@@ -325,11 +337,14 @@ const companyDartCorpCodes: Record<string, string> = {
   "samsung-sds": "00126186",
   "samsung-securities": "00104856",
   "samyang-foods": "00126955",
+  "satreci": "00600024",
+  "sbs-media": "00126453",
   "sdi-biosensor": "00854997",
   "seah-beststeel": "00106669",
   "sebang-global-battery": "00108139",
   "seegene": "00788773",
   "semco": "00126371",
+  "seoul-semiconductor": "00344714",
   "sfa-engineering": "00358271",
   "sfa-semicon": "00301246",
   "shinhan-financial-group": "00382199",
@@ -376,6 +391,7 @@ const companyDartCorpCodes: Record<string, string> = {
   "woori-financial-group": "01350869",
   "wtech": "01407909",
   "yduqs-korea": "00307222",
+  "yg-entertainment": "00918178",
   "youngone": "00776820",
   "yuhan": "00145109",
   "yuil-robotics": "01152586",
@@ -1667,6 +1683,126 @@ const companyOfficialLinks: Record<
   },
   "jeisys-medical": {
     officialWebsite: "https://www.jeisys.co.kr",
+    irUrl: ""
+  },
+  "air-busan": {
+    officialWebsite: "https://www.airbusan.com",
+    irUrl: ""
+  },
+  "apr-beauty": {
+    officialWebsite: "https://www.apr.co.kr",
+    irUrl: ""
+  },
+  "celltrion-pharm": {
+    officialWebsite: "https://www.celltrion.com",
+    irUrl: ""
+  },
+  "cs-wind": {
+    officialWebsite: "https://www.cswind.com",
+    irUrl: ""
+  },
+  "db-financial-investment": {
+    officialWebsite: "https://www.dbfi.co.kr",
+    irUrl: ""
+  },
+  "doosan-bobcat": {
+    officialWebsite: "https://www.doosanbobcat.com",
+    irUrl: ""
+  },
+  "doosan-fuel-cell": {
+    officialWebsite: "https://www.doosanfuelcell.com",
+    irUrl: ""
+  },
+  "hana-tour": {
+    officialWebsite: "https://www.hanatour.com",
+    irUrl: ""
+  },
+  "hanjin": {
+    officialWebsite: "https://www.hanjin.co.kr",
+    irUrl: ""
+  },
+  "hankook-tire": {
+    officialWebsite: "https://www.hankooktire.com",
+    irUrl: ""
+  },
+  "hanssem": {
+    officialWebsite: "https://www.hanssem.com",
+    irUrl: ""
+  },
+  "hanwha-impact": {
+    officialWebsite: "https://www.hanwhaimpact.com",
+    irUrl: ""
+  },
+  "hyundai-ce": {
+    officialWebsite: "https://www.hd-hce.com",
+    irUrl: ""
+  },
+  "hyundai-home-shopping": {
+    officialWebsite: "https://www.hmall.com",
+    irUrl: ""
+  },
+  "hyundai-mipo": {
+    officialWebsite: "https://www.hmd.co.kr",
+    irUrl: ""
+  },
+  "innocean": {
+    officialWebsite: "https://www.innocean.com",
+    irUrl: ""
+  },
+  "kepco-kdn": {
+    officialWebsite: "https://www.kdn.com",
+    irUrl: ""
+  },
+  "kumho-tire": {
+    officialWebsite: "https://www.kumhotire.com",
+    irUrl: ""
+  },
+  "lg-hellovision": {
+    officialWebsite: "https://www.lghellovision.net",
+    irUrl: ""
+  },
+  "lotte-data-communication": {
+    officialWebsite: "https://www.ldc.co.kr",
+    irUrl: ""
+  },
+  "lotte-rental": {
+    officialWebsite: "https://www.lotterental.com",
+    irUrl: ""
+  },
+  "maeil-dairies": {
+    officialWebsite: "https://www.maeil.com",
+    irUrl: ""
+  },
+  "meritz-fire": {
+    officialWebsite: "https://www.meritzfire.com",
+    irUrl: ""
+  },
+  "namyang-dairy": {
+    officialWebsite: "https://www.namyangi.com",
+    irUrl: ""
+  },
+  "nexen-tire": {
+    officialWebsite: "https://www.nexentire.com",
+    irUrl: ""
+  },
+  "s1-corporation": {
+    officialWebsite: "https://www.s1.co.kr",
+    irUrl: ""
+  },
+  "satreci": {
+    officialWebsite: "https://www.satreci.com",
+    irUrl: ""
+  },
+  "sbs-media": {
+    officialWebsite: "https://www.sbs.co.kr",
+    irUrl: ""
+  },
+  "seoul-semiconductor": {
+    officialWebsite: "https://www.seoulsemicon.com",
+    irUrl: ""
+  },
+  "yg-entertainment": {
+    officialWebsite: "https://www.yg-life.com",
     irUrl: ""
   }
 };
@@ -3861,6 +3997,306 @@ const rawCompanies: RawCompany[] = [
     "의료기기",
     "제이시스메디칼은 피부미용 의료기기, 레이저 장비, 에너지 기반 미용기기를 개발·판매하는 의료기기 기업입니다.",
     ["피부미용","레이저 장비","의료기기","에스테틱"]
+  ],
+  [
+    "air-busan",
+    "에어부산",
+    "AB",
+    "KOSPI",
+    "298690",
+    "항공·저비용항공",
+    "에어부산은 부산을 거점으로 한 저비용항공사로 국내외 여객 운송 서비스를 운영합니다.",
+    ["저비용항공","여객 운송","부산 거점","항공"]
+  ],
+  [
+    "apr-beauty",
+    "에이피알",
+    "APR",
+    "KOSPI",
+    "278470",
+    "뷰티·이커머스",
+    "에이피알은 메디큐브, 에이프릴스킨 등 뷰티 브랜드를 운영하며 글로벌 이커머스 채널을 통해 판매하는 기업입니다.",
+    ["뷰티","스킨케어","이커머스","K뷰티"]
+  ],
+  [
+    "celltrion-pharm",
+    "셀트리온제약",
+    "CTP",
+    "KOSPI",
+    "068760",
+    "제약·바이오",
+    "셀트리온제약은 셀트리온 계열의 바이오의약품과 전문의약품을 국내에서 판매·유통하는 제약 기업입니다.",
+    ["전문의약품","바이오의약품","유통","제약"]
+  ],
+  [
+    "cs-wind",
+    "씨에스윈드",
+    "CSW",
+    "KOSPI",
+    "112610",
+    "신재생에너지·풍력",
+    "씨에스윈드는 풍력발전 타워를 전 세계에 제조·공급하는 풍력 인프라 전문 기업입니다.",
+    ["풍력타워","풍력발전","신재생에너지","글로벌 제조"]
+  ],
+  [
+    "db-financial-investment",
+    "DB금융투자",
+    "DBF",
+    "KOSPI",
+    "016610",
+    "증권·금융투자",
+    "DB금융투자는 증권중개, 자산관리, 투자금융, 리서치 서비스를 제공하는 금융투자회사입니다.",
+    ["증권","자산관리","투자금융","리서치"]
+  ],
+  [
+    "doosan-bobcat",
+    "두산밥캣",
+    "DBB",
+    "KOSPI",
+    "241560",
+    "건설기계·산업장비",
+    "두산밥캣은 소형 건설기계, 전동 작업 차량, 스키드 스티어 로더 등 다양한 작업 장비를 글로벌 시장에 공급합니다.",
+    ["건설기계","소형 장비","전동장비","글로벌 판매"]
+  ],
+  [
+    "doosan-fuel-cell",
+    "두산퓨얼셀",
+    "DFC",
+    "KOSPI",
+    "336260",
+    "수소·연료전지",
+    "두산퓨얼셀은 수소 연료전지 발전 시스템을 개발·생산·공급하는 수소에너지 전문 기업입니다.",
+    ["연료전지","수소에너지","발전 시스템","클린에너지"]
+  ],
+  [
+    "hana-tour",
+    "하나투어",
+    "HT",
+    "KOSPI",
+    "039130",
+    "여행·관광",
+    "하나투어는 패키지여행, 항공권, 호텔 예약, 여행 플랫폼 서비스를 제공하는 국내 1위 여행사입니다.",
+    ["패키지여행","항공권","호텔 예약","여행 플랫폼"]
+  ],
+  [
+    "hanjin",
+    "한진",
+    "HJ2",
+    "KOSPI",
+    "002320",
+    "물류·운송",
+    "한진은 택배, 항공화물, 물류센터 운영 등 종합 물류·운송 서비스를 제공하는 기업입니다.",
+    ["택배","항공화물","물류","운송"]
+  ],
+  [
+    "hankook-tire",
+    "한국타이어앤테크놀로지",
+    "HKT",
+    "KOSPI",
+    "161390",
+    "타이어",
+    "한국타이어앤테크놀로지는 승용차, 상용차, 고성능 타이어를 전 세계에 제조·판매하는 글로벌 타이어 기업입니다.",
+    ["타이어","글로벌 제조","고성능 타이어","자동차 부품"]
+  ],
+  [
+    "hanssem",
+    "한샘",
+    "HSM",
+    "KOSPI",
+    "009240",
+    "가구·인테리어",
+    "한샘은 주방가구, 욕실, 홈인테리어 제품을 제조·판매하고 리모델링 서비스를 제공하는 국내 대표 인테리어 기업입니다.",
+    ["가구","인테리어","리모델링","주방"]
+  ],
+  [
+    "hanwha-impact",
+    "한화임팩트",
+    "HWI",
+    "KOSPI",
+    "006260",
+    "화학·에너지솔루션",
+    "한화임팩트는 석유화학, 방위산업, 에너지솔루션 사업을 운영하는 한화그룹 계열 기업입니다.",
+    ["화학","방위산업","에너지솔루션","한화 계열"]
+  ],
+  [
+    "hyundai-ce",
+    "현대건설기계",
+    "HCE",
+    "KOSPI",
+    "267270",
+    "건설기계",
+    "현대건설기계는 굴삭기, 지게차, 건설장비를 글로벌 시장에 제조·판매하는 건설기계 전문 기업입니다.",
+    ["굴삭기","지게차","건설기계","글로벌 판매"]
+  ],
+  [
+    "hyundai-home-shopping",
+    "현대홈쇼핑",
+    "HHS",
+    "KOSPI",
+    "057050",
+    "홈쇼핑·이커머스",
+    "현대홈쇼핑은 TV홈쇼핑, 온라인 쇼핑몰(H몰)을 운영하며 패션, 식품, 가전 등 다양한 상품을 판매합니다.",
+    ["홈쇼핑","온라인 쇼핑","TV쇼핑","이커머스"]
+  ],
+  [
+    "hyundai-mipo",
+    "현대미포조선",
+    "HMD",
+    "KOSPI",
+    "010620",
+    "조선",
+    "현대미포조선은 중형 탱커, 컨테이너선, PC선 등 중소형 선박 건조를 전문으로 하는 조선 기업입니다.",
+    ["조선","탱커","컨테이너선","중형 선박"]
+  ],
+  [
+    "innocean",
+    "이노션",
+    "INO",
+    "KOSPI",
+    "214320",
+    "광고·마케팅",
+    "이노션은 현대자동차그룹 계열의 광고대행사로 글로벌 마케팅, 디지털 광고, 브랜드 캠페인 서비스를 제공합니다.",
+    ["광고","마케팅","현대 계열","브랜드 캠페인"]
+  ],
+  [
+    "kepco-kdn",
+    "한전KDN",
+    "KKDN",
+    "KOSPI",
+    "054440",
+    "전력IT·스마트에너지",
+    "한전KDN은 한국전력 계열의 전력IT, 스마트그리드, 에너지 ICT 솔루션 전문 기업입니다.",
+    ["전력IT","스마트그리드","에너지 ICT","한전 계열"]
+  ],
+  [
+    "kumho-tire",
+    "금호타이어",
+    "KHT",
+    "KOSPI",
+    "073240",
+    "타이어",
+    "금호타이어는 승용차·상용차·SUV용 타이어를 국내외에서 제조·판매하는 글로벌 타이어 기업입니다.",
+    ["타이어","글로벌 제조","승용차 타이어","상용차 타이어"]
+  ],
+  [
+    "lg-hellovision",
+    "LG헬로비전",
+    "LHV",
+    "KOSDAQ",
+    "037560",
+    "케이블TV·미디어",
+    "LG헬로비전은 케이블TV, 초고속인터넷, 유선방송 서비스를 제공하는 LG 계열 유선 미디어 기업입니다.",
+    ["케이블TV","초고속인터넷","유선방송","미디어"]
+  ],
+  [
+    "lotte-data-communication",
+    "롯데정보통신",
+    "LDC",
+    "KOSPI",
+    "286940",
+    "IT 서비스·SI",
+    "롯데정보통신은 IT 시스템통합, 클라우드, ERP, 디지털전환 서비스를 제공하는 롯데그룹 계열 IT 기업입니다.",
+    ["IT 서비스","시스템통합","클라우드","디지털전환"]
+  ],
+  [
+    "lotte-rental",
+    "롯데렌탈",
+    "LR",
+    "KOSPI",
+    "089860",
+    "차량렌탈·서비스",
+    "롯데렌탈은 장기렌탈, 단기렌탈, 중고차 판매, 카셰어링 서비스를 운영하는 종합 모빌리티 서비스 기업입니다.",
+    ["차량 렌탈","중고차","카셰어링","모빌리티"]
+  ],
+  [
+    "maeil-dairies",
+    "매일유업",
+    "MD",
+    "KOSPI",
+    "267980",
+    "식품·유제품",
+    "매일유업은 우유, 분유, 조제유, 유아식 등 유제품과 음료를 제조·판매하는 식품 기업입니다.",
+    ["유제품","분유","우유","식품"]
+  ],
+  [
+    "meritz-fire",
+    "메리츠화재",
+    "MFF",
+    "KOSPI",
+    "000060",
+    "보험",
+    "메리츠화재는 자동차보험, 장기보험, 일반보험 등 손해보험 서비스를 제공하는 보험 기업입니다.",
+    ["손해보험","자동차보험","장기보험","보험"]
+  ],
+  [
+    "namyang-dairy",
+    "남양유업",
+    "NYD",
+    "KOSPI",
+    "003920",
+    "식품·유제품",
+    "남양유업은 우유, 분유, 음료, 커피 등 다양한 식음료 제품을 제조·판매하는 식품 기업입니다.",
+    ["유제품","분유","음료","식품"]
+  ],
+  [
+    "nexen-tire",
+    "넥센타이어",
+    "NXT",
+    "KOSPI",
+    "002350",
+    "타이어",
+    "넥센타이어는 승용차·SUV·트럭용 타이어를 제조·판매하는 글로벌 타이어 기업입니다.",
+    ["타이어","글로벌 판매","SUV 타이어","승용차 타이어"]
+  ],
+  [
+    "s1-corporation",
+    "에스원",
+    "S1",
+    "KOSPI",
+    "012750",
+    "보안·시설서비스",
+    "에스원은 물리보안, 영상보안, 사이버보안, 시설관리 서비스를 제공하는 종합 보안 기업입니다.",
+    ["보안 서비스","물리보안","영상보안","시설관리"]
+  ],
+  [
+    "satreci",
+    "쎄트렉아이",
+    "STR",
+    "KOSDAQ",
+    "099320",
+    "위성·우주항공",
+    "쎄트렉아이는 소형 위성 시스템, 지상 관제 소프트웨어, 위성 영상 분석 솔루션을 개발하는 우주항공 기업입니다.",
+    ["위성","우주항공","지상 관제","위성 영상"]
+  ],
+  [
+    "sbs-media",
+    "SBS",
+    "SBS",
+    "KOSPI",
+    "034120",
+    "방송·미디어",
+    "SBS는 지상파 TV, 라디오, 디지털 콘텐츠를 제작·방영하는 종합 방송·미디어 기업입니다.",
+    ["방송","지상파","콘텐츠","미디어"]
+  ],
+  [
+    "seoul-semiconductor",
+    "서울반도체",
+    "SSC",
+    "KOSDAQ",
+    "046890",
+    "LED·반도체",
+    "서울반도체는 LED 광반도체 소자, 모듈, 조명 솔루션을 개발·제조·판매하는 반도체 기업입니다.",
+    ["LED","광반도체","조명","반도체"]
+  ],
+  [
+    "yg-entertainment",
+    "YG엔터테인먼트",
+    "YG",
+    "KOSDAQ",
+    "122870",
+    "엔터테인먼트·K팝",
+    "YG엔터테인먼트는 K팝 아티스트 기획·매니지먼트, 음악 콘텐츠 제작, 글로벌 엔터테인먼트 사업을 운영하는 기업입니다.",
+    ["K팝","음악","엔터테인먼트","아티스트"]
   ]
 ];
 

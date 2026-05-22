@@ -42,8 +42,9 @@ function getDirection(flucTpCd?: string, change?: number | null): MarketIndex["d
   return "flat";
 }
 
-function getKrxTodayDate(): string {
+function getKoreaDateOffset(daysAgo: number): string {
   const now = new Date();
+  now.setDate(now.getDate() - daysAgo);
   const korea = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Seoul" }));
   const y = korea.getFullYear();
   const m = String(korea.getMonth() + 1).padStart(2, "0");
@@ -51,13 +52,9 @@ function getKrxTodayDate(): string {
   return `${y}${m}${d}`;
 }
 
-export async function fetchMarketIndices(): Promise<{
-  kospi: MarketIndex | null;
-  kosdaq: MarketIndex | null;
+async function fetchIndicesForDate(apiKey: string, trdDd: string): Promise<{
+  items: KrxIndexItem[];
 }> {
-  const apiKey = getKrxApiKey();
-  const trdDd = getKrxTodayDate();
-
   const url = new URL(
     "https://openapi.krx.co.kr/contents/MDC/STAT/standard/MDCSTAT00601"
   );
@@ -74,7 +71,29 @@ export async function fetchMarketIndices(): Promise<{
   }
 
   const data = (await response.json()) as { output?: KrxIndexItem[] };
-  const items: KrxIndexItem[] = data.output ?? [];
+  return { items: data.output ?? [] };
+}
+
+export async function fetchMarketIndices(): Promise<{
+  kospi: MarketIndex | null;
+  kosdaq: MarketIndex | null;
+}> {
+  const apiKey = getKrxApiKey();
+
+  // 오늘부터 최대 7일 전까지 거래 데이터가 있는 날짜를 찾는다 (주말·공휴일 대응)
+  let items: KrxIndexItem[] = [];
+  let usedDate = getKoreaDateOffset(0);
+
+  for (let daysAgo = 0; daysAgo <= 7; daysAgo++) {
+    const trdDd = getKoreaDateOffset(daysAgo);
+    const result = await fetchIndicesForDate(apiKey, trdDd);
+
+    if (result.items.length > 0) {
+      items = result.items;
+      usedDate = trdDd;
+      break;
+    }
+  }
 
   function parseItem(item: KrxIndexItem): MarketIndex {
     const change = toNumber(item.CMPPREVDD_PRC);
@@ -84,7 +103,7 @@ export async function fetchMarketIndices(): Promise<{
       change,
       changeRate: toNumber(item.FLUC_RT),
       direction: getDirection(item.FLUC_TP_CD, change),
-      baseDate: item.TRD_DD ?? trdDd
+      baseDate: item.TRD_DD ?? usedDate
     };
   }
 

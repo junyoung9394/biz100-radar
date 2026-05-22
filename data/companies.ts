@@ -71,10 +71,12 @@ const companyDartCorpCodes: Record<string, string> = {
   "cj": "00148540",
   "cj-cheiljedang": "00635134",
   "cj-enm": "00265324",
+  "cj-freshway": "00568148",
   "cj-logistics": "00113410",
   "classys": "01061327",
   "com2us": "00476498",
   "cosmo-advanced-materials": "00129989",
+  "cosmax": "00534853",
   "coway": "00170558",
   "daehan-synthetic-fiber": "00260383",
   "daejoo-electronic-materials": "00177816",
@@ -99,6 +101,8 @@ const companyDartCorpCodes: Record<string, string> = {
   "dong-suh": "00144395",
   "dongjin-semiconductor": "00118804",
   "dongkook-pharmaceutical": "00114808",
+  "dongkuk-steel": "00107637",
+  "dongwha-pharmaceutical": "00101474",
   "dongwon-fnb": "00340917",
   "dongyang-life": "00117267",
   "doosan-enerbility": "00159616",
@@ -124,10 +128,13 @@ const companyDartCorpCodes: Record<string, string> = {
   "hana-materials": "00660750",
   "hana-micron": "00445054",
   "hanall-biopharma": "00162586",
+  "handok": "00102259",
   "handsome": "00188089",
   "hanmi-global": "00413523",
   "hanmi-pharm": "00828497",
   "hanmi-semiconductor": "00161383",
+  "hanon-systems": "00161418",
+  "hansae": "00780842",
   "hanshin-construction": "00162063",
   "hansol-chemical": "00140955",
   "hansol-paper": "01060744",
@@ -158,8 +165,10 @@ const companyDartCorpCodes: Record<string, string> = {
   "hyosung-corp": "00117188",
   "hyosung-heavy-industries": "01316245",
   "hyosung-t-and-c": "01316227",
+  "hyundai-autoever": "01315271",
   "hyundai-department-store": "00428251",
   "hyundai-engineering-construction": "00164478",
+  "hyundai-elevator": "00160949",
   "hyundai-glovis": "00360595",
   "hyundai-heavy-industries": "01390344",
   "hyundai-marine-fire": "00164973",
@@ -167,6 +176,7 @@ const companyDartCorpCodes: Record<string, string> = {
   "hyundai-motor": "00164742",
   "hyundai-rotem": "00302926",
   "hyundai-steel": "00145880",
+  "hyundai-wia": "00164814",
   "ibk": "00149646",
   "ildong-pharmaceutical": "01168383",
   "ilyang-pharmaceutical": "00146454",
@@ -178,6 +188,7 @@ const companyDartCorpCodes: Record<string, string> = {
   "isupetasys": "00107613",
   "itm-semiconductor": "00579980",
   "jb-financial-group": "00980122",
+  "jeisys-medical": "01215491",
   "jeju-air": "00555874",
   "jin-air": "00653024",
   "jusung-engineering": "00252135",
@@ -185,6 +196,7 @@ const companyDartCorpCodes: Record<string, string> = {
   "jyp-entertainment": "00258689",
   "kakao": "00258801",
   "kakao-bank": "01133217",
+  "kakao-games": "01404455",
   "kakao-pay": "01244601",
   "kb-financial-group": "00688996",
   "kcc": "00105271",
@@ -198,6 +210,7 @@ const companyDartCorpCodes: Record<string, string> = {
   "kiwoom-securities": "00296290",
   "koh-young": "00579999",
   "kolon-industries": "00795135",
+  "kolmar-korea": "00910872",
   "konan-technology": "00601988",
   "korea-aerospace-industries": "00309503",
   "korea-district-heating": "00159698",
@@ -207,6 +220,7 @@ const companyDartCorpCodes: Record<string, string> = {
   "korean-air": "00113526",
   "korean-re": "00113191",
   "krafton": "00760971",
+  "kwangdong-pharmaceutical": "00121737",
   "kt": "00190321",
   "kt-corporation": "00190321",
   "ktng": "00244455",
@@ -281,6 +295,7 @@ const companyDartCorpCodes: Record<string, string> = {
   "s-oil": "00138279",
   "saltlux": "01050738",
   "samchundang-pharm": "00128546",
+  "samsung-card": "00359022",
   "samhwa-networks": "00301112",
   "samsung-biologics": "00877059",
   "samsung-c-and-t": "00149655",
@@ -298,6 +313,7 @@ const companyDartCorpCodes: Record<string, string> = {
   "samyang-foods": "00126955",
   "sdi-biosensor": "00854997",
   "seah-beststeel": "00106669",
+  "sebang-global-battery": "00108139",
   "seegene": "00788773",
   "semco": "00126371",
   "sfa-engineering": "00358271",
@@ -316,11 +332,14 @@ const companyDartCorpCodes: Record<string, string> = {
   "sk-iet": "01386916",
   "sk-inc": "00181712",
   "sk-innovation": "00631518",
+  "sk-networks": "00102271",
+  "sk-square": "01568376",
   "sk-telecom": "00159023",
   "skc": "00139889",
   "sl-corp": "00125521",
   "sm-entertainment": "00260930",
   "snt-motiv": "00398792",
+  "socar": "01285186",
   "solum": "01159233",
   "soulbrain": "01489648",
   "spc-samlip": "00125530",
@@ -330,6 +349,7 @@ const companyDartCorpCodes: Record<string, string> = {
   "t-robotics": "00867098",
   "tck": "00245472",
   "tes": "00524421",
+  "tway-air": "00861263",
   "vieworks": "00609324",
   "viol": "01406618",
   "vuno": "01344202",
@@ -1553,6 +1573,86 @@ const companyOfficialLinks: Record<
   },
   "yunsung-fnc": {
     officialWebsite: "https://www.ysfc.co.kr",
+    irUrl: ""
+  },
+  "hyundai-wia": {
+    officialWebsite: "https://www.hyundai-wia.com",
+    irUrl: ""
+  },
+  "hanon-systems": {
+    officialWebsite: "https://www.hanon-systems.com",
+    irUrl: ""
+  },
+  "samsung-card": {
+    officialWebsite: "https://www.samsungcard.com",
+    irUrl: "https://www.samsungcard.com/company/ir/main.do"
+  },
+  "cosmax": {
+    officialWebsite: "https://www.cosmax.com",
+    irUrl: ""
+  },
+  "kolmar-korea": {
+    officialWebsite: "https://www.kolmar.co.kr",
+    irUrl: ""
+  },
+  "kakao-games": {
+    officialWebsite: "https://kakaogames.com",
+    irUrl: ""
+  },
+  "sk-square": {
+    officialWebsite: "https://www.sksquare.com",
+    irUrl: ""
+  },
+  "hyundai-autoever": {
+    officialWebsite: "https://www.hyundai-autoever.com",
+    irUrl: ""
+  },
+  "tway-air": {
+    officialWebsite: "https://www.twayair.com",
+    irUrl: ""
+  },
+  "dongkuk-steel": {
+    officialWebsite: "https://www.dongkuksteel.com",
+    irUrl: ""
+  },
+  "hansae": {
+    officialWebsite: "https://www.hansaecompanies.com",
+    irUrl: ""
+  },
+  "sebang-global-battery": {
+    officialWebsite: "https://www.sebang.com",
+    irUrl: ""
+  },
+  "hyundai-elevator": {
+    officialWebsite: "https://www.hyundaielevator.co.kr",
+    irUrl: ""
+  },
+  "dongwha-pharmaceutical": {
+    officialWebsite: "https://www.dong-wha.co.kr",
+    irUrl: ""
+  },
+  "handok": {
+    officialWebsite: "https://www.handok.com",
+    irUrl: ""
+  },
+  "kwangdong-pharmaceutical": {
+    officialWebsite: "https://www.ekwangdong.co.kr",
+    irUrl: ""
+  },
+  "cj-freshway": {
+    officialWebsite: "https://www.cjfreshway.com",
+    irUrl: ""
+  },
+  "sk-networks": {
+    officialWebsite: "https://www.sknetworks.co.kr",
+    irUrl: ""
+  },
+  "socar": {
+    officialWebsite: "https://www.socar.kr",
+    irUrl: ""
+  },
+  "jeisys-medical": {
+    officialWebsite: "https://www.jeisys.co.kr",
     irUrl: ""
   }
 };
@@ -3547,6 +3647,206 @@ const rawCompanies: RawCompany[] = [
     "조선·건설",
     "HJ중공업은 조선, 건설, 플랜트 사업을 운영하는 제조·건설 기업입니다.",
     ["조선","건설","플랜트","선박"]
+  ],
+  [
+    "hyundai-wia",
+    "현대위아",
+    "HWA",
+    "KOSPI",
+    "011210",
+    "자동차부품",
+    "현대위아는 자동차 파워트레인, 등속조인트, 공작기계, 방산 부품 등을 생산하는 자동차부품 기업입니다.",
+    ["파워트레인","등속조인트","공작기계","방산"]
+  ],
+  [
+    "hanon-systems",
+    "한온시스템",
+    "HOS",
+    "KOSPI",
+    "018880",
+    "자동차부품",
+    "한온시스템은 자동차용 열관리 시스템, 에어컨, 냉방·난방 부품을 공급하는 자동차부품 기업입니다.",
+    ["열관리 시스템","에어컨","냉난방 부품","전기차 열관리"]
+  ],
+  [
+    "samsung-card",
+    "삼성카드",
+    "SKC",
+    "KOSPI",
+    "029780",
+    "금융/카드",
+    "삼성카드는 신용카드, 체크카드, 금융서비스, 빅데이터 기반 마케팅 솔루션을 제공하는 카드사입니다.",
+    ["신용카드","체크카드","금융서비스","빅데이터"]
+  ],
+  [
+    "cosmax",
+    "코스맥스",
+    "CMX",
+    "KOSPI",
+    "044820",
+    "화장품OEM",
+    "코스맥스는 화장품 OEM·ODM 제조와 글로벌 뷰티 솔루션을 제공하는 화장품 위탁생산 기업입니다.",
+    ["화장품 OEM","ODM","K-뷰티","글로벌 제조"]
+  ],
+  [
+    "kolmar-korea",
+    "한국콜마",
+    "KKM",
+    "KOSPI",
+    "161890",
+    "화장품OEM·제약",
+    "한국콜마는 화장품과 의약품 OEM·ODM 사업을 운영하는 위탁생산 전문 기업입니다.",
+    ["화장품 OEM","의약품 OEM","ODM","K-뷰티"]
+  ],
+  [
+    "kakao-games",
+    "카카오게임즈",
+    "KGM",
+    "KOSDAQ",
+    "293490",
+    "게임",
+    "카카오게임즈는 모바일·PC 게임 개발과 퍼블리싱, 글로벌 게임 사업을 운영하는 게임 기업입니다.",
+    ["모바일 게임","PC 게임","게임 퍼블리싱","글로벌 서비스"]
+  ],
+  [
+    "sk-square",
+    "SK스퀘어",
+    "SKS",
+    "KOSPI",
+    "402340",
+    "지주회사·ICT투자",
+    "SK스퀘어는 반도체, 모빌리티, 콘텐츠 등 ICT 계열사를 보유한 투자 지주회사입니다.",
+    ["지주회사","반도체 투자","ICT","모빌리티"]
+  ],
+  [
+    "hyundai-autoever",
+    "현대오토에버",
+    "HAE",
+    "KOSPI",
+    "307950",
+    "IT서비스·자동차IT",
+    "현대오토에버는 자동차 IT, 소프트웨어, 클라우드, 스마트 모빌리티 솔루션을 제공하는 IT서비스 기업입니다.",
+    ["자동차 IT","소프트웨어","클라우드","스마트 모빌리티"]
+  ],
+  [
+    "tway-air",
+    "티웨이항공",
+    "TWY",
+    "KOSPI",
+    "091810",
+    "항공",
+    "티웨이항공은 국내외 여객 노선을 운영하는 저비용 항공사입니다.",
+    ["항공","저비용항공","여객 운송","중거리 노선"]
+  ],
+  [
+    "dongkuk-steel",
+    "동국제강",
+    "DKS",
+    "KOSPI",
+    "023450",
+    "철강",
+    "동국제강은 후판, 형강, 봉강, 컬러강판 등 철강 제품을 생산하는 철강 기업입니다.",
+    ["후판","형강","봉강","컬러강판"]
+  ],
+  [
+    "hansae",
+    "한세실업",
+    "HSE",
+    "KOSPI",
+    "105630",
+    "의류OEM",
+    "한세실업은 글로벌 브랜드용 의류 OEM과 패션 제조 사업을 운영하는 의류 기업입니다.",
+    ["의류 OEM","글로벌 제조","패션","수출"]
+  ],
+  [
+    "sebang-global-battery",
+    "세방전지",
+    "SGB",
+    "KOSPI",
+    "011910",
+    "배터리·에너지",
+    "세방전지는 자동차용 납축전지, 산업용 배터리, 에너지저장장치 사업을 운영하는 배터리 기업입니다.",
+    ["납축전지","자동차 배터리","ESS","산업용 배터리"]
+  ],
+  [
+    "hyundai-elevator",
+    "현대엘리베이터",
+    "HEL",
+    "KOSPI",
+    "017800",
+    "엘리베이터·승강기",
+    "현대엘리베이터는 엘리베이터, 에스컬레이터, 무빙워크 제조와 유지보수 서비스를 제공하는 기업입니다.",
+    ["엘리베이터","에스컬레이터","유지보수","스마트 건물"]
+  ],
+  [
+    "dongwha-pharmaceutical",
+    "동화약품",
+    "DWP2",
+    "KOSPI",
+    "000020",
+    "제약",
+    "동화약품은 전문의약품, 일반의약품, 건강기능식품 등을 제조·판매하는 제약 기업입니다.",
+    ["전문의약품","일반의약품","건강기능식품","제약"]
+  ],
+  [
+    "handok",
+    "한독",
+    "HDK",
+    "KOSPI",
+    "002390",
+    "제약",
+    "한독은 전문의약품, 당뇨·심혈관 치료제, 의료기기, 헬스케어 사업을 운영하는 제약 기업입니다.",
+    ["전문의약품","당뇨 치료제","심혈관 치료제","헬스케어"]
+  ],
+  [
+    "kwangdong-pharmaceutical",
+    "광동제약",
+    "KDP",
+    "KOSPI",
+    "009290",
+    "제약·음료",
+    "광동제약은 음료, 전문의약품, 일반의약품, 건강기능식품 사업을 운영하는 제약 기업입니다.",
+    ["음료","전문의약품","일반의약품","건강기능식품"]
+  ],
+  [
+    "cj-freshway",
+    "CJ프레시웨이",
+    "CJF",
+    "KOSPI",
+    "051905",
+    "식품유통·서비스",
+    "CJ프레시웨이는 식자재 유통, 단체급식, 푸드서비스 사업을 운영하는 식품유통 기업입니다.",
+    ["식자재 유통","단체급식","푸드서비스","식품"]
+  ],
+  [
+    "sk-networks",
+    "SK네트웍스",
+    "SKN",
+    "KOSPI",
+    "001740",
+    "유통·서비스",
+    "SK네트웍스는 렌탈, 무역, 자동차 관련 서비스, IT 솔루션 사업을 운영하는 종합 서비스 기업입니다.",
+    ["렌탈","무역","자동차 서비스","IT 솔루션"]
+  ],
+  [
+    "socar",
+    "쏘카",
+    "SOCAR",
+    "KOSPI",
+    "403550",
+    "모빌리티·플랫폼",
+    "쏘카는 카셰어링, 구독형 모빌리티, 전기차 서비스를 운영하는 모빌리티 플랫폼 기업입니다.",
+    ["카셰어링","구독 모빌리티","전기차","플랫폼"]
+  ],
+  [
+    "jeisys-medical",
+    "제이시스메디칼",
+    "JSM",
+    "KOSDAQ",
+    "287410",
+    "의료기기",
+    "제이시스메디칼은 피부미용 의료기기, 레이저 장비, 에너지 기반 미용기기를 개발·판매하는 의료기기 기업입니다.",
+    ["피부미용","레이저 장비","의료기기","에스테틱"]
   ]
 ];
 

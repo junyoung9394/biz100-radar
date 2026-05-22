@@ -1,6 +1,7 @@
 ﻿import Link from "next/link";
 import AdBanner from "@/components/AdBanner";
 import GlobalCompanySearch from "@/components/GlobalCompanySearch";
+import WatchlistSection from "@/components/WatchlistSection";
 import MarketIndex from "@/components/MarketIndex";
 import StockDirectionBadge from "@/components/StockDirectionBadge";
 import UsStockDirectionBadge from "@/components/UsStockDirectionBadge";
@@ -205,6 +206,8 @@ export default function HomePage() {
     <MarketIndex />
   </section>
 </section>
+
+<WatchlistSection />
 
 <section className="container section">
   <div className="section-head">

@@ -1898,3 +1898,19 @@ input {
   padding: 2px 7px;
   border-radius: 20px;
 }
+.watchlist-nav-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: #fffbeb;
+  color: #b45309;
+  border: 1px solid #fcd34d;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 13px;
+  font-weight: 800;
+  transition: background 0.15s;
+}
+.watchlist-nav-badge:hover {
+  background: #fef3c7;
+}

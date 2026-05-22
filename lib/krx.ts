@@ -7,44 +7,15 @@ export type MarketIndex = {
   baseDate: string;
 };
 
-type KrxIndexItem = {
-  IDX_NM?: string;
-  CLPR?: string;
-  CMPPREVDD_PRC?: string;
-  FLUC_RT?: string;
-  FLUC_TP_CD?: string;
-  TRD_DD?: string;
-};
-
-function getKrxApiKey() {
-  const apiKey = process.env.KRX_API_KEY;
-
-  if (!apiKey) {
-    throw new Error("KRX_API_KEY 환경변수가 설정되지 않았습니다.");
-  }
-
-  return apiKey;
-}
-
-function toNumber(value?: string): number | null {
-  if (!value) return null;
-  const n = Number(value.replace(/,/g, "").trim());
-  return Number.isNaN(n) ? null : n;
-}
-
-function getDirection(flucTpCd?: string, change?: number | null): MarketIndex["direction"] {
-  if (flucTpCd === "1") return "up";
-  if (flucTpCd === "2") return "down";
-  if (flucTpCd === "3") return "flat";
-  if (change === null || change === undefined) return "unknown";
+function getDirection(change: number | null): MarketIndex["direction"] {
+  if (change === null) return "unknown";
   if (change > 0) return "up";
   if (change < 0) return "down";
   return "flat";
 }
 
-function getKoreaDateOffset(daysAgo: number): string {
+function getKoreaToday(): string {
   const now = new Date();
-  now.setDate(now.getDate() - daysAgo);
   const korea = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Seoul" }));
   const y = korea.getFullYear();
   const m = String(korea.getMonth() + 1).padStart(2, "0");
@@ -52,70 +23,83 @@ function getKoreaDateOffset(daysAgo: number): string {
   return `${y}${m}${d}`;
 }
 
-async function fetchIndicesForDate(apiKey: string, trdDd: string): Promise<{
-  items: KrxIndexItem[];
-}> {
-  const url = new URL(
-    "https://openapi.krx.co.kr/contents/MDC/STAT/standard/MDCSTAT00601"
-  );
-  url.searchParams.set("idxIndMidclssCd", "02");
-  url.searchParams.set("trdDd", trdDd);
+type YahooQuote = {
+  regularMarketPrice?: number;
+  regularMarketChange?: number;
+  regularMarketChangePercent?: number;
+  regularMarketTime?: number;
+};
 
-  const response = await fetch(url.toString(), {
-    headers: { AUTH_KEY: apiKey },
-    next: { revalidate: 3600 }
+async function fetchYahooQuote(symbol: string): Promise<YahooQuote | null> {
+  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?interval=1d&range=1d`;
+
+  const res = await fetch(url, {
+    headers: {
+      "User-Agent": "Mozilla/5.0",
+      Accept: "application/json"
+    },
+    next: { revalidate: 1800 }
   });
 
-  if (!response.ok) {
-    throw new Error(`KRX API HTTP 오류: ${response.status}`);
+  if (!res.ok) return null;
+
+  const data = (await res.json()) as {
+    chart?: {
+      result?: Array<{
+        meta?: {
+          regularMarketPrice?: number;
+          chartPreviousClose?: number;
+          regularMarketTime?: number;
+        };
+      }>;
+    };
+  };
+
+  const meta = data?.chart?.result?.[0]?.meta;
+  if (!meta) return null;
+
+  const price = meta.regularMarketPrice ?? null;
+  const prevClose = meta.chartPreviousClose ?? null;
+  const change = price !== null && prevClose !== null ? price - prevClose : null;
+  const changePercent = change !== null && prevClose ? (change / prevClose) * 100 : null;
+
+  return {
+    regularMarketPrice: price ?? undefined,
+    regularMarketChange: change ?? undefined,
+    regularMarketChangePercent: changePercent ?? undefined,
+    regularMarketTime: meta.regularMarketTime
+  };
+}
+
+function quoteToIndex(name: string, quote: YahooQuote | null): MarketIndex | null {
+  if (!quote || quote.regularMarketPrice == null) return null;
+
+  const value = quote.regularMarketPrice;
+  const change = quote.regularMarketChange ?? null;
+  const changeRate = quote.regularMarketChangePercent ?? null;
+
+  const ts = quote.regularMarketTime;
+  let baseDate = getKoreaToday();
+  if (ts) {
+    const d = new Date(ts * 1000);
+    const kd = new Date(d.toLocaleString("en-US", { timeZone: "Asia/Seoul" }));
+    baseDate = `${kd.getFullYear()}${String(kd.getMonth() + 1).padStart(2, "0")}${String(kd.getDate()).padStart(2, "0")}`;
   }
 
-  const data = (await response.json()) as { output?: KrxIndexItem[] };
-  return { items: data.output ?? [] };
+  return { name, value, change, changeRate, direction: getDirection(change), baseDate };
 }
 
 export async function fetchMarketIndices(): Promise<{
   kospi: MarketIndex | null;
   kosdaq: MarketIndex | null;
 }> {
-  const apiKey = getKrxApiKey();
-
-  // 오늘부터 최대 7일 전까지 거래 데이터가 있는 날짜를 찾는다 (주말·공휴일 대응)
-  let items: KrxIndexItem[] = [];
-  let usedDate = getKoreaDateOffset(0);
-
-  for (let daysAgo = 0; daysAgo <= 7; daysAgo++) {
-    const trdDd = getKoreaDateOffset(daysAgo);
-    const result = await fetchIndicesForDate(apiKey, trdDd);
-
-    if (result.items.length > 0) {
-      items = result.items;
-      usedDate = trdDd;
-      break;
-    }
-  }
-
-  function parseItem(item: KrxIndexItem): MarketIndex {
-    const change = toNumber(item.CMPPREVDD_PRC);
-    return {
-      name: item.IDX_NM ?? "",
-      value: toNumber(item.CLPR),
-      change,
-      changeRate: toNumber(item.FLUC_RT),
-      direction: getDirection(item.FLUC_TP_CD, change),
-      baseDate: item.TRD_DD ?? usedDate
-    };
-  }
-
-  const kospiItem = items.find((i) =>
-    (i.IDX_NM ?? "").includes("코스피") && !(i.IDX_NM ?? "").includes("200")
-  );
-  const kosdaqItem = items.find((i) =>
-    (i.IDX_NM ?? "").includes("코스닥") && !(i.IDX_NM ?? "").includes("150")
-  );
+  const [kospiQuote, kosdaqQuote] = await Promise.all([
+    fetchYahooQuote("^KS11"),
+    fetchYahooQuote("^KQ11")
+  ]);
 
   return {
-    kospi: kospiItem ? parseItem(kospiItem) : null,
-    kosdaq: kosdaqItem ? parseItem(kosdaqItem) : null
+    kospi: quoteToIndex("코스피", kospiQuote),
+    kosdaq: quoteToIndex("코스닥", kosdaqQuote)
   };
 }

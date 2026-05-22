@@ -75,7 +75,7 @@ function IndexCard({
             </span>
           </div>
           <div className="market-index-date">
-            기준일: {formatDate(data.baseDate)} · 출처: KRX 정보데이터시스템
+            기준일: {formatDate(data.baseDate)} · 출처: Yahoo Finance
           </div>
         </>
       )}

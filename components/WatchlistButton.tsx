@@ -28,6 +28,7 @@ function loadWatchlist(): WatchlistItem[] {
 function saveWatchlist(items: WatchlistItem[]) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    window.dispatchEvent(new StorageEvent("storage", { key: STORAGE_KEY }));
   } catch {
     // storage quota exceeded — silently ignore
   }

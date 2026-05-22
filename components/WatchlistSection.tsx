@@ -49,7 +49,7 @@ export default function WatchlistSection() {
   if (!mounted || items.length === 0) return null;
 
   return (
-    <section className="container section">
+    <section id="watchlist" className="container section">
       <div className="section-head">
         <div>
           <span className="badge">My Watchlist</span>

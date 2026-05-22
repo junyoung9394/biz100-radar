@@ -38,6 +38,17 @@ export async function generateMetadata({
     description: `${company.name}의 주요 사업, 공식자료 링크, DART 공시 검색, 최근 확인 포인트를 정리합니다.`,
     alternates: {
       canonical: `/kr/company/${company.slug}`
+    },
+    openGraph: {
+      title: `${company.name} 기업정보`,
+      description: `${company.name}의 주요 사업, 공식자료 링크, DART 공시 검색, 최근 확인 포인트를 정리합니다.`,
+      url: `/kr/company/${company.slug}`,
+      type: "article"
+    },
+    twitter: {
+      card: "summary",
+      title: `${company.name} 기업정보 | Biz100 Radar`,
+      description: `${company.name}의 주요 사업, 공식자료 링크, DART 공시 검색, 최근 확인 포인트를 정리합니다.`
     }
   };
 }

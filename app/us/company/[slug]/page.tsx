@@ -36,6 +36,17 @@ export async function generateMetadata({
     description: `${company.name}의 사업 개요, 티커, 거래소, 공식 홈페이지, IR 페이지, SEC 공시 검색 링크를 정리합니다.`,
     alternates: {
       canonical: `/us/company/${company.slug}`
+    },
+    openGraph: {
+      title: `${company.name} 기업정보`,
+      description: `${company.name}의 사업 개요, 티커, 거래소, 공식 홈페이지, IR 페이지, SEC 공시 검색 링크를 정리합니다.`,
+      url: `/us/company/${company.slug}`,
+      type: "article"
+    },
+    twitter: {
+      card: "summary",
+      title: `${company.name} 기업정보 | Biz100 Radar`,
+      description: `${company.name}의 사업 개요, 티커, 거래소, 공식 홈페이지, IR 페이지, SEC 공시 검색 링크를 정리합니다.`
     }
   };
 }

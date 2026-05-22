@@ -92,14 +92,23 @@ function quoteToIndex(name: string, quote: YahooQuote | null): MarketIndex | nul
 export async function fetchMarketIndices(): Promise<{
   kospi: MarketIndex | null;
   kosdaq: MarketIndex | null;
+  sp500: MarketIndex | null;
+  nasdaq: MarketIndex | null;
+  nikkei: MarketIndex | null;
 }> {
-  const [kospiQuote, kosdaqQuote] = await Promise.all([
+  const [kospiQuote, kosdaqQuote, sp500Quote, nasdaqQuote, nikkeiQuote] = await Promise.all([
     fetchYahooQuote("^KS11"),
-    fetchYahooQuote("^KQ11")
+    fetchYahooQuote("^KQ11"),
+    fetchYahooQuote("^GSPC"),
+    fetchYahooQuote("^IXIC"),
+    fetchYahooQuote("^N225")
   ]);
 
   return {
     kospi: quoteToIndex("코스피", kospiQuote),
-    kosdaq: quoteToIndex("코스닥", kosdaqQuote)
+    kosdaq: quoteToIndex("코스닥", kosdaqQuote),
+    sp500: quoteToIndex("S&P500", sp500Quote),
+    nasdaq: quoteToIndex("NASDAQ", nasdaqQuote),
+    nikkei: quoteToIndex("닛케이225", nikkeiQuote)
   };
 }

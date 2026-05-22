@@ -1822,3 +1822,14 @@ input {
     grid-template-columns: 1fr !important;
   }
 }
+.market-index-group {
+  margin-top: 1rem;
+}
+.market-index-group-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}

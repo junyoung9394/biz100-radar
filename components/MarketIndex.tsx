@@ -17,6 +17,9 @@ type ApiResponse = {
   indices: {
     kospi: MarketIndexData | null;
     kosdaq: MarketIndexData | null;
+    sp500: MarketIndexData | null;
+    nasdaq: MarketIndexData | null;
+    nikkei: MarketIndexData | null;
   } | null;
 };
 
@@ -75,7 +78,7 @@ function IndexCard({
             </span>
           </div>
           <div className="market-index-date">
-            기준일: {formatDate(data.baseDate)} · 출처: KRX 정보데이터시스템
+            기준일: {formatDate(data.baseDate)} · 출처: Yahoo Finance (15분 지연)
           </div>
         </>
       )}
@@ -97,21 +100,59 @@ export default function MarketIndex() {
 
   const kospi = data?.indices?.kospi ?? null;
   const kosdaq = data?.indices?.kosdaq ?? null;
+  const sp500 = data?.indices?.sp500 ?? null;
+  const nasdaq = data?.indices?.nasdaq ?? null;
+  const nikkei = data?.indices?.nikkei ?? null;
 
   return (
-    <div className="market-index-grid">
-      <IndexCard
-        label="KOSPI"
-        description="대형 상장기업 중심의 대표 시장"
-        data={kospi}
-        loading={loading}
-      />
-      <IndexCard
-        label="KOSDAQ"
-        description="기술·바이오·성장기업 중심 시장"
-        data={kosdaq}
-        loading={loading}
-      />
+    <div>
+      <div className="market-index-group">
+        <div className="market-index-group-label">한국</div>
+        <div className="market-index-grid">
+          <IndexCard
+            label="KOSPI"
+            description="대형 상장기업 중심의 대표 시장"
+            data={kospi}
+            loading={loading}
+          />
+          <IndexCard
+            label="KOSDAQ"
+            description="기술·바이오·성장기업 중심 시장"
+            data={kosdaq}
+            loading={loading}
+          />
+        </div>
+      </div>
+
+      <div className="market-index-group">
+        <div className="market-index-group-label">미국</div>
+        <div className="market-index-grid">
+          <IndexCard
+            label="S&P500"
+            description="미국 대형주 500개 종합 지수"
+            data={sp500}
+            loading={loading}
+          />
+          <IndexCard
+            label="NASDAQ"
+            description="기술주 중심 미국 전자거래 시장"
+            data={nasdaq}
+            loading={loading}
+          />
+        </div>
+      </div>
+
+      <div className="market-index-group">
+        <div className="market-index-group-label">일본</div>
+        <div className="market-index-grid">
+          <IndexCard
+            label="닛케이225"
+            description="일본 주요 225개 종목 대표 지수"
+            data={nikkei}
+            loading={loading}
+          />
+        </div>
+      </div>
     </div>
   );
 }

@@ -4,14 +4,8 @@ import { useEffect, useState } from "react";
 
 type StockQuoteData = {
   stockCode: string;
-  name: string;
-  market: string;
-  baseDate: string;
-  closePrice: number | null;
-  changePrice: number | null;
   changeRate: number | null;
   direction: "up" | "down" | "flat" | "unknown";
-  source: string;
 };
 
 type StockQuoteProps = {
@@ -23,32 +17,6 @@ type StockQuoteResponse = {
   message?: string;
   quote: StockQuoteData | null;
 };
-
-function formatDate(value: string) {
-  if (value.length !== 8) {
-    return value || "확인 필요";
-  }
-
-  return `${value.slice(0, 4)}.${value.slice(4, 6)}.${value.slice(6, 8)}`;
-}
-
-function formatWon(value: number | null) {
-  if (value === null) {
-    return "확인 필요";
-  }
-
-  return `${value.toLocaleString("ko-KR")}원`;
-}
-
-function formatChange(value: number | null) {
-  if (value === null) {
-    return "확인 필요";
-  }
-
-  const sign = value > 0 ? "+" : "";
-
-  return `${sign}${value.toLocaleString("ko-KR")}원`;
-}
 
 function formatRate(value: number | null) {
   if (value === null) {
@@ -147,28 +115,17 @@ export default function StockQuote({ stockCode }: StockQuoteProps) {
       {!isLoading && result?.ok && result.quote && (
         <>
           <div className="stock-summary">
-            <div>
-              <div className="stock-label">종가</div>
-              <div className="stock-price">
-                {formatWon(result.quote.closePrice)}
-              </div>
-            </div>
-
-            <div
-              className={`stock-change stock-${result.quote.direction}`}
-            >
+            <div className={`stock-change stock-${result.quote.direction}`}>
               <div className="stock-label">전일 대비</div>
               <div className="stock-change-value">
                 {getDirectionLabel(result.quote.direction)}{" "}
-                {formatChange(result.quote.changePrice)}{" "}
                 {formatRate(result.quote.changeRate)}
               </div>
             </div>
           </div>
 
           <div className="stock-meta">
-            기준일: {formatDate(result.quote.baseDate)} · 출처:{" "}
-            {result.quote.source}
+            출처: Yahoo Finance (15분 지연)
           </div>
 
           <div className="stock-notice">

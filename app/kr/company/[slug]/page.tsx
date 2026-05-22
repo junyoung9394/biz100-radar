@@ -8,6 +8,7 @@ import RecentDisclosures from "@/components/RecentDisclosures";
 import StockQuote from "@/components/StockQuote";
 import { companies, getCompanyBySlug } from "@/data/companies";
 import RelatedCompanies from "@/components/RelatedCompanies";
+import WatchlistButton from "@/components/WatchlistButton";
 
 type CompanyPageProps = {
   params: Promise<{
@@ -181,6 +182,17 @@ export default async function CompanyDetailPage({
               </div>
             )}
           </div>
+
+          <WatchlistButton
+            slug={company.slug}
+            name={company.name}
+            initials={company.initials}
+            country="KR"
+            ticker={company.ticker}
+            market={company.market}
+            industry={company.industry}
+            href={`/kr/company/${company.slug}`}
+          />
 
           <div className="card side-box">
             <h3>기본 정보</h3>

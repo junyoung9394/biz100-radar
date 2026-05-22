@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AdBanner from "@/components/AdBanner";
+import WatchlistButton from "@/components/WatchlistButton";
 import RecentEdinetDisclosures from "@/components/RecentEdinetDisclosures";
 import { getJpCompanyBySlug, jpCompanies } from "@/data/jp-companies";
 
@@ -174,6 +175,17 @@ export default async function JpCompanyDetailPage({
               <span>↗</span>
             </a>
           </div>
+
+          <WatchlistButton
+            slug={company.slug}
+            name={company.name}
+            initials={company.initials}
+            country="JP"
+            ticker={company.ticker}
+            market={company.market}
+            industry={company.industry}
+            href={`/jp/company/${company.slug}`}
+          />
 
           <div className="card side-box">
             <h3>기본 정보</h3>

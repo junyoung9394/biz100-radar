@@ -8,6 +8,7 @@ import RecentDisclosures from "@/components/RecentDisclosures";
 import StockQuote from "@/components/StockQuote";
 import { companies, getCompanyBySlug } from "@/data/companies";
 import RelatedCompanies from "@/components/RelatedCompanies";
+import WatchlistButton from "@/components/WatchlistButton";
 
 type CompanyPageProps = {
   params: Promise<{
@@ -43,7 +44,13 @@ export async function generateMetadata({
     openGraph: {
       title: `${company.name} | Biz100 Radar`,
       description: `${company.name}(${company.ticker}) ${company.industry}. ${descSnippet}.`,
-      url: `https://biz100.luckygrampus.com/kr/company/${company.slug}`
+      url: `https://biz100.luckygrampus.com/kr/company/${company.slug}`,
+      type: "article"
+    },
+    twitter: {
+      card: "summary",
+      title: `${company.name} 기업정보 | Biz100 Radar`,
+      description: `${company.name}(${company.ticker}) ${company.industry}. ${descSnippet}.`
     }
   };
 }
@@ -203,6 +210,17 @@ export default async function CompanyDetailPage({
           </div>
 
           <AdBanner slot="9393781074" label="광고" />
+
+          <WatchlistButton
+            slug={company.slug}
+            name={company.name}
+            initials={company.initials}
+            country="KR"
+            ticker={company.ticker}
+            market={company.market}
+            industry={company.industry}
+            href={`/kr/company/${company.slug}`}
+          />
 
           <div className="card side-box">
             <h3>기본 정보</h3>

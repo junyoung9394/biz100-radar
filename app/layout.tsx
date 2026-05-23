@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from "next";
 import Script from "next/script";
 import Link from "next/link";
+import WatchlistNavBadge from "@/components/WatchlistNavBadge";
 import "./globals.css";
 
 const GTM_ID = "GTM-MCRCLL5R";
@@ -74,9 +75,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <Link href="/kr">한국 기업</Link>
   <Link href="/us">미국 기업</Link>
   <Link href="/jp">일본 기업</Link>
-<Link href="/ranking">재계순위</Link>
+  <Link href="/ranking">재계순위</Link>
   <Link href="/disclaimer">면책문구</Link>
   <Link href="/privacy">개인정보</Link>
+  <WatchlistNavBadge />
 </nav>
           </div>
         </header>

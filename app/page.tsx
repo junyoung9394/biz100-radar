@@ -2,6 +2,8 @@
 import Link from "next/link";
 import AdBanner from "@/components/AdBanner";
 import GlobalCompanySearch from "@/components/GlobalCompanySearch";
+import WatchlistSection from "@/components/WatchlistSection";
+import MarketIndex from "@/components/MarketIndex";
 import StockDirectionBadge from "@/components/StockDirectionBadge";
 import UsStockDirectionBadge from "@/components/UsStockDirectionBadge";
 import { companies } from "@/data/companies";
@@ -215,29 +217,11 @@ export default function HomePage() {
       </div>
     </div>
 
-    <div className="market-index-grid">
-      <div className="market-index-card">
-        <div className="market-index-label">KOSPI</div>
-        <h3>대형 상장기업 중심의 대표 시장</h3>
-        <p>
-          KOSPI는 삼성전자, 현대차, SK하이닉스처럼 규모가 큰 대형 상장기업이
-          많이 포함된 한국 대표 주식시장입니다.
-        </p>
-        <div className="market-index-status">지수 데이터 연결 예정</div>
-      </div>
-
-      <div className="market-index-card">
-        <div className="market-index-label">KOSDAQ</div>
-        <h3>기술·바이오·성장기업 중심 시장</h3>
-        <p>
-          KOSDAQ은 바이오, 게임, 반도체 장비, 소프트웨어, 성장기업이 많이
-          포함된 시장입니다. 중소·벤처기업 비중이 비교적 높습니다.
-        </p>
-        <div className="market-index-status">지수 데이터 연결 예정</div>
-      </div>
-    </div>
+    <MarketIndex />
   </section>
 </section>
+
+<WatchlistSection />
 
 <section className="container section">
   <div className="section-head">

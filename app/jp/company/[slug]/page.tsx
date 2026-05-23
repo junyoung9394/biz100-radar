@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AdBanner from "@/components/AdBanner";
+import WatchlistButton from "@/components/WatchlistButton";
 import RecentEdinetDisclosures from "@/components/RecentEdinetDisclosures";
 import { getJpCompanyBySlug, jpCompanies } from "@/data/jp-companies";
 
@@ -39,7 +40,13 @@ export async function generateMetadata({
     openGraph: {
       title: `${company.name} | Biz100 Radar`,
       description: `${company.name}(${company.ticker}) ${company.industry}. ${descSnippet}.`,
-      url: `https://biz100.luckygrampus.com/jp/company/${company.slug}`
+      url: `https://biz100.luckygrampus.com/jp/company/${company.slug}`,
+      type: "article"
+    },
+    twitter: {
+      card: "summary",
+      title: `${company.name} 기업정보 | Biz100 Radar`,
+      description: `${company.name}(${company.ticker}) ${company.industry}. ${descSnippet}.`
     }
   };
 }
@@ -196,6 +203,17 @@ export default async function JpCompanyDetailPage({
           </div>
 
           <AdBanner slot="9393781074" label="광고" />
+
+          <WatchlistButton
+            slug={company.slug}
+            name={company.name}
+            initials={company.initials}
+            country="JP"
+            ticker={company.ticker}
+            market={company.market}
+            industry={company.industry}
+            href={`/jp/company/${company.slug}`}
+          />
 
           <div className="card side-box">
             <h3>기본 정보</h3>

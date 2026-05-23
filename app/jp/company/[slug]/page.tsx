@@ -189,6 +189,8 @@ export default async function JpCompanyDetailPage({
             </a>
           </div>
 
+          <AdBanner slot="9393781074" label="광고" />
+
           <div className="card side-box">
             <h3>기본 정보</h3>
             <p className="summary">국가: 일본</p>

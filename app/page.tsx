@@ -1,4 +1,5 @@
-﻿import Link from "next/link";
+﻿import type { Metadata } from "next";
+import Link from "next/link";
 import AdBanner from "@/components/AdBanner";
 import GlobalCompanySearch from "@/components/GlobalCompanySearch";
 import StockDirectionBadge from "@/components/StockDirectionBadge";
@@ -6,6 +7,17 @@ import UsStockDirectionBadge from "@/components/UsStockDirectionBadge";
 import { companies } from "@/data/companies";
 import { usCompanies } from "@/data/us-companies";
 import { jpCompanies } from "@/data/jp-companies";
+
+export const metadata: Metadata = {
+  title: "공식자료 기반 기업정보 대시보드",
+  description:
+    "한국·미국·일본 주요 기업의 공식 공시, 재무정보, DART·SEC·EDINET 링크를 한곳에서 확인하세요. 투자 추천 없이 기업정보만 정리합니다.",
+  openGraph: {
+    title: "Biz100 Radar | 공식자료 기반 기업정보 대시보드",
+    description:
+      "한국·미국·일본 주요 기업의 공식 공시, 재무정보, DART·SEC·EDINET 링크를 한곳에서 확인하세요."
+  }
+};
 
 type WatchCompany = {
   slug: string;
@@ -152,6 +164,8 @@ function renderMarketBadge(company: WatchCompany) {
 export default function HomePage() {
   const watchCompanies = getDailyWatchCompanies();
   const featuredCompanies = companies.slice(0, 10);
+  const featuredUsCompanies = usCompanies.slice(0, 6);
+  const featuredJpCompanies = jpCompanies.slice(0, 6);
 
   return (
     <main>
@@ -343,6 +357,82 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <div className="container">
+        <AdBanner slot="9393781074" label="광고" />
+      </div>
+
+      <section className="container section">
+        <div className="section-head">
+          <div>
+            <h2>미국 주요 기업</h2>
+          </div>
+          <Link href="/us" style={{ color: "#2563eb", fontWeight: 950 }}>
+            전체 보기 →
+          </Link>
+        </div>
+
+        <div className="company-grid">
+          {featuredUsCompanies.map((company) => (
+            <Link
+              key={company.slug}
+              href={`/us/company/${company.slug}`}
+              className="card company-card"
+            >
+              <div className="company-row">
+                <div className="initial">{company.initials}</div>
+                <div>
+                  <div className="company-title-row">
+                    <h3>{company.name}</h3>
+                  </div>
+                  <div className="meta">
+                    {company.market} · {company.ticker} · {company.industry}
+                  </div>
+                  <div className="summary">{company.businessSummary}</div>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="container section">
+        <div className="section-head">
+          <div>
+            <h2>일본 주요 기업</h2>
+          </div>
+          <Link href="/jp" style={{ color: "#2563eb", fontWeight: 950 }}>
+            전체 보기 →
+          </Link>
+        </div>
+
+        <div className="company-grid">
+          {featuredJpCompanies.map((company) => (
+            <Link
+              key={company.slug}
+              href={`/jp/company/${company.slug}`}
+              className="card company-card"
+            >
+              <div className="company-row">
+                <div className="initial">{company.initials}</div>
+                <div>
+                  <div className="company-title-row">
+                    <h3>{company.name}</h3>
+                  </div>
+                  <div className="meta">
+                    {company.market} · {company.ticker} · {company.industry}
+                  </div>
+                  <div className="summary">{company.businessSummary}</div>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <div className="container">
+        <AdBanner slot="4333026081" label="광고" />
+      </div>
     </main>
   );
 }

@@ -57,6 +57,8 @@ export default function UsCompaniesPage() {
       <AdBanner slot="4333026081" label="AdSense 상단 광고 영역" />
 
       <UsCompanySearchList companies={usCompanies} />
+
+      <AdBanner slot="9393781074" label="광고" />
     </main>
   );
 }

@@ -32,22 +32,23 @@ export async function generateMetadata({
     };
   }
 
+  const descSnippet = company.businessSummary.slice(0, 70);
   return {
-    title: `${company.name} 기업정보`,
-    description: `${company.name}의 사업 개요, 티커, 거래소, 공식 홈페이지, IR 페이지, SEC 공시 검색 링크를 정리합니다.`,
+    title: `${company.name}(${company.ticker}) 기업정보`,
+    description: `${company.name}(${company.ticker})은 ${descSnippet}. ${company.market} 상장. SEC 공시·재무정보·공식자료 링크 제공.`,
     alternates: {
       canonical: `/us/company/${company.slug}`
     },
     openGraph: {
-      title: `${company.name} 기업정보`,
-      description: `${company.name}의 사업 개요, 티커, 거래소, 공식 홈페이지, IR 페이지, SEC 공시 검색 링크를 정리합니다.`,
-      url: `/us/company/${company.slug}`,
+      title: `${company.name} | Biz100 Radar`,
+      description: `${company.name}(${company.ticker}) ${company.industry}. ${descSnippet}.`,
+      url: `https://biz100.luckygrampus.com/us/company/${company.slug}`,
       type: "article"
     },
     twitter: {
       card: "summary",
       title: `${company.name} 기업정보 | Biz100 Radar`,
-      description: `${company.name}의 사업 개요, 티커, 거래소, 공식 홈페이지, IR 페이지, SEC 공시 검색 링크를 정리합니다.`
+      description: `${company.name}(${company.ticker}) ${company.industry}. ${descSnippet}.`
     }
   };
 }
@@ -201,6 +202,8 @@ export default async function UsCompanyDetailPage({
               <span>↗</span>
             </a>
           </div>
+
+          <AdBanner slot="9393781074" label="광고" />
 
           <WatchlistButton
             slug={company.slug}

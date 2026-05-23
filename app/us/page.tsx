@@ -6,7 +6,12 @@ import { usCompanies } from "@/data/us-companies";
 export const metadata: Metadata = {
   title: "미국 주요 기업",
   description:
-    "미국 주요 상장기업의 사업 개요, 티커, 거래소, 공식 홈페이지, IR 페이지, SEC 공시 검색 링크와 시장 데이터를 정리합니다."
+    "미국 NYSE·NASDAQ 주요 상장기업의 사업 개요, SEC 공시, 재무정보를 정리합니다. Apple, Microsoft, NVIDIA 등 S&P 500 기업 정보.",
+  openGraph: {
+    title: "미국 주요 기업 | Biz100 Radar",
+    description: "미국 NYSE·NASDAQ 주요 상장기업의 사업 개요, SEC 공시, 재무정보를 한곳에서 확인하세요.",
+    url: "https://biz100.luckygrampus.com/us"
+  }
 };
 
 export default function UsCompaniesPage() {

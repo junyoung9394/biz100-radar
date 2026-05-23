@@ -270,10 +270,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="container">
-        <AdBanner slot="4333026081" label="AdSense 상단 광고 영역" />
-      </div>
-
       <section className="container section">
         <div className="feature-grid">
           <div className="card feature-card">

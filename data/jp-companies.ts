@@ -6,6 +6,7 @@ export type JpCompany = {
   country: "JP";
   market: string;
   ticker: string;
+  cik?: string;
   industry: string;
   businessSummary: string;
   keyBusinesses: string[];
@@ -31,8 +32,8 @@ function createJpCompany(
     country: "JP",
     edinetSearchUrl: makeEdinetSearchUrl(),
     sourceNote:
-      "초기 일본 기업 MVP 데이터입니다. EDINET 공시와 재무정보는 다음 단계에서 자동 연동할 예정입니다.",
-    updatedAt: "2026-05-14"
+      "일본 기업 데이터입니다. SEC 20-F 제출 기업은 재무정보가 자동 연동됩니다.",
+    updatedAt: "2026-05-23"
   };
 }
 
@@ -44,6 +45,7 @@ export const jpCompanies: JpCompany[] = [
     initials: "TM",
     market: "TSE Prime",
     ticker: "7203",
+    cik: "0000096831",
     industry: "Automobiles",
     businessSummary:
       "Toyota Motor는 자동차, 하이브리드, 전기차, 수소차, 금융 서비스를 중심으로 사업을 운영하는 일본 대표 자동차 기업입니다.",
@@ -59,6 +61,7 @@ export const jpCompanies: JpCompany[] = [
     initials: "SONY",
     market: "TSE Prime",
     ticker: "6758",
+    cik: "0000313838",
     industry: "Electronics · Entertainment",
     businessSummary:
       "Sony Group은 게임, 음악, 영화, 이미지센서, 전자제품, 금융 사업을 운영하는 글로벌 엔터테인먼트·기술 기업입니다.",
@@ -104,6 +107,7 @@ export const jpCompanies: JpCompany[] = [
     initials: "MUFG",
     market: "TSE Prime",
     ticker: "8306",
+    cik: "0001276747",
     industry: "Banking · Financial Services",
     businessSummary:
       "Mitsubishi UFJ Financial Group은 은행, 신탁, 증권, 카드, 자산관리 등 금융 서비스를 제공하는 일본 대표 금융그룹입니다.",
@@ -119,6 +123,7 @@ export const jpCompanies: JpCompany[] = [
     initials: "SMFG",
     market: "TSE Prime",
     ticker: "8316",
+    cik: "0001301236",
     industry: "Banking · Financial Services",
     businessSummary:
       "Sumitomo Mitsui Financial Group은 은행, 리스, 증권, 카드, 자산관리 사업을 운영하는 일본 대형 금융그룹입니다.",
@@ -134,6 +139,7 @@ export const jpCompanies: JpCompany[] = [
     initials: "MFG",
     market: "TSE Prime",
     ticker: "8411",
+    cik: "0001276520",
     industry: "Banking · Financial Services",
     businessSummary:
       "Mizuho Financial Group은 은행, 신탁, 증권, 자산관리 서비스를 제공하는 일본 주요 금융그룹입니다.",
@@ -149,6 +155,7 @@ export const jpCompanies: JpCompany[] = [
     initials: "HTCH",
     market: "TSE Prime",
     ticker: "6501",
+    cik: "0000799641",
     industry: "Industrial · IT Infrastructure",
     businessSummary:
       "Hitachi는 디지털 시스템, 에너지, 산업, 모빌리티, 사회 인프라 사업을 운영하는 일본 대형 산업·IT 기업입니다.",
@@ -254,6 +261,7 @@ export const jpCompanies: JpCompany[] = [
     initials: "HMC",
     market: "TSE Prime",
     ticker: "7267",
+    cik: "0000091902",
     industry: "Automobiles · Motorcycles",
     businessSummary:
       "Honda Motor는 자동차, 오토바이, 파워프로덕트, 항공기 관련 사업을 운영하는 일본 모빌리티 기업입니다.",
@@ -269,6 +277,7 @@ export const jpCompanies: JpCompany[] = [
     initials: "NSAN",
     market: "TSE Prime",
     ticker: "7201",
+    cik: "0000080548",
     industry: "Automobiles",
     businessSummary:
       "Nissan Motor는 승용차, 전기차, 상용차, 글로벌 자동차 판매 사업을 운영하는 일본 자동차 기업입니다.",
@@ -344,6 +353,7 @@ export const jpCompanies: JpCompany[] = [
     initials: "TAK",
     market: "TSE Prime",
     ticker: "4502",
+    cik: "0001673514",
     industry: "Pharmaceuticals",
     businessSummary:
       "Takeda Pharmaceutical은 전문의약품, 희귀질환, 항암, 소화기, 백신 관련 사업을 운영하는 일본 제약 기업입니다.",
@@ -389,6 +399,7 @@ export const jpCompanies: JpCompany[] = [
     initials: "TDK",
     market: "TSE Prime",
     ticker: "6762",
+    cik: "0000098002",
     industry: "Electronic Components",
     businessSummary:
       "TDK는 전자부품, 센서, 배터리, 자기소재 관련 사업을 운영하는 일본 전자부품 기업입니다.",
@@ -434,6 +445,7 @@ export const jpCompanies: JpCompany[] = [
     initials: "KMT",
     market: "TSE Prime",
     ticker: "6301",
+    cik: "0000055529",
     industry: "Construction Machinery",
     businessSummary:
       "Komatsu는 건설기계, 광산장비, 산업기계, 스마트 건설 솔루션을 제공하는 일본 기계 기업입니다.",
@@ -449,6 +461,7 @@ export const jpCompanies: JpCompany[] = [
     initials: "CAJ",
     market: "TSE Prime",
     ticker: "7751",
+    cik: "0000205527",
     industry: "Imaging · Office Equipment",
     businessSummary:
       "Canon은 카메라, 프린터, 의료기기, 산업장비, 이미징 솔루션 사업을 운영하는 일본 전자 기업입니다.",
@@ -464,6 +477,7 @@ export const jpCompanies: JpCompany[] = [
     initials: "PCRFY",
     market: "TSE Prime",
     ticker: "6752",
+    cik: "0000075388",
     industry: "Electronics · Batteries",
     businessSummary:
       "Panasonic Holdings는 가전, 전장, 배터리, 주거·에너지 솔루션 사업을 운영하는 일본 전자 기업입니다.",

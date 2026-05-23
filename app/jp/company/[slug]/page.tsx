@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import AdBanner from "@/components/AdBanner";
 import WatchlistButton from "@/components/WatchlistButton";
 import RecentEdinetDisclosures from "@/components/RecentEdinetDisclosures";
+import UsFinancialHighlights from "@/components/UsFinancialHighlights";
 import { getJpCompanyBySlug, jpCompanies } from "@/data/jp-companies";
 
 type JpCompanyPageProps = {
@@ -129,6 +130,7 @@ export default async function JpCompanyDetailPage({
             </div>
           </section>
 
+<UsFinancialHighlights cik={company.cik} />
 <RecentEdinetDisclosures ticker={company.ticker} />
 
           <section className="card article-section seo-section">

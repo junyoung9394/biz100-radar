@@ -70,8 +70,6 @@ export default function RankingPage() {
           기업집단 정보를 이해하기 위한 정보성 페이지입니다.
         </p>
       </section>
-<AdBanner slot="4333026081" label="AdSense 재계순위 광고 영역" />
-
       <section className="ranking-list">
         {businessGroups.map((group) => (
           <article

@@ -59,8 +59,6 @@ export default function JpCompaniesPage() {
         </p>
       </section>
 
-      <AdBanner slot="4333026081" label="AdSense 상단 광고 영역" />
-
       <JpCompanySearchList companies={jpCompanies} />
 
       <AdBanner slot="9393781074" label="광고" />

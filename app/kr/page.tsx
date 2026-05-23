@@ -60,8 +60,6 @@ export default function KoreaCompaniesPage() {
         </p>
       </section>
 
-      <AdBanner slot="4333026081" label="AdSense 상단 광고 영역" />
-
       <CompanySearchList companies={companies} />
 
       <AdBanner slot="9393781074" label="광고" />

@@ -7,6 +7,7 @@ import { getUsCompanyBySlug, usCompanies } from "@/data/us-companies";
 import UsStockQuote from "@/components/UsStockQuote";
 import RecentSecFilings from "@/components/RecentSecFilings";
 import RelatedUsCompanies from "@/components/RelatedUsCompanies";
+import UsFinancialHighlights from "@/components/UsFinancialHighlights";
 
 type UsCompanyPageProps = {
   params: Promise<{
@@ -131,6 +132,7 @@ export default async function UsCompanyDetailPage({
             </div>
           </section>
 <UsStockQuote ticker={company.ticker} />
+<UsFinancialHighlights cik={company.cik} />
 <RecentSecFilings cik={company.cik} />
           <section className="card article-section seo-section">
             <h2>{company.name}는 어떤 회사인가요?</h2>

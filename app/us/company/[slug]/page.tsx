@@ -160,7 +160,7 @@ export default async function UsCompanyDetailPage({
             </p>
           </section>
 <RelatedUsCompanies currentCompany={company} companies={usCompanies} />
-          <AdBanner slot="9393781074" label="AdSense 본문중간 광고 영역" />
+          <AdBanner slot="9393781074" label="광고" />
 
           <section className="notice">
             이 페이지는 미국 기업의 사업 개요와 공식자료 링크를 정리하는 정보성

@@ -133,6 +133,8 @@ export default function RankingPage() {
           </article>
         ))}
       </section>
+
+      <AdBanner slot="9393781074" label="광고" />
     </main>
   );
 }

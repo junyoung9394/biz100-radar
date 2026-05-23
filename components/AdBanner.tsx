@@ -13,7 +13,7 @@ type AdBannerProps = {
   label?: string;
 };
 
-export default function AdBanner({ slot }: AdBannerProps) {
+export default function AdBanner({ slot, label }: AdBannerProps) {
   useEffect(() => {
     try {
       window.adsbygoogle = window.adsbygoogle || [];
@@ -25,6 +25,7 @@ export default function AdBanner({ slot }: AdBannerProps) {
 
   return (
     <div className="ad-box">
+      {label && <p className="ad-label">{label}</p>}
       <ins
         className="adsbygoogle"
         style={{ display: "block" }}

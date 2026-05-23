@@ -62,8 +62,31 @@ export default async function UsCompanyDetailPage({
     notFound();
   }
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Corporation",
+        "name": company.name,
+        "description": company.businessSummary,
+        "tickerSymbol": company.ticker,
+        "url": company.officialWebsite
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://biz100.luckygrampus.com" },
+          { "@type": "ListItem", "position": 2, "name": "미국 기업", "item": "https://biz100.luckygrampus.com/us" },
+          { "@type": "ListItem", "position": 3, "name": company.name, "item": `https://biz100.luckygrampus.com/us/company/${company.slug}` }
+        ]
+      }
+    ]
+  };
+
   return (
-    <main>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <main>
       <section className="container detail-hero">
         <Link href="/us" style={{ color: "#2563eb", fontWeight: 950 }}>
           ← 미국 주요 기업 목록
@@ -92,6 +115,8 @@ export default async function UsCompanyDetailPage({
 
       <section className="container detail-layout">
         <article>
+          <AdBanner slot="4333026081" label="광고" />
+
           <section className="card article-section">
             <h2>기업 개요</h2>
             <p>{company.businessSummary}</p>
@@ -203,5 +228,6 @@ export default async function UsCompanyDetailPage({
         </aside>
       </section>
     </main>
+    </>
   );
 }

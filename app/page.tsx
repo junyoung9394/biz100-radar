@@ -339,7 +339,7 @@ export default function HomePage() {
       </section>
 
       <div className="container">
-        <AdBanner slot="9393781074" label="광고" />
+        <AdBanner slot="9393781074" />
       </div>
 
       <section className="container section">
@@ -411,7 +411,7 @@ export default function HomePage() {
       </section>
 
       <div className="container">
-        <AdBanner slot="4333026081" label="광고" />
+        <AdBanner slot="4333026081" />
       </div>
     </main>
   );

@@ -40,7 +40,7 @@ export default function DisclaimerPage() {
         </p>
       </section>
 
-      <AdBanner slot="9393781074" label="광고" />
+      <AdBanner slot="9393781074" />
     </main>
   );
 }

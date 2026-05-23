@@ -41,7 +41,7 @@ export default function PrivacyPage() {
         <p>시행일: 2026년 5월 14일</p>
       </section>
 
-      <AdBanner slot="9393781074" label="광고" />
+      <AdBanner slot="9393781074" />
     </main>
   );
 }

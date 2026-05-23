@@ -62,7 +62,7 @@ export default function KoreaCompaniesPage() {
 
       <CompanySearchList companies={companies} />
 
-      <AdBanner slot="9393781074" label="광고" />
+      <AdBanner slot="9393781074" />
     </main>
   );
 }

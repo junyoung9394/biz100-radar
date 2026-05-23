@@ -121,7 +121,7 @@ export default async function CompanyDetailPage({
 
       <section className="container detail-layout">
         <article>
-          <AdBanner slot="4333026081" label="광고" />
+          <AdBanner slot="4333026081" />
 
           <section className="card article-section">
             <h2>기업 개요</h2>
@@ -150,7 +150,7 @@ export default async function CompanyDetailPage({
 
 <RelatedCompanies currentCompany={company} companies={companies} />
 
-          <AdBanner slot="9393781074" label="AdSense 본문중간 광고 영역" />
+          <AdBanner slot="9393781074" />
 
           <section className="notice">
             이 페이지는 기업의 사업 개요와 공식자료 링크를 정리하는 정보성
@@ -209,7 +209,7 @@ export default async function CompanyDetailPage({
             )}
           </div>
 
-          <AdBanner slot="9393781074" label="광고" />
+          <AdBanner slot="9393781074" />
 
           <WatchlistButton
             slug={company.slug}

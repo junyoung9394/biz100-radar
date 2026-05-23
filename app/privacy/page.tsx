@@ -3,7 +3,12 @@ import AdBanner from "@/components/AdBanner";
 
 export const metadata: Metadata = {
   title: "개인정보처리방침",
-  description: "Biz100 Radar 개인정보처리방침입니다."
+  description: "Biz100 Radar 개인정보처리방침입니다.",
+  openGraph: {
+    title: "개인정보처리방침 | Biz100 Radar",
+    description: "Biz100 Radar의 개인정보 수집·처리 방침을 안내합니다.",
+    url: "https://biz100.luckygrampus.com/privacy"
+  }
 };
 
 export default function PrivacyPage() {

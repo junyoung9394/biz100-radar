@@ -3,7 +3,12 @@ import AdBanner from "@/components/AdBanner";
 
 export const metadata: Metadata = {
   title: "면책문구",
-  description: "Biz100 Radar는 투자 추천이 아닌 기업정보 제공 서비스입니다."
+  description: "Biz100 Radar는 투자 추천이 아닌 기업정보 제공 서비스입니다.",
+  openGraph: {
+    title: "면책문구 | Biz100 Radar",
+    description: "Biz100 Radar는 투자자문·매수매도 추천이 아닌 공식자료 기반 기업정보 서비스입니다.",
+    url: "https://biz100.luckygrampus.com/disclaimer"
+  }
 };
 
 export default function DisclaimerPage() {

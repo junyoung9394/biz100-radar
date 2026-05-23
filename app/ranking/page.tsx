@@ -6,7 +6,13 @@ import { businessGroups, formatFairAssetTotal } from "@/data/business-groups";
 export const metadata: Metadata = {
   title: "재계순위",
   description:
-    "2025년 공정거래위원회 공시대상기업집단 기준 국내 주요 기업집단 92개의 재계순위, 대표자명, 계열회사 수, 공정자산총액을 정리합니다."
+    "2025년 공정거래위원회 공시대상기업집단 기준 국내 주요 기업집단 92개의 재계순위, 대표자명, 계열회사 수, 공정자산총액을 정리합니다.",
+  openGraph: {
+    title: "2025 재계순위 | Biz100 Radar",
+    description:
+      "공정거래위원회 기준 국내 주요 기업집단 92개 재계순위. 삼성, SK, 현대차 등 대기업집단 정보.",
+    url: "https://biz100.luckygrampus.com/ranking"
+  }
 };
 
 function formatRankChange(rankChange: string) {

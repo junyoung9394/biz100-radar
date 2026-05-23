@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import AdBanner from "@/components/AdBanner";
 
 export const metadata: Metadata = {
   title: "개인정보처리방침",
@@ -34,6 +35,8 @@ export default function PrivacyPage() {
 
         <p>시행일: 2026년 5월 14일</p>
       </section>
+
+      <AdBanner slot="9393781074" label="광고" />
     </main>
   );
 }

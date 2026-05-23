@@ -33,11 +33,17 @@ export async function generateMetadata({
     };
   }
 
+  const descSnippet = company.businessSummary.slice(0, 70);
   return {
-    title: `${company.name} 기업정보`,
-    description: `${company.name}의 주요 사업, 공식자료 링크, DART 공시 검색, 최근 확인 포인트를 정리합니다.`,
+    title: `${company.name}(${company.ticker}) 기업정보`,
+    description: `${company.name}(${company.ticker})은 ${descSnippet}. ${company.market} 상장. DART 공시·재무정보·공식자료 링크 제공.`,
     alternates: {
       canonical: `/kr/company/${company.slug}`
+    },
+    openGraph: {
+      title: `${company.name} | Biz100 Radar`,
+      description: `${company.name}(${company.ticker}) ${company.industry}. ${descSnippet}.`,
+      url: `https://biz100.luckygrampus.com/kr/company/${company.slug}`
     }
   };
 }

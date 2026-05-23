@@ -6,7 +6,12 @@ import { companies } from "@/data/companies";
 export const metadata: Metadata = {
   title: "한국 주요 기업",
   description:
-    "한국 주요 상장기업의 사업 개요, 종목코드, 업종, 시장 데이터, 최근 공시, 실적 정보를 정리합니다."
+    "한국 코스피·코스닥 주요 상장기업의 사업 개요, DART 공시, 재무정보를 정리합니다. 삼성전자, SK하이닉스, 현대자동차 등 주요 기업 정보.",
+  openGraph: {
+    title: "한국 주요 기업 | Biz100 Radar",
+    description: "한국 코스피·코스닥 주요 상장기업의 사업 개요, DART 공시, 재무정보를 한곳에서 확인하세요.",
+    url: "https://biz100.luckygrampus.com/kr"
+  }
 };
 
 export default function KoreaCompaniesPage() {

@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import AdBanner from "@/components/AdBanner";
 
 export const metadata: Metadata = {
   title: "면책문구",
@@ -33,6 +34,8 @@ export default function DisclaimerPage() {
           관련 기관의 원문 자료를 직접 확인하시기 바랍니다.
         </p>
       </section>
+
+      <AdBanner slot="9393781074" label="광고" />
     </main>
   );
 }

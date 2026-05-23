@@ -4,10 +4,10 @@ export default function robots(): MetadataRoute.Robots {
   const baseUrl = "https://biz100.luckygrampus.com";
 
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/"
-    },
+    rules: [
+      { userAgent: "*", allow: "/" },
+      { userAgent: "Mediapartners-Google", allow: "/" }
+    ],
     sitemap: `${baseUrl}/sitemap.xml`,
     host: baseUrl
   };

@@ -61,7 +61,7 @@ export default function JpCompaniesPage() {
 
       <JpCompanySearchList companies={jpCompanies} />
 
-      <AdBanner slot="9393781074" label="광고" />
+      <AdBanner slot="9393781074" />
     </main>
   );
 }

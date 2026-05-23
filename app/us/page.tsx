@@ -61,7 +61,7 @@ export default function UsCompaniesPage() {
 
       <UsCompanySearchList companies={usCompanies} />
 
-      <AdBanner slot="9393781074" label="광고" />
+      <AdBanner slot="9393781074" />
     </main>
   );
 }

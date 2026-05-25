@@ -115,8 +115,6 @@ export default async function JpCompanyDetailPage({
 
       <section className="container detail-layout">
         <article>
-          <AdBanner slot="4333026081" />
-
           <section className="card article-section">
             <h2>기업 개요</h2>
             <p>{company.businessSummary}</p>

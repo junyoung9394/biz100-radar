@@ -37,6 +37,11 @@ export const metadata: Metadata = {
     siteName: "Biz100 Radar",
     locale: "ko_KR",
     type: "website"
+  },
+  alternates: {
+    types: {
+      "application/rss+xml": "https://biz100.luckygrampus.com/feed.xml"
+    }
   }
 };
 

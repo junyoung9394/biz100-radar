@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import type { WatchlistItem } from "./WatchlistButton";
+import WatchlistStockBadge from "./WatchlistStockBadge";
 
 const STORAGE_KEY = "biz100-watchlist";
 
@@ -34,8 +35,19 @@ export default function WatchlistSection() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setItems(loadWatchlist().sort((a, b) => b.savedAt - a.savedAt));
+    function refresh() {
+      setItems(loadWatchlist().sort((a, b) => b.savedAt - a.savedAt));
+    }
+
+    refresh();
     setMounted(true);
+
+    function onStorage(e: StorageEvent) {
+      if (e.key === STORAGE_KEY) refresh();
+    }
+
+    window.addEventListener("storage", onStorage);
+    return () => window.removeEventListener("storage", onStorage);
   }, []);
 
   function remove(slug: string, country: WatchlistItem["country"]) {
@@ -59,15 +71,18 @@ export default function WatchlistSection() {
             제거할 수 있습니다.
           </p>
         </div>
+        <span className="watchlist-count-label">{items.length}개 저장됨</span>
       </div>
 
       <div className="watch-grid">
         {items.map((item) => (
-          <div key={`${item.country}-${item.slug}`} className="card watch-card watchlist-card">
+          <div
+            key={`${item.country}-${item.slug}`}
+            className="card watch-card watchlist-card"
+          >
             <Link href={item.href} className="watchlist-card-link">
               <div className="watch-card-top">
                 <div className="initial">{item.initials}</div>
-
                 <div>
                   <div className="company-title-row">
                     <h3>{item.name}</h3>
@@ -75,19 +90,22 @@ export default function WatchlistSection() {
                       {countryLabels[item.country]}
                     </span>
                   </div>
-
                   <div className="meta">
                     {item.market} · {item.ticker} · {item.industry}
                   </div>
+                  <div className="watchlist-quote-row">
+                    <WatchlistStockBadge
+                      country={item.country}
+                      ticker={item.ticker}
+                    />
+                  </div>
                 </div>
               </div>
-
               <div className="watch-card-footer">
                 <span>기업정보 보기</span>
                 <strong>→</strong>
               </div>
             </Link>
-
             <button
               className="watchlist-remove-btn"
               onClick={() => remove(item.slug, item.country)}

@@ -64,23 +64,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   ];
 
+  const today = new Date();
+
   const krCompanyPages: MetadataRoute.Sitemap = companies.map((company) => ({
     url: `${baseUrl}/kr/company/${company.slug}`,
-    lastModified: new Date(company.updatedAt),
+    lastModified: today,
     changeFrequency: "weekly",
     priority: 0.8
   }));
 
   const usCompanyPages: MetadataRoute.Sitemap = usCompanies.map((company) => ({
     url: `${baseUrl}/us/company/${company.slug}`,
-    lastModified: new Date(company.updatedAt),
+    lastModified: today,
     changeFrequency: "weekly",
     priority: 0.75
   }));
 
   const jpCompanyPages: MetadataRoute.Sitemap = jpCompanies.map((company) => ({
     url: `${baseUrl}/jp/company/${company.slug}`,
-    lastModified: new Date(company.updatedAt),
+    lastModified: today,
     changeFrequency: "weekly",
     priority: 0.75
   }));

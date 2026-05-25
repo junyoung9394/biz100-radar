@@ -19,6 +19,17 @@ export const metadata: Metadata = {
       "naver-site-verification": "7fca9af91a8defde8571a8f5b9cc7040646af9ab"
     }
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1
+    }
+  },
   openGraph: {
     title: "Biz100 Radar",
     description: "공식자료 기반 기업정보 대시보드",
@@ -26,6 +37,11 @@ export const metadata: Metadata = {
     siteName: "Biz100 Radar",
     locale: "ko_KR",
     type: "website"
+  },
+  alternates: {
+    types: {
+      "application/rss+xml": "https://biz100.luckygrampus.com/feed.xml"
+    }
   }
 };
 

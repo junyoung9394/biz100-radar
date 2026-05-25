@@ -9,6 +9,7 @@ import StockQuote from "@/components/StockQuote";
 import { companies, getCompanyBySlug } from "@/data/companies";
 import RelatedCompanies from "@/components/RelatedCompanies";
 import WatchlistButton from "@/components/WatchlistButton";
+import { getCategoryForIndustry } from "@/lib/industry-categories";
 
 type CompanyPageProps = {
   params: Promise<{
@@ -108,7 +109,19 @@ export default async function CompanyDetailPage({
 
               <div className="meta">
                 상장시장: {company.market} · 종목코드: {company.ticker} · 업종:{" "}
-                {company.industry}
+                {(() => {
+                  const cat = getCategoryForIndustry(company.industry);
+                  return cat ? (
+                    <Link
+                      href={`/kr/industry/${cat.slug}`}
+                      style={{ color: "#2563eb" }}
+                    >
+                      {company.industry}
+                    </Link>
+                  ) : (
+                    company.industry
+                  );
+                })()}
               </div>
             </div>
           </div>

@@ -1918,3 +1918,310 @@ input {
 .watchlist-nav-badge:hover {
   background: #fef3c7;
 }
+/* ── Industry Index ─────────────────────────────────────── */
+.industry-index-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+@media (max-width: 900px) {
+  .industry-index-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .industry-index-grid { grid-template-columns: 1fr; }
+}
+.industry-index-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+.industry-index-card:hover {
+  border-color: #93c5fd;
+  box-shadow: 0 4px 16px rgba(37,99,235,0.08);
+}
+.industry-index-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.industry-index-card-head h2 {
+  font-size: 16px;
+  font-weight: 800;
+  color: #1e293b;
+}
+.industry-count-badge {
+  font-size: 12px;
+  font-weight: 700;
+  background: #eff6ff;
+  color: #1d4ed8;
+  padding: 3px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.industry-index-card p {
+  font-size: 13px;
+  color: #64748b;
+  flex: 1;
+}
+.industry-index-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+/* ── Industry Category Page ─────────────────────────────── */
+.industry-stats-row {
+  display: flex;
+  gap: 16px;
+  margin: 16px 0 24px;
+  flex-wrap: wrap;
+}
+.industry-stat-item {
+  font-size: 14px;
+  color: #64748b;
+}
+.industry-stat-item strong {
+  color: #1e293b;
+  font-weight: 700;
+}
+.industry-market-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #334155;
+  margin-bottom: 12px;
+  padding-left: 4px;
+  border-left: 3px solid #2563eb;
+}
+.industry-chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.industry-related-section {
+  margin-top: 32px;
+  padding: 24px;
+}
+.industry-related-section h2 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* ── Company Compare ─────────────────────────────────────── */
+.compare-picker-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+@media (max-width: 700px) {
+  .compare-picker-row {
+    grid-template-columns: 1fr;
+  }
+  .compare-vs-divider {
+    text-align: center;
+  }
+}
+.compare-picker {
+  padding: 20px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+.compare-picker-selected {
+  border-color: #93c5fd;
+  background: #f8faff;
+}
+.compare-picker-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.compare-picker-selected-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.compare-change-btn {
+  font-size: 12px;
+  color: #2563eb;
+  background: none;
+  border: 1px solid #bfdbfe;
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+.compare-change-btn:hover {
+  background: #eff6ff;
+}
+.compare-picker-results {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 10;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+.compare-picker-result-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: left;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.1s;
+}
+.compare-picker-result-btn:hover {
+  background: #f8fafc;
+}
+.compare-picker-result-btn:last-child {
+  border-bottom: none;
+}
+.compare-result-initial {
+  font-size: 12px;
+  padding: 4px 6px;
+}
+.compare-vs-divider {
+  font-size: 18px;
+  font-weight: 900;
+  color: #94a3b8;
+  padding-top: 52px;
+  text-align: center;
+}
+.compare-table {
+  padding: 0;
+  overflow: hidden;
+}
+.compare-table-header {
+  display: grid;
+  grid-template-columns: 140px 1fr 1fr;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 16px 20px;
+  gap: 0;
+}
+.compare-col-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 15px;
+}
+.compare-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 1fr;
+  border-bottom: 1px solid #f1f5f9;
+  padding: 12px 20px;
+  gap: 0;
+  font-size: 14px;
+}
+.compare-row:last-child {
+  border-bottom: none;
+}
+.compare-row-same {
+  background: #fafafa;
+}
+.compare-row-summary {
+  align-items: start;
+}
+.compare-row-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding-top: 2px;
+}
+.compare-row-a,
+.compare-row-b {
+  color: #1e293b;
+  padding-right: 16px;
+}
+.compare-actions {
+  display: flex;
+  gap: 12px;
+  padding: 20px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  flex-wrap: wrap;
+}
+.compare-empty {
+  text-align: center;
+  padding: 48px 24px;
+  color: #64748b;
+}
+.compare-empty-hint {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-top: 8px;
+}
+
+/* ── Watchlist Enhancements ─────────────────────────────── */
+.watchlist-count-label {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 600;
+  align-self: flex-end;
+  padding-bottom: 4px;
+}
+.watchlist-quote-row {
+  margin-top: 6px;
+}
+.watchlist-stock-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.watchlist-stock-up {
+  background: #dcfce7;
+  color: #15803d;
+}
+.watchlist-stock-down {
+  background: #fee2e2;
+  color: #dc2626;
+}
+.watchlist-stock-flat {
+  background: #f1f5f9;
+  color: #64748b;
+}
+.watchlist-stock-loading {
+  background: #f1f5f9;
+  color: #94a3b8;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}

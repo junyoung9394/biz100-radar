@@ -829,6 +829,662 @@ export const usCompanies: UsCompany[] = [
     keyBusinesses: ["Aerospace", "Defense", "Missiles", "Space Systems", "Military Aircraft"],
     officialWebsite: "https://www.lockheedmartin.com/",
     irUrl: "https://investors.lockheedmartin.com/"
+  }),
+
+  createUsCompany({
+    slug: "texas-instruments",
+    name: "Texas Instruments",
+    shortName: "Texas Instruments",
+    initials: "TXN",
+    market: "NASDAQ",
+    ticker: "TXN",
+    cik: "0000097476",
+    industry: "Semiconductors · Analog",
+    businessSummary:
+      "Texas Instruments는 아날로그 반도체, 임베디드 프로세서, 산업·자동차용 칩을 설계·제조하는 글로벌 반도체 기업입니다.",
+    keyBusinesses: ["Analog Chips", "Embedded Processors", "Industrial", "Automotive"],
+    officialWebsite: "https://www.ti.com/",
+    irUrl: "https://investor.ti.com/"
+  }),
+
+  createUsCompany({
+    slug: "kla",
+    name: "KLA Corporation",
+    shortName: "KLA",
+    initials: "KLAC",
+    market: "NASDAQ",
+    ticker: "KLAC",
+    cik: "0000319201",
+    industry: "Semiconductor Equipment",
+    businessSummary:
+      "KLA Corporation은 반도체 공정 제어, 계측, 검사 장비를 공급하는 글로벌 반도체 장비 기업입니다.",
+    keyBusinesses: ["Process Control", "Metrology", "Inspection", "Semiconductor Equipment"],
+    officialWebsite: "https://www.kla.com/",
+    irUrl: "https://ir.kla.com/"
+  }),
+
+  createUsCompany({
+    slug: "arm-holdings",
+    name: "Arm Holdings",
+    shortName: "Arm",
+    initials: "ARM",
+    market: "NASDAQ",
+    ticker: "ARM",
+    cik: "0001973421",
+    industry: "Semiconductors · IP Licensing",
+    businessSummary:
+      "Arm Holdings는 모바일·IoT·AI·자동차용 프로세서 설계 IP를 라이선싱하는 글로벌 반도체 IP 기업입니다.",
+    keyBusinesses: ["CPU IP", "GPU IP", "Mobile", "IoT", "Automotive"],
+    officialWebsite: "https://www.arm.com/",
+    irUrl: "https://investors.arm.com/"
+  }),
+
+  createUsCompany({
+    slug: "marvell-technology",
+    name: "Marvell Technology",
+    shortName: "Marvell",
+    initials: "MRVL",
+    market: "NASDAQ",
+    ticker: "MRVL",
+    cik: "0001058057",
+    industry: "Semiconductors · Data Infrastructure",
+    businessSummary:
+      "Marvell Technology는 데이터 인프라, 네트워크, 스토리지, 5G, AI용 반도체 솔루션을 제공하는 기업입니다.",
+    keyBusinesses: ["Data Center", "Networking", "5G", "Storage", "AI Chips"],
+    officialWebsite: "https://www.marvell.com/",
+    irUrl: "https://investor.marvell.com/"
+  }),
+
+  createUsCompany({
+    slug: "crowdstrike",
+    name: "CrowdStrike",
+    shortName: "CrowdStrike",
+    initials: "CRWD",
+    market: "NASDAQ",
+    ticker: "CRWD",
+    cik: "0001535527",
+    industry: "Cybersecurity",
+    businessSummary:
+      "CrowdStrike는 AI 기반 엔드포인트 보안, 클라우드 보안, 위협 인텔리전스 플랫폼을 제공하는 사이버보안 기업입니다.",
+    keyBusinesses: ["Endpoint Security", "Cloud Security", "Threat Intelligence", "AI"],
+    officialWebsite: "https://www.crowdstrike.com/",
+    irUrl: "https://ir.crowdstrike.com/"
+  }),
+
+  createUsCompany({
+    slug: "palo-alto-networks",
+    name: "Palo Alto Networks",
+    shortName: "Palo Alto",
+    initials: "PANW",
+    market: "NASDAQ",
+    ticker: "PANW",
+    cik: "0001327567",
+    industry: "Cybersecurity",
+    businessSummary:
+      "Palo Alto Networks는 네트워크 보안, 클라우드 보안, AI 기반 사이버보안 플랫폼을 제공하는 기업입니다.",
+    keyBusinesses: ["Network Security", "Cloud Security", "SASE", "AI Security"],
+    officialWebsite: "https://www.paloaltonetworks.com/",
+    irUrl: "https://investors.paloaltonetworks.com/"
+  }),
+
+  createUsCompany({
+    slug: "snowflake",
+    name: "Snowflake",
+    shortName: "Snowflake",
+    initials: "SNOW",
+    market: "NYSE",
+    ticker: "SNOW",
+    cik: "0001640147",
+    industry: "Cloud Data Platform",
+    businessSummary:
+      "Snowflake는 클라우드 기반 데이터 웨어하우스, 데이터 공유, AI·ML 워크로드 플랫폼을 제공하는 데이터 기업입니다.",
+    keyBusinesses: ["Data Warehouse", "Data Sharing", "AI/ML", "Cloud Platform"],
+    officialWebsite: "https://www.snowflake.com/",
+    irUrl: "https://investors.snowflake.com/"
+  }),
+
+  createUsCompany({
+    slug: "workday",
+    name: "Workday",
+    shortName: "Workday",
+    initials: "WDAY",
+    market: "NASDAQ",
+    ticker: "WDAY",
+    cik: "0001327811",
+    industry: "Cloud HCM · ERP",
+    businessSummary:
+      "Workday는 인사관리, 재무, 계획, 지출 관리를 위한 클라우드 기반 엔터프라이즈 소프트웨어를 제공하는 기업입니다.",
+    keyBusinesses: ["HCM", "Financial Management", "Planning", "Enterprise Cloud"],
+    officialWebsite: "https://www.workday.com/",
+    irUrl: "https://investor.workday.com/"
+  }),
+
+  createUsCompany({
+    slug: "datadog",
+    name: "Datadog",
+    shortName: "Datadog",
+    initials: "DDOG",
+    market: "NASDAQ",
+    ticker: "DDOG",
+    cik: "0001774198",
+    industry: "Cloud Monitoring · Observability",
+    businessSummary:
+      "Datadog는 클라우드 인프라, 애플리케이션, 보안 모니터링 및 관찰 가능성 플랫폼을 제공하는 소프트웨어 기업입니다.",
+    keyBusinesses: ["Monitoring", "Observability", "APM", "Security", "Cloud"],
+    officialWebsite: "https://www.datadoghq.com/",
+    irUrl: "https://investors.datadoghq.com/"
+  }),
+
+  createUsCompany({
+    slug: "cloudflare",
+    name: "Cloudflare",
+    shortName: "Cloudflare",
+    initials: "NET",
+    market: "NYSE",
+    ticker: "NET",
+    cik: "0001574596",
+    industry: "Network Security · CDN",
+    businessSummary:
+      "Cloudflare는 CDN, 보안, 네트워크 인프라, Zero Trust 솔루션을 제공하는 글로벌 인터넷 인프라 기업입니다.",
+    keyBusinesses: ["CDN", "Security", "Zero Trust", "Network Infrastructure"],
+    officialWebsite: "https://www.cloudflare.com/",
+    irUrl: "https://investors.cloudflare.com/"
+  }),
+
+  createUsCompany({
+    slug: "uber",
+    name: "Uber Technologies",
+    shortName: "Uber",
+    initials: "UBER",
+    market: "NYSE",
+    ticker: "UBER",
+    cik: "0001543151",
+    industry: "Ridesharing · Delivery",
+    businessSummary:
+      "Uber Technologies는 차량 호출, 음식 배달(Uber Eats), 화물 운송, 자율주행 관련 사업을 운영하는 모빌리티 플랫폼 기업입니다.",
+    keyBusinesses: ["Ridesharing", "Uber Eats", "Freight", "Mobility Platform"],
+    officialWebsite: "https://www.uber.com/",
+    irUrl: "https://investor.uber.com/"
+  }),
+
+  createUsCompany({
+    slug: "airbnb",
+    name: "Airbnb",
+    shortName: "Airbnb",
+    initials: "ABNB",
+    market: "NASDAQ",
+    ticker: "ABNB",
+    cik: "0001559720",
+    industry: "Travel · Hospitality",
+    businessSummary:
+      "Airbnb는 단기 숙박 공유, 체험 서비스, 여행 플랫폼을 운영하는 온라인 숙박 공유 기업입니다.",
+    keyBusinesses: ["Short-term Rentals", "Travel", "Experiences", "Marketplace"],
+    officialWebsite: "https://www.airbnb.com/",
+    irUrl: "https://investors.airbnb.com/"
+  }),
+
+  createUsCompany({
+    slug: "block",
+    name: "Block",
+    shortName: "Block",
+    initials: "SQ",
+    market: "NYSE",
+    ticker: "SQ",
+    cik: "0001512673",
+    industry: "Fintech · Payments",
+    businessSummary:
+      "Block은 소상공인 결제(Square), 개인 금융(Cash App), 음악(TIDAL), 비트코인 관련 사업을 운영하는 핀테크 기업입니다.",
+    keyBusinesses: ["Square", "Cash App", "Bitcoin", "Payments", "Fintech"],
+    officialWebsite: "https://block.xyz/",
+    irUrl: "https://investors.block.xyz/"
+  }),
+
+  createUsCompany({
+    slug: "caterpillar",
+    name: "Caterpillar",
+    shortName: "Caterpillar",
+    initials: "CAT",
+    market: "NYSE",
+    ticker: "CAT",
+    cik: "0000018230",
+    industry: "Construction · Mining Equipment",
+    businessSummary:
+      "Caterpillar는 건설기계, 광산장비, 디젤·가스 엔진, 산업용 터빈 등을 생산하는 글로벌 중장비 기업입니다.",
+    keyBusinesses: ["Construction Equipment", "Mining Equipment", "Engines", "Energy"],
+    officialWebsite: "https://www.caterpillar.com/",
+    irUrl: "https://investors.caterpillar.com/"
+  }),
+
+  createUsCompany({
+    slug: "john-deere",
+    name: "Deere & Company",
+    shortName: "John Deere",
+    initials: "DE",
+    market: "NYSE",
+    ticker: "DE",
+    cik: "0000315189",
+    industry: "Agricultural · Construction Equipment",
+    businessSummary:
+      "Deere & Company는 농업기계, 건설장비, 스마트 농업 솔루션, 금융 서비스를 제공하는 글로벌 농기계 기업입니다.",
+    keyBusinesses: ["Agricultural Equipment", "Construction", "Smart Farming", "Financial Services"],
+    officialWebsite: "https://www.deere.com/",
+    irUrl: "https://investors.deere.com/"
+  }),
+
+  createUsCompany({
+    slug: "honeywell",
+    name: "Honeywell",
+    shortName: "Honeywell",
+    initials: "HON",
+    market: "NASDAQ",
+    ticker: "HON",
+    cik: "0000773840",
+    industry: "Industrial · Aerospace",
+    businessSummary:
+      "Honeywell은 항공우주, 빌딩 기술, 안전·생산성 솔루션, 첨단 소재 사업을 운영하는 산업 복합 기업입니다.",
+    keyBusinesses: ["Aerospace", "Building Technologies", "Safety", "Advanced Materials"],
+    officialWebsite: "https://www.honeywell.com/",
+    irUrl: "https://investor.honeywell.com/"
+  }),
+
+  createUsCompany({
+    slug: "ge-vernova",
+    name: "GE Vernova",
+    shortName: "GE Vernova",
+    initials: "GEV",
+    market: "NYSE",
+    ticker: "GEV",
+    cik: "0002003428",
+    industry: "Energy · Power Equipment",
+    businessSummary:
+      "GE Vernova는 가스터빈, 풍력, 그리드 솔루션, 수력발전 등 에너지 인프라 장비와 서비스를 제공하는 기업입니다.",
+    keyBusinesses: ["Gas Power", "Wind Energy", "Grid Solutions", "Hydro"],
+    officialWebsite: "https://www.gevernova.com/",
+    irUrl: "https://investors.gevernova.com/"
+  }),
+
+  createUsCompany({
+    slug: "rtx",
+    name: "RTX Corporation",
+    shortName: "RTX",
+    initials: "RTX",
+    market: "NYSE",
+    ticker: "RTX",
+    cik: "0000101830",
+    industry: "Aerospace · Defense",
+    businessSummary:
+      "RTX Corporation은 항공기 엔진(Pratt & Whitney), 방산 미사일(Raytheon), 항공 시스템(Collins Aerospace) 사업을 운영하는 방산 기업입니다.",
+    keyBusinesses: ["Jet Engines", "Defense Systems", "Missiles", "Avionics"],
+    officialWebsite: "https://www.rtx.com/",
+    irUrl: "https://investors.rtx.com/"
+  }),
+
+  createUsCompany({
+    slug: "northrop-grumman",
+    name: "Northrop Grumman",
+    shortName: "Northrop Grumman",
+    initials: "NOC",
+    market: "NYSE",
+    ticker: "NOC",
+    cik: "0001133421",
+    industry: "Aerospace · Defense",
+    businessSummary:
+      "Northrop Grumman은 스텔스 항공기, 미사일 방어, 우주 시스템, 사이버 방산 솔루션을 제공하는 미국 방산 기업입니다.",
+    keyBusinesses: ["Aerospace", "Defense", "Space Systems", "Cyber Defense"],
+    officialWebsite: "https://www.northropgrumman.com/",
+    irUrl: "https://investors.northropgrumman.com/"
+  }),
+
+  createUsCompany({
+    slug: "amgen",
+    name: "Amgen",
+    shortName: "Amgen",
+    initials: "AMGN",
+    market: "NASDAQ",
+    ticker: "AMGN",
+    cik: "0000820081",
+    industry: "Biotechnology",
+    businessSummary:
+      "Amgen은 항암, 심혈관, 염증, 골질환, 신장질환 분야 바이오의약품을 개발·판매하는 글로벌 바이오테크 기업입니다.",
+    keyBusinesses: ["Oncology", "Cardiovascular", "Inflammation", "Bone Disease"],
+    officialWebsite: "https://www.amgen.com/",
+    irUrl: "https://investors.amgen.com/"
+  }),
+
+  createUsCompany({
+    slug: "gilead-sciences",
+    name: "Gilead Sciences",
+    shortName: "Gilead",
+    initials: "GILD",
+    market: "NASDAQ",
+    ticker: "GILD",
+    cik: "0000882095",
+    industry: "Pharmaceuticals · Biotechnology",
+    businessSummary:
+      "Gilead Sciences는 HIV, 간염, 종양학, 염증성 질환 치료제를 개발·판매하는 글로벌 바이오제약 기업입니다.",
+    keyBusinesses: ["HIV", "Hepatitis", "Oncology", "Inflammation"],
+    officialWebsite: "https://www.gilead.com/",
+    irUrl: "https://investors.gilead.com/"
+  }),
+
+  createUsCompany({
+    slug: "regeneron",
+    name: "Regeneron Pharmaceuticals",
+    shortName: "Regeneron",
+    initials: "REGN",
+    market: "NASDAQ",
+    ticker: "REGN",
+    cik: "0000872589",
+    industry: "Biotechnology",
+    businessSummary:
+      "Regeneron Pharmaceuticals는 안과, 면역질환, 심혈관, 종양학 분야 바이오의약품을 개발하는 미국 바이오테크 기업입니다.",
+    keyBusinesses: ["Ophthalmology", "Immunology", "Cardiovascular", "Oncology"],
+    officialWebsite: "https://www.regeneron.com/",
+    irUrl: "https://investor.regeneron.com/"
+  }),
+
+  createUsCompany({
+    slug: "intuitive-surgical",
+    name: "Intuitive Surgical",
+    shortName: "Intuitive Surgical",
+    initials: "ISRG",
+    market: "NASDAQ",
+    ticker: "ISRG",
+    cik: "0001035267",
+    industry: "Medical Devices · Robotics",
+    businessSummary:
+      "Intuitive Surgical은 다빈치 수술 로봇 시스템과 관련 기구, 서비스를 제공하는 의료 로봇 기업입니다.",
+    keyBusinesses: ["Surgical Robots", "Da Vinci System", "Instruments", "Services"],
+    officialWebsite: "https://www.intuitive.com/",
+    irUrl: "https://isrg.intuitive.com/"
+  }),
+
+  createUsCompany({
+    slug: "thermo-fisher-scientific",
+    name: "Thermo Fisher Scientific",
+    shortName: "Thermo Fisher",
+    initials: "TMO",
+    market: "NYSE",
+    ticker: "TMO",
+    cik: "0000097745",
+    industry: "Life Sciences · Laboratory Equipment",
+    businessSummary:
+      "Thermo Fisher Scientific는 생명과학 연구장비, 분석기기, 진단, 바이오생산 솔루션을 제공하는 글로벌 과학 기업입니다.",
+    keyBusinesses: ["Lab Equipment", "Analytical Instruments", "Diagnostics", "Bioproduction"],
+    officialWebsite: "https://www.thermofisher.com/",
+    irUrl: "https://ir.thermofisher.com/"
+  }),
+
+  createUsCompany({
+    slug: "wells-fargo",
+    name: "Wells Fargo",
+    shortName: "Wells Fargo",
+    initials: "WFC",
+    market: "NYSE",
+    ticker: "WFC",
+    cik: "0000072971",
+    industry: "Banking · Financial Services",
+    businessSummary:
+      "Wells Fargo는 소비자금융, 상업은행, 기업·투자금융, 자산관리 서비스를 제공하는 미국 대형 은행입니다.",
+    keyBusinesses: ["Consumer Banking", "Commercial Banking", "Wealth Management", "Mortgage"],
+    officialWebsite: "https://www.wellsfargo.com/",
+    irUrl: "https://investor.wellsfargo.com/"
+  }),
+
+  createUsCompany({
+    slug: "citigroup",
+    name: "Citigroup",
+    shortName: "Citigroup",
+    initials: "C",
+    market: "NYSE",
+    ticker: "C",
+    cik: "0000831001",
+    industry: "Banking · Financial Services",
+    businessSummary:
+      "Citigroup은 글로벌 소비자은행, 기관 클라이언트 서비스, 결제, 자산관리 사업을 운영하는 글로벌 금융 기업입니다.",
+    keyBusinesses: ["Banking", "Institutional Clients", "Payments", "Wealth Management"],
+    officialWebsite: "https://www.citigroup.com/",
+    irUrl: "https://www.citigroup.com/global/investors"
+  }),
+
+  createUsCompany({
+    slug: "american-express",
+    name: "American Express",
+    shortName: "Amex",
+    initials: "AXP",
+    market: "NYSE",
+    ticker: "AXP",
+    cik: "0000004962",
+    industry: "Financial Services · Payments",
+    businessSummary:
+      "American Express는 프리미엄 신용카드, 결제 네트워크, 여행 서비스, 기업용 금융 솔루션을 제공하는 금융 기업입니다.",
+    keyBusinesses: ["Credit Cards", "Payments", "Travel Services", "Business Solutions"],
+    officialWebsite: "https://www.americanexpress.com/",
+    irUrl: "https://ir.americanexpress.com/"
+  }),
+
+  createUsCompany({
+    slug: "blackrock",
+    name: "BlackRock",
+    shortName: "BlackRock",
+    initials: "BLK",
+    market: "NYSE",
+    ticker: "BLK",
+    cik: "0001364742",
+    industry: "Asset Management",
+    businessSummary:
+      "BlackRock는 ETF(iShares), 리스크 관리, 기관투자, 부동산, AI 투자 인프라 서비스를 제공하는 세계 최대 자산운용사입니다.",
+    keyBusinesses: ["ETF", "iShares", "Risk Management", "Institutional Investing", "Alternatives"],
+    officialWebsite: "https://www.blackrock.com/",
+    irUrl: "https://ir.blackrock.com/"
+  }),
+
+  createUsCompany({
+    slug: "paypal",
+    name: "PayPal",
+    shortName: "PayPal",
+    initials: "PYPL",
+    market: "NASDAQ",
+    ticker: "PYPL",
+    cik: "0001633917",
+    industry: "Fintech · Payments",
+    businessSummary:
+      "PayPal은 온라인 결제, Venmo, 디지털 지갑, 가맹점 솔루션, BNPL 등 디지털 결제 서비스를 제공하는 핀테크 기업입니다.",
+    keyBusinesses: ["Online Payments", "Venmo", "Digital Wallet", "Merchant Solutions", "BNPL"],
+    officialWebsite: "https://www.paypal.com/",
+    irUrl: "https://investor.pypl.com/"
+  }),
+
+  createUsCompany({
+    slug: "att",
+    name: "AT&T",
+    shortName: "AT&T",
+    initials: "T",
+    market: "NYSE",
+    ticker: "T",
+    cik: "0000732717",
+    industry: "Telecommunications",
+    businessSummary:
+      "AT&T는 이동통신, 광대역 인터넷, 기업통신, 5G 네트워크 서비스를 제공하는 미국 대표 통신 기업입니다.",
+    keyBusinesses: ["Wireless", "Broadband", "5G", "Enterprise Communications"],
+    officialWebsite: "https://www.att.com/",
+    irUrl: "https://investors.att.com/"
+  }),
+
+  createUsCompany({
+    slug: "verizon",
+    name: "Verizon Communications",
+    shortName: "Verizon",
+    initials: "VZ",
+    market: "NYSE",
+    ticker: "VZ",
+    cik: "0000732712",
+    industry: "Telecommunications",
+    businessSummary:
+      "Verizon Communications는 이동통신, 광대역, 기업 솔루션, 5G 네트워크 사업을 운영하는 미국 통신 기업입니다.",
+    keyBusinesses: ["Wireless", "5G", "Broadband", "Enterprise Solutions"],
+    officialWebsite: "https://www.verizon.com/",
+    irUrl: "https://www.verizon.com/about/investors"
+  }),
+
+  createUsCompany({
+    slug: "t-mobile",
+    name: "T-Mobile US",
+    shortName: "T-Mobile",
+    initials: "TMUS",
+    market: "NASDAQ",
+    ticker: "TMUS",
+    cik: "0001283699",
+    industry: "Telecommunications",
+    businessSummary:
+      "T-Mobile US는 이동통신, 5G 네트워크, 무선 브로드밴드 서비스를 제공하는 미국 3위 이동통신 기업입니다.",
+    keyBusinesses: ["Wireless", "5G", "Broadband", "Prepaid"],
+    officialWebsite: "https://www.t-mobile.com/",
+    irUrl: "https://investor.t-mobile.com/"
+  }),
+
+  createUsCompany({
+    slug: "conocophillips",
+    name: "ConocoPhillips",
+    shortName: "ConocoPhillips",
+    initials: "COP",
+    market: "NYSE",
+    ticker: "COP",
+    cik: "0001163165",
+    industry: "Energy · Oil & Gas",
+    businessSummary:
+      "ConocoPhillips는 원유·천연가스 탐사 및 생산에 집중하는 미국의 독립 에너지 기업입니다.",
+    keyBusinesses: ["Oil Exploration", "Gas Production", "LNG", "Energy"],
+    officialWebsite: "https://www.conocophillips.com/",
+    irUrl: "https://www.conocophillips.com/investors/"
+  }),
+
+  createUsCompany({
+    slug: "prologis",
+    name: "Prologis",
+    shortName: "Prologis",
+    initials: "PLD",
+    market: "NYSE",
+    ticker: "PLD",
+    cik: "0001045609",
+    industry: "Real Estate · Logistics",
+    businessSummary:
+      "Prologis는 전자상거래, 물류, 공급망 기업을 위한 글로벌 물류 부동산 포트폴리오를 운영하는 리츠(REIT) 기업입니다.",
+    keyBusinesses: ["Logistics Real Estate", "Warehouses", "REIT", "Supply Chain"],
+    officialWebsite: "https://www.prologis.com/",
+    irUrl: "https://ir.prologis.com/"
+  }),
+
+  createUsCompany({
+    slug: "american-tower",
+    name: "American Tower",
+    shortName: "American Tower",
+    initials: "AMT",
+    market: "NYSE",
+    ticker: "AMT",
+    cik: "0001053507",
+    industry: "Real Estate · Telecom Infrastructure",
+    businessSummary:
+      "American Tower는 이동통신, 방송, 데이터 전송을 위한 무선 통신 타워와 인프라를 운영하는 REIT 기업입니다.",
+    keyBusinesses: ["Wireless Towers", "Data Centers", "Telecom Infrastructure", "REIT"],
+    officialWebsite: "https://www.americantower.com/",
+    irUrl: "https://ir.americantower.com/"
+  }),
+
+  createUsCompany({
+    slug: "target",
+    name: "Target",
+    shortName: "Target",
+    initials: "TGT",
+    market: "NYSE",
+    ticker: "TGT",
+    cik: "0000027419",
+    industry: "Retail",
+    businessSummary:
+      "Target는 의류, 가전, 식품, 가정용품 등 다양한 상품을 판매하는 미국 대형 종합 소매 유통 기업입니다.",
+    keyBusinesses: ["Retail", "Grocery", "Apparel", "Electronics", "E-commerce"],
+    officialWebsite: "https://www.target.com/",
+    irUrl: "https://investors.target.com/"
+  }),
+
+  createUsCompany({
+    slug: "lowes",
+    name: "Lowe's Companies",
+    shortName: "Lowe's",
+    initials: "LOW",
+    market: "NYSE",
+    ticker: "LOW",
+    cik: "0000060667",
+    industry: "Home Improvement Retail",
+    businessSummary:
+      "Lowe's Companies는 건축자재, 주택개선용품, 가전, 정원용품을 판매하는 미국 2위 홈임프루브먼트 유통 기업입니다.",
+    keyBusinesses: ["Home Improvement", "Retail", "Building Materials", "Garden"],
+    officialWebsite: "https://www.lowes.com/",
+    irUrl: "https://ir.lowes.com/"
+  }),
+
+  createUsCompany({
+    slug: "cvs-health",
+    name: "CVS Health",
+    shortName: "CVS Health",
+    initials: "CVS",
+    market: "NYSE",
+    ticker: "CVS",
+    cik: "0000064803",
+    industry: "Healthcare · Pharmacy",
+    businessSummary:
+      "CVS Health는 약국 체인, 의약품급여관리, 건강보험(Aetna), 의료 클리닉 사업을 운영하는 헬스케어 기업입니다.",
+    keyBusinesses: ["Pharmacy", "PBM", "Health Insurance", "MinuteClinic"],
+    officialWebsite: "https://www.cvshealth.com/",
+    irUrl: "https://investors.cvshealth.com/"
+  }),
+
+  createUsCompany({
+    slug: "medtronic",
+    name: "Medtronic",
+    shortName: "Medtronic",
+    initials: "MDT",
+    market: "NYSE",
+    ticker: "MDT",
+    cik: "0001613103",
+    industry: "Medical Devices",
+    businessSummary:
+      "Medtronic는 심장, 척추, 신경, 당뇨, 수술 관련 의료기기를 개발·판매하는 글로벌 의료기기 기업입니다.",
+    keyBusinesses: ["Cardiac Devices", "Neuromodulation", "Spine", "Diabetes", "Surgical"],
+    officialWebsite: "https://www.medtronic.com/",
+    irUrl: "https://investorrelations.medtronic.com/"
+  }),
+
+  createUsCompany({
+    slug: "spgi",
+    name: "S&P Global",
+    shortName: "S&P Global",
+    initials: "SPGI",
+    market: "NYSE",
+    ticker: "SPGI",
+    cik: "0000064040",
+    industry: "Financial Data · Ratings",
+    businessSummary:
+      "S&P Global은 신용등급, 금융 데이터, 지수(S&P 500), 시장 인텔리전스, 원자재 시장 정보를 제공하는 금융 데이터 기업입니다.",
+    keyBusinesses: ["Credit Ratings", "Financial Data", "Indices", "Market Intelligence"],
+    officialWebsite: "https://www.spglobal.com/",
+    irUrl: "https://investor.spglobal.com/"
+  }),
+
+  createUsCompany({
+    slug: "moodys",
+    name: "Moody's Corporation",
+    shortName: "Moody's",
+    initials: "MCO",
+    market: "NYSE",
+    ticker: "MCO",
+    cik: "0001059556",
+    industry: "Financial Data · Ratings",
+    businessSummary:
+      "Moody's Corporation은 신용등급, 리스크 분석, 금융 연구·데이터 솔루션을 제공하는 글로벌 금융 분석 기업입니다.",
+    keyBusinesses: ["Credit Ratings", "Risk Analytics", "Financial Data", "Research"],
+    officialWebsite: "https://www.moodys.com/",
+    irUrl: "https://ir.moodys.com/"
   })
 
 ];

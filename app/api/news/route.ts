@@ -1,18 +1,13 @@
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
+
 type NewsArticle = {
   title: string;
   description: string | null;
   url: string;
-  source: { name: string };
+  source: string;
   publishedAt: string;
-  urlToImage: string | null;
-};
-
-type NewsApiResponse = {
-  status: string;
-  articles?: NewsArticle[];
-  message?: string;
 };
 
 const cache = {
@@ -20,15 +15,52 @@ const cache = {
   cachedAt: 0
 };
 
-const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
+const CACHE_TTL_MS = 6 * 60 * 60 * 1000; // 6시간
 
-function isArticleValid(article: NewsArticle) {
-  return (
-    article.title &&
-    article.title !== "[Removed]" &&
-    article.url &&
-    article.url !== "[Removed]"
-  );
+const RSS_FEEDS = [
+  { url: "https://feeds.reuters.com/reuters/businessNews", source: "Reuters" },
+  { url: "https://feeds.bloomberg.com/markets/news.rss", source: "Bloomberg" },
+  { url: "https://www.cnbc.com/id/10001147/device/rss/rss.html", source: "CNBC" },
+  { url: "https://feeds.content.dowjones.io/public/rss/mw_marketpulse", source: "MarketWatch" }
+];
+
+function parseRssItems(xml: string, sourceName: string): NewsArticle[] {
+  const items: NewsArticle[] = [];
+  const itemMatches = xml.matchAll(/<item>([\s\S]*?)<\/item>/g);
+
+  for (const match of itemMatches) {
+    const item = match[1];
+
+    const title = item.match(/<title><!\[CDATA\[(.*?)\]\]><\/title>/)?.[1]
+      ?? item.match(/<title>(.*?)<\/title>/)?.[1]
+      ?? "";
+
+    const link = item.match(/<link>(.*?)<\/link>/)?.[1]
+      ?? item.match(/<link\s[^>]*href="([^"]+)"/)?.[1]
+      ?? "";
+
+    const desc = item.match(/<description><!\[CDATA\[(.*?)\]\]><\/description>/)?.[1]
+      ?? item.match(/<description>(.*?)<\/description>/)?.[1]
+      ?? "";
+
+    const pubDate = item.match(/<pubDate>(.*?)<\/pubDate>/)?.[1] ?? "";
+
+    const cleanTitle = title.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').trim();
+    const cleanDesc = desc.replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').trim().slice(0, 200);
+    const cleanLink = link.trim();
+
+    if (!cleanTitle || !cleanLink || cleanTitle === "Reuters") continue;
+
+    items.push({
+      title: cleanTitle,
+      description: cleanDesc || null,
+      url: cleanLink,
+      source: sourceName,
+      publishedAt: pubDate
+    });
+  }
+
+  return items;
 }
 
 export async function GET() {
@@ -38,49 +70,31 @@ export async function GET() {
     return NextResponse.json({ ok: true, articles: cache.articles, cached: true });
   }
 
-  const apiKey = process.env.NEWS_API_KEY;
-  if (!apiKey) {
-    return NextResponse.json(
-      { ok: false, message: "NEWS_API_KEY가 설정되지 않았습니다.", articles: [] },
-      { status: 200 }
-    );
-  }
-
   try {
-    const [enRes, krRes] = await Promise.allSettled([
-      fetch(
-        `https://newsapi.org/v2/top-headlines?category=business&language=en&pageSize=10&apiKey=${apiKey}`,
-        { next: { revalidate: 0 } }
-      ),
-      fetch(
-        `https://newsapi.org/v2/everything?q=%EA%B2%BD%EC%A0%9C+%EC%A3%BC%EC%8B%9D+%EC%8B%9C%EC%9E%A5&language=ko&sortBy=publishedAt&pageSize=8&apiKey=${apiKey}`,
-        { next: { revalidate: 0 } }
+    const results = await Promise.allSettled(
+      RSS_FEEDS.map(({ url, source }) =>
+        fetch(url, {
+          headers: { "User-Agent": "Mozilla/5.0 (compatible; Biz100Radar/1.0)" },
+          signal: AbortSignal.timeout(8000)
+        })
+          .then((r) => (r.ok ? r.text() : ""))
+          .then((xml) => parseRssItems(xml, source))
       )
-    ]);
+    );
 
-    const enData: NewsApiResponse =
-      enRes.status === "fulfilled" && enRes.value.ok
-        ? await enRes.value.json()
-        : { status: "error", articles: [] };
+    const articles: NewsArticle[] = results
+      .flatMap((r) => (r.status === "fulfilled" ? r.value : []))
+      .slice(0, 15);
 
-    const krData: NewsApiResponse =
-      krRes.status === "fulfilled" && krRes.value.ok
-        ? await krRes.value.json()
-        : { status: "error", articles: [] };
+    if (articles.length > 0) {
+      cache.articles = articles;
+      cache.cachedAt = now;
+    }
 
-    const combined: NewsArticle[] = [
-      ...(krData.articles ?? []).filter(isArticleValid).slice(0, 6),
-      ...(enData.articles ?? []).filter(isArticleValid).slice(0, 9)
-    ];
-
-    cache.articles = combined;
-    cache.cachedAt = now;
-
-    return NextResponse.json({ ok: true, articles: combined, cached: false });
+    return NextResponse.json({ ok: true, articles, cached: false });
   } catch (error) {
     const message = error instanceof Error ? error.message : "뉴스를 가져오지 못했습니다.";
-    console.error("[NEWS_API_ERROR]", message);
-
+    console.error("[NEWS_RSS_ERROR]", message);
     return NextResponse.json({ ok: false, message, articles: [] }, { status: 200 });
   }
 }

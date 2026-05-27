@@ -6,9 +6,8 @@ type NewsArticle = {
   title: string;
   description: string | null;
   url: string;
-  source: { name: string };
+  source: string;
   publishedAt: string;
-  urlToImage: string | null;
 };
 
 type ApiResponse = {
@@ -87,7 +86,7 @@ export default function EconomicNews() {
                 rel="noopener noreferrer"
                 className="card news-card"
               >
-                <div className="news-card-source">{article.source.name}</div>
+                <div className="news-card-source">{article.source}</div>
                 <h3 className="news-card-title">{article.title}</h3>
                 {article.description && (
                   <p className="news-card-desc">{article.description}</p>

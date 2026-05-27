@@ -34,8 +34,7 @@ function buildRssItem(params: {
 export async function GET(): Promise<Response> {
   const now = new Date().toUTCString();
 
-  // KR top 80 companies
-  const krItems = companies.slice(0, 80).map((c) =>
+  const krItems = companies.map((c) =>
     buildRssItem({
       title: `${c.name}(${c.ticker}) 기업정보 — ${c.industry}`,
       link: `${BASE_URL}/kr/company/${c.slug}`,
@@ -45,8 +44,7 @@ export async function GET(): Promise<Response> {
     })
   );
 
-  // US top 30 companies
-  const usItems = usCompanies.slice(0, 30).map((c) =>
+  const usItems = usCompanies.map((c) =>
     buildRssItem({
       title: `${c.name}(${c.ticker}) 미국 기업정보 — ${c.industry}`,
       link: `${BASE_URL}/us/company/${c.slug}`,
@@ -56,8 +54,7 @@ export async function GET(): Promise<Response> {
     })
   );
 
-  // JP top 20 companies
-  const jpItems = jpCompanies.slice(0, 20).map((c) =>
+  const jpItems = jpCompanies.map((c) =>
     buildRssItem({
       title: `${c.name}(${c.ticker}) 일본 기업정보 — ${c.industry}`,
       link: `${BASE_URL}/jp/company/${c.slug}`,

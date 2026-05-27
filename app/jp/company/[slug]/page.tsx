@@ -62,6 +62,7 @@ export default async function JpCompanyDetailPage({
     notFound();
   }
 
+  const pageUrl = `https://biz100.luckygrampus.com/jp/company/${company.slug}`;
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -70,14 +71,49 @@ export default async function JpCompanyDetailPage({
         "name": company.name,
         "description": company.businessSummary,
         "tickerSymbol": company.ticker,
-        "url": company.officialWebsite
+        "memberOf": { "@type": "StockExchange", "name": company.market },
+        "url": company.officialWebsite,
+        "sameAs": company.irUrl
+      },
+      {
+        "@type": "WebPage",
+        "url": pageUrl,
+        "name": `${company.name}(${company.ticker}) 기업정보`,
+        "description": company.businessSummary,
+        "inLanguage": "ko",
+        "isPartOf": { "@type": "WebSite", "url": "https://biz100.luckygrampus.com" }
       },
       {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://biz100.luckygrampus.com" },
           { "@type": "ListItem", "position": 2, "name": "일본 기업", "item": "https://biz100.luckygrampus.com/jp" },
-          { "@type": "ListItem", "position": 3, "name": company.name, "item": `https://biz100.luckygrampus.com/jp/company/${company.slug}` }
+          { "@type": "ListItem", "position": 3, "name": company.name, "item": pageUrl }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": `${company.name}은 어떤 회사입니까?`,
+            "acceptedAnswer": { "@type": "Answer", "text": company.businessSummary }
+          },
+          {
+            "@type": "Question",
+            "name": `${company.name}의 주요 사업 분야는 무엇입니까?`,
+            "acceptedAnswer": { "@type": "Answer", "text": `${company.name}의 주요 사업은 ${company.keyBusinesses.join(', ')} 입니다.` }
+          },
+          {
+            "@type": "Question",
+            "name": `${company.name} 종목코드는 무엇입니까?`,
+            "acceptedAnswer": { "@type": "Answer", "text": `${company.name}의 종목코드는 ${company.ticker}이며, ${company.market}에 상장되어 있습니다.` }
+          },
+          {
+            "@type": "Question",
+            "name": `${company.name} EDINET 공시는 어디서 확인할 수 있습니까?`,
+            "acceptedAnswer": { "@type": "Answer", "text": `${company.name}의 EDINET 공시는 disclosure2.edinet-fsa.go.jp에서 확인하거나, Biz100 Radar의 ${company.name} 페이지에서 최근 공시 링크를 바로 확인할 수 있습니다.` }
+          }
         ]
       }
     ]

@@ -69,6 +69,7 @@ export default async function CompanyDetailPage({
   const hasOfficialWebsite = Boolean(company.officialWebsite);
   const hasIrUrl = Boolean(company.irUrl);
 
+  const pageUrl = `https://biz100.luckygrampus.com/kr/company/${company.slug}`;
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -77,14 +78,49 @@ export default async function CompanyDetailPage({
         "name": company.name,
         "description": company.businessSummary,
         "tickerSymbol": company.ticker,
-        ...(company.officialWebsite && { url: company.officialWebsite })
+        "memberOf": { "@type": "StockExchange", "name": company.market },
+        ...(company.officialWebsite && { url: company.officialWebsite }),
+        ...(company.irUrl && { sameAs: company.irUrl })
+      },
+      {
+        "@type": "WebPage",
+        "url": pageUrl,
+        "name": `${company.name}(${company.ticker}) 기업정보`,
+        "description": company.businessSummary,
+        "inLanguage": "ko",
+        "isPartOf": { "@type": "WebSite", "url": "https://biz100.luckygrampus.com" }
       },
       {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://biz100.luckygrampus.com" },
           { "@type": "ListItem", "position": 2, "name": "한국 기업", "item": "https://biz100.luckygrampus.com/kr" },
-          { "@type": "ListItem", "position": 3, "name": company.name, "item": `https://biz100.luckygrampus.com/kr/company/${company.slug}` }
+          { "@type": "ListItem", "position": 3, "name": company.name, "item": pageUrl }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": `${company.name}은 어떤 회사입니까?`,
+            "acceptedAnswer": { "@type": "Answer", "text": company.businessSummary }
+          },
+          {
+            "@type": "Question",
+            "name": `${company.name}의 주요 사업 분야는 무엇입니까?`,
+            "acceptedAnswer": { "@type": "Answer", "text": `${company.name}의 주요 사업은 ${company.keyBusinesses.join(', ')} 입니다.` }
+          },
+          {
+            "@type": "Question",
+            "name": `${company.name} 종목코드는 무엇입니까?`,
+            "acceptedAnswer": { "@type": "Answer", "text": `${company.name}의 종목코드는 ${company.ticker}이며, ${company.market}에 상장되어 있습니다.` }
+          },
+          {
+            "@type": "Question",
+            "name": `${company.name} DART 공시는 어디서 확인할 수 있습니까?`,
+            "acceptedAnswer": { "@type": "Answer", "text": `${company.name}의 DART 공시는 dart.fss.or.kr에서 기업명 또는 종목코드(${company.ticker})로 검색하거나, Biz100 Radar의 ${company.name} 페이지에서 최근 공시 링크를 확인할 수 있습니다.` }
+          }
         ]
       }
     ]

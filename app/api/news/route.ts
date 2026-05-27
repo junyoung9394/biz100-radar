@@ -18,10 +18,9 @@ const cache = {
 const CACHE_TTL_MS = 6 * 60 * 60 * 1000; // 6시간
 
 const RSS_FEEDS = [
-  { url: "https://feeds.reuters.com/reuters/businessNews", source: "Reuters" },
-  { url: "https://feeds.bloomberg.com/markets/news.rss", source: "Bloomberg" },
-  { url: "https://www.cnbc.com/id/10001147/device/rss/rss.html", source: "CNBC" },
-  { url: "https://feeds.content.dowjones.io/public/rss/mw_marketpulse", source: "MarketWatch" }
+  { url: "https://feeds.bbci.co.uk/news/business/rss.xml", source: "BBC Business" },
+  { url: "https://www.theguardian.com/business/rss", source: "The Guardian" },
+  { url: "https://news.google.com/rss/search?q=economy+stock+market&hl=en-US&gl=US&ceid=US:en", source: "Google News" }
 ];
 
 function parseRssItems(xml: string, sourceName: string): NewsArticle[] {

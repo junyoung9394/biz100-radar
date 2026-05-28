@@ -19,6 +19,7 @@ const CACHE_TTL_MS = 6 * 60 * 60 * 1000; // 6시간
 
 const RSS_FEEDS = [
   { url: "https://www.yna.co.kr/rss/economy.xml", source: "연합뉴스" },
+  { url: "https://www.mk.co.kr/rss/40300001/", source: "매일경제" },
   { url: "https://feeds.reuters.com/reuters/businessNews", source: "Reuters" },
   { url: "https://www.cnbc.com/id/10001147/device/rss/rss.html", source: "CNBC" },
   { url: "https://feeds.content.dowjones.io/public/rss/mw_marketpulse", source: "MarketWatch" }

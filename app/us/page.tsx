@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "미국 주요 기업",
   description:
     "미국 NYSE·NASDAQ 주요 상장기업의 사업 개요, SEC 공시, 재무정보를 정리합니다. Apple, Microsoft, NVIDIA 등 S&P 500 기업 정보.",
+  alternates: {
+    canonical: "https://biz100.luckygrampus.com/us"
+  },
   openGraph: {
     title: "미국 주요 기업 | Biz100 Radar",
     description: "미국 NYSE·NASDAQ 주요 상장기업의 사업 개요, SEC 공시, 재무정보를 한곳에서 확인하세요.",

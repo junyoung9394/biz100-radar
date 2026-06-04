@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "한국 주요 기업",
   description:
     "한국 코스피·코스닥 주요 상장기업의 사업 개요, DART 공시, 재무정보를 정리합니다. 삼성전자, SK하이닉스, 현대자동차 등 주요 기업 정보.",
+  alternates: {
+    canonical: "https://biz100.luckygrampus.com/kr"
+  },
   openGraph: {
     title: "한국 주요 기업 | Biz100 Radar",
     description: "한국 코스피·코스닥 주요 상장기업의 사업 개요, DART 공시, 재무정보를 한곳에서 확인하세요.",

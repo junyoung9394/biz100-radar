@@ -10,86 +10,84 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: new Date("2026-05-23"),
       changeFrequency: "weekly",
       priority: 1
     },
     {
       url: `${baseUrl}/kr`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-05-23"),
       changeFrequency: "weekly",
       priority: 0.9
     },
     {
       url: `${baseUrl}/us`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-05-23"),
       changeFrequency: "weekly",
       priority: 0.85
     },
     {
       url: `${baseUrl}/jp`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-05-23"),
       changeFrequency: "weekly",
       priority: 0.85
     },
     {
       url: `${baseUrl}/ranking`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-05-14"),
       changeFrequency: "monthly",
       priority: 0.8
     },
     {
       url: `${baseUrl}/kr/industry`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-05-14"),
       changeFrequency: "weekly",
       priority: 0.85
     },
     {
       url: `${baseUrl}/kr/compare`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-05-14"),
       changeFrequency: "monthly",
       priority: 0.7
     },
     {
       url: `${baseUrl}/disclaimer`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.5
+      lastModified: new Date("2025-01-01"),
+      changeFrequency: "yearly",
+      priority: 0.3
     },
     {
       url: `${baseUrl}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.5
+      lastModified: new Date("2025-01-01"),
+      changeFrequency: "yearly",
+      priority: 0.3
     }
   ];
 
-  const today = new Date();
-
   const krCompanyPages: MetadataRoute.Sitemap = companies.map((company) => ({
     url: `${baseUrl}/kr/company/${company.slug}`,
-    lastModified: today,
+    lastModified: new Date(company.updatedAt),
     changeFrequency: "weekly",
     priority: 0.8
   }));
 
   const usCompanyPages: MetadataRoute.Sitemap = usCompanies.map((company) => ({
     url: `${baseUrl}/us/company/${company.slug}`,
-    lastModified: today,
+    lastModified: new Date(company.updatedAt),
     changeFrequency: "weekly",
     priority: 0.75
   }));
 
   const jpCompanyPages: MetadataRoute.Sitemap = jpCompanies.map((company) => ({
     url: `${baseUrl}/jp/company/${company.slug}`,
-    lastModified: today,
+    lastModified: new Date(company.updatedAt),
     changeFrequency: "weekly",
     priority: 0.75
   }));
 
   const industryPages: MetadataRoute.Sitemap = industryCategories.map((c) => ({
     url: `${baseUrl}/kr/industry/${c.slug}`,
-    lastModified: new Date(),
+    lastModified: new Date("2026-05-14"),
     changeFrequency: "weekly" as const,
     priority: 0.8
   }));

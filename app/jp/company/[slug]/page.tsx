@@ -31,23 +31,23 @@ export async function generateMetadata({
     };
   }
 
-  const descSnippet = company.businessSummary.slice(0, 70);
+  const keyBizText = company.keyBusinesses.slice(0, 3).join("·");
   return {
-    title: `${company.name}(${company.ticker}) 기업정보`,
-    description: `${company.name}(${company.ticker})은 ${descSnippet}. ${company.market} 상장. EDINET 공시·재무정보·공식자료 링크 제공.`,
+    title: `${company.name}(${company.ticker}) 기업정보 — ${company.industry}`,
+    description: `${company.name}(${company.ticker}) ${company.businessSummary} 주요 사업: ${keyBizText}. EDINET 공시·재무정보·공식자료 링크 제공.`.slice(0, 160),
     alternates: {
       canonical: `/jp/company/${company.slug}`
     },
     openGraph: {
-      title: `${company.name} | Biz100 Radar`,
-      description: `${company.name}(${company.ticker}) ${company.industry}. ${descSnippet}.`,
+      title: `${company.name}(${company.ticker}) | ${company.industry} | Biz100 Radar`,
+      description: `${company.name} ${company.market} 상장. 주요 사업: ${keyBizText}. EDINET 공시·재무정보 한곳에서 확인.`,
       url: `https://biz100.luckygrampus.com/jp/company/${company.slug}`,
       type: "article"
     },
     twitter: {
-      card: "summary",
-      title: `${company.name} 기업정보 | Biz100 Radar`,
-      description: `${company.name}(${company.ticker}) ${company.industry}. ${descSnippet}.`
+      card: "summary_large_image",
+      title: `${company.name}(${company.ticker}) 기업정보 | Biz100 Radar`,
+      description: `${company.name} ${company.industry}. 주요 사업: ${keyBizText}. EDINET 공시·재무정보 확인.`
     }
   };
 }
@@ -72,8 +72,8 @@ export default async function JpCompanyDetailPage({
         "description": company.businessSummary,
         "tickerSymbol": company.ticker,
         "memberOf": { "@type": "StockExchange", "name": company.market },
-        "url": company.officialWebsite,
-        "sameAs": company.irUrl
+        ...(company.officialWebsite && { url: company.officialWebsite }),
+        ...(company.irUrl && { sameAs: company.irUrl })
       },
       {
         "@type": "WebPage",
@@ -152,10 +152,18 @@ export default async function JpCompanyDetailPage({
       <section className="container detail-layout">
         <article>
           <section className="card article-section">
-            <h2>기업 개요</h2>
-            <p>{company.businessSummary}</p>
+            <h2>주요 사업 상세</h2>
 
-            <div className="chips">
+            <ul style={{ paddingLeft: "1.2em", lineHeight: 2 }}>
+              {company.keyBusinesses.map((business) => (
+                <li key={business}>
+                  <strong>{business}</strong>: {company.name}의{" "}
+                  {business} 관련 공시와 실적은 EDINET에서 확인할 수 있습니다.
+                </li>
+              ))}
+            </ul>
+
+            <div className="chips" style={{ marginTop: 16 }}>
               {company.keyBusinesses.map((business) => (
                 <span key={business} className="chip">
                   {business}
@@ -168,28 +176,34 @@ export default async function JpCompanyDetailPage({
 <RecentEdinetDisclosures ticker={company.ticker} />
 
           <section className="card article-section seo-section">
-            <h2>{company.name}는 어떤 회사인가요?</h2>
+            <h2>{company.name} 기업정보 확인 가이드</h2>
 
             <p>
-              {company.name}는 {company.industry} 분야에서 사업을 운영하는 일본
-              상장 기업입니다. 이 페이지에서는 {company.name}의 주요 사업,
-              공식 홈페이지, IR 자료, EDINET 공시 확인 링크를 한곳에서 확인할 수
-              있도록 정리합니다.
+              {company.name}({company.ticker})은 {company.market}에 상장된{" "}
+              {company.industry} 분야 기업입니다. 아래에서 주요 사업별 개요와
+              EDINET 공시 접근 방법을 확인할 수 있습니다.
             </p>
 
-            <h3>{company.name}의 주요 사업</h3>
-            <p>
-              {company.name}의 주요 사업 키워드는{" "}
-              {company.keyBusinesses.join(", ")}입니다. 기업을 볼 때는 단순한
-              주가 흐름뿐 아니라 어떤 사업을 하고 있는지, 공식 공시와 IR 자료에서
-              어떤 변화가 있었는지 함께 확인하는 것이 중요합니다.
-            </p>
+            {company.keyBusinesses.map((business) => (
+              <div key={business}>
+                <h3>
+                  {company.name}의 {business}
+                </h3>
+                <p>
+                  {business}은(는) {company.name}의 핵심 사업 영역 중
+                  하나입니다. {business} 관련 공시, 실적, 유가증권보고서는
+                  EDINET(disclosure2.edinet-fsa.go.jp)에서 종목코드{" "}
+                  {company.ticker}로 검색해 원문을 확인할 수 있습니다.
+                </p>
+              </div>
+            ))}
 
-            <h3>EDINET으로 확인할 수 있는 정보</h3>
+            <h3>EDINET으로 {company.name} 공시를 확인하는 방법</h3>
             <p>
-              일본 상장기업의 유가증권보고서, 반기보고서, 임시보고서 등 주요
-              공시는 EDINET에서 확인할 수 있습니다. Biz100 Radar는 매수·매도
-              추천이 아니라 기업정보 확인을 돕기 위한 정보성 페이지입니다.
+              {company.name}의 유가증권보고서, 반기보고서, 임시보고서 등은
+              EDINET(disclosure2.edinet-fsa.go.jp)에서 종목코드 {company.ticker}로
+              검색하면 원문을 확인할 수 있습니다. Biz100 Radar는 매수·매도 추천이
+              아니라 공식자료 확인을 돕기 위한 기업정보 페이지입니다.
             </p>
           </section>
 

@@ -38,10 +38,34 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     type: "website"
   },
+  twitter: {
+    card: "summary_large_image",
+    site: "@biz100radar",
+    title: "Biz100 Radar | 공식자료 기반 기업정보",
+    description: "뉴스와 주가가 아닌 공식 공시와 공개자료를 기반으로 기업의 사업, 실적, 공시 정보를 정리합니다."
+  },
   alternates: {
+    canonical: "https://biz100.luckygrampus.com",
     types: {
       "application/rss+xml": "https://biz100.luckygrampus.com/feed.xml"
     }
+  }
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Biz100 Radar",
+  "url": "https://biz100.luckygrampus.com",
+  "description": "뉴스와 주가가 아닌 공식 공시와 공개자료를 기반으로 기업의 사업, 실적, 공시 정보를 정리합니다.",
+  "inLanguage": "ko",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://biz100.luckygrampus.com/kr?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
   }
 };
 
@@ -53,6 +77,10 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         {/* Google Tag Manager */}
         <Script id="gtm-init" strategy="beforeInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

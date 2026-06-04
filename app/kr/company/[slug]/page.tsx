@@ -35,23 +35,23 @@ export async function generateMetadata({
     };
   }
 
-  const descSnippet = company.businessSummary.slice(0, 70);
+  const keyBizText = company.keyBusinesses.slice(0, 3).join("·");
   return {
-    title: `${company.name}(${company.ticker}) 기업정보`,
-    description: `${company.name}(${company.ticker})은 ${descSnippet}. ${company.market} 상장. DART 공시·재무정보·공식자료 링크 제공.`,
+    title: `${company.name}(${company.ticker}) 기업정보 — ${company.industry}`,
+    description: `${company.name}(${company.ticker}) ${company.businessSummary} 주요 사업: ${keyBizText}. DART 공시·재무정보·공식자료 링크 제공.`.slice(0, 160),
     alternates: {
       canonical: `/kr/company/${company.slug}`
     },
     openGraph: {
-      title: `${company.name} | Biz100 Radar`,
-      description: `${company.name}(${company.ticker}) ${company.industry}. ${descSnippet}.`,
+      title: `${company.name}(${company.ticker}) | ${company.industry} | Biz100 Radar`,
+      description: `${company.name} ${company.market} 상장. 주요 사업: ${keyBizText}. DART 공시·재무정보 한곳에서 확인.`,
       url: `https://biz100.luckygrampus.com/kr/company/${company.slug}`,
       type: "article"
     },
     twitter: {
       card: "summary_large_image",
-      title: `${company.name} 기업정보 | Biz100 Radar`,
-      description: `${company.name}(${company.ticker}) ${company.industry}. ${descSnippet}.`
+      title: `${company.name}(${company.ticker}) 기업정보 | Biz100 Radar`,
+      description: `${company.name} ${company.industry}. 주요 사업: ${keyBizText}. DART 공시·재무정보 확인.`
     }
   };
 }
@@ -171,10 +171,18 @@ export default async function CompanyDetailPage({
       <section className="container detail-layout">
         <article>
           <section className="card article-section">
-            <h2>기업 개요</h2>
-            <p>{company.businessSummary}</p>
+            <h2>주요 사업 상세</h2>
 
-            <div className="chips">
+            <ul style={{ paddingLeft: "1.2em", lineHeight: 2 }}>
+              {company.keyBusinesses.map((business) => (
+                <li key={business}>
+                  <strong>{business}</strong>: {company.name}의{" "}
+                  {business} 관련 공시와 실적은 DART에서 확인할 수 있습니다.
+                </li>
+              ))}
+            </ul>
+
+            <div className="chips" style={{ marginTop: 16 }}>
               {company.keyBusinesses.map((business) => (
                 <span key={business} className="chip">
                   {business}

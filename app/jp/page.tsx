@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "일본 주요 기업",
   description:
     "일본 도쿄증권거래소 주요 상장기업의 사업 개요, EDINET 공시, 재무정보를 정리합니다. Toyota, Sony, SoftBank 등 주요 기업 정보.",
+  alternates: {
+    canonical: "https://biz100.luckygrampus.com/jp"
+  },
   openGraph: {
     title: "일본 주요 기업 | Biz100 Radar",
     description: "일본 도쿄증권거래소 주요 상장기업의 사업 개요, EDINET 공시, 재무정보를 한곳에서 확인하세요.",

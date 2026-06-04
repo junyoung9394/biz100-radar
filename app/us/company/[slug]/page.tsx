@@ -47,7 +47,7 @@ export async function generateMetadata({
       type: "article"
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: `${company.name} 기업정보 | Biz100 Radar`,
       description: `${company.name}(${company.ticker}) ${company.industry}. ${descSnippet}.`
     }
@@ -74,8 +74,8 @@ export default async function UsCompanyDetailPage({
         "description": company.businessSummary,
         "tickerSymbol": company.ticker,
         "memberOf": { "@type": "StockExchange", "name": company.market },
-        "url": company.officialWebsite,
-        "sameAs": company.irUrl
+        ...(company.officialWebsite && { url: company.officialWebsite }),
+        ...(company.irUrl && { sameAs: company.irUrl })
       },
       {
         "@type": "WebPage",

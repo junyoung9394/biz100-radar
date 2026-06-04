@@ -49,7 +49,7 @@ export async function generateMetadata({
       type: "article"
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: `${company.name} 기업정보 | Biz100 Radar`,
       description: `${company.name}(${company.ticker}) ${company.industry}. ${descSnippet}.`
     }

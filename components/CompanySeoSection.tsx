@@ -11,9 +11,25 @@ export default function CompanySeoSection({ company }: CompanySeoSectionProps) {
 
       <p>
         {company.name}({company.ticker})은 {company.market}에 상장된{" "}
-        {company.industry} 분야 기업입니다. 아래에서 주요 사업별 개요와 공식자료
-        접근 방법을 확인할 수 있습니다.
+        {company.industry} 분야 기업입니다.
+        {company.revenueScale && ` ${company.revenueScale}.`} 아래에서 주요
+        사업별 개요와 공식자료 접근 방법을 확인할 수 있습니다.
       </p>
+
+      {company.checkPoints && company.checkPoints.length > 0 && (
+        <div>
+          <h3>{company.name} 공시·실적에서 확인할 주요 포인트</h3>
+          <ul style={{ paddingLeft: "1.2em", lineHeight: 2 }}>
+            {company.checkPoints.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+          <p style={{ marginTop: 8, fontSize: "0.9em", color: "#6b7280" }}>
+            ※ 위 항목은 투자 추천이 아닌, 공시·사업보고서에서 확인할 수 있는
+            정보 포인트를 정리한 것입니다.
+          </p>
+        </div>
+      )}
 
       {company.keyBusinesses.map((business) => (
         <div key={business}>

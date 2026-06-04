@@ -283,6 +283,9 @@ export default async function CompanyDetailPage({
             <p className="summary">상장시장: {company.market}</p>
             <p className="summary">종목코드: {company.ticker}</p>
             <p className="summary">업종: {company.industry}</p>
+            {company.revenueScale && (
+              <p className="summary">매출 규모: {company.revenueScale}</p>
+            )}
           </div>
 
           <div className="card side-box">

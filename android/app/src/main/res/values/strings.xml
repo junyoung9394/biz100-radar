@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Biz100 Radar</string>
+    <string name="title_activity_main">Biz100 Radar</string>
+    <string name="package_name">com.luckygrampus.biz100radar</string>
+    <string name="custom_url_scheme">com.luckygrampus.biz100radar</string>
+</resources>

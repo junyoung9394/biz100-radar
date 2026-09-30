@@ -12,6 +12,7 @@ import { usCompanies } from "@/data/us-companies";
 import { jpCompanies } from "@/data/jp-companies";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/' },
   title: "공식자료 기반 기업정보 대시보드",
   description:
     "한국·미국·일본 주요 기업의 공식 공시, 재무정보, DART·SEC·EDINET 링크를 한곳에서 확인하세요. 투자 추천 없이 기업정보만 정리합니다.",

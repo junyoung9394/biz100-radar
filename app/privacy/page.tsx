@@ -2,6 +2,7 @@
 import AdBanner from "@/components/AdBanner";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/privacy' },
   title: "개인정보처리방침",
   description: "Biz100 Radar 개인정보처리방침입니다.",
   openGraph: {

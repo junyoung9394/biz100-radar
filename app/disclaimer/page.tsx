@@ -2,6 +2,7 @@
 import AdBanner from "@/components/AdBanner";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/disclaimer' },
   title: "면책문구",
   description: "Biz100 Radar는 투자 추천이 아닌 기업정보 제공 서비스입니다.",
   openGraph: {

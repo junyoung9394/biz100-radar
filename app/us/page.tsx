@@ -4,6 +4,7 @@ import UsCompanySearchList from "@/components/UsCompanySearchList";
 import { usCompanies } from "@/data/us-companies";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/us' },
   title: "미국 주요 기업",
   description:
     "미국 NYSE·NASDAQ 주요 상장기업의 사업 개요, SEC 공시, 재무정보를 정리합니다. Apple, Microsoft, NVIDIA 등 S&P 500 기업 정보.",

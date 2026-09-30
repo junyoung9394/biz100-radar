@@ -112,6 +112,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </p>
           </div>
         </footer>
+      <Script src="/site-analytics.js" strategy="afterInteractive" />
+        <div className="text-center text-xs py-3"><a href="/analytics-info.html">방문 통계 안내·설정</a></div>
       </body>
     </html>
   );

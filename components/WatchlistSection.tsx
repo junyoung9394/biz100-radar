@@ -42,6 +42,7 @@ export default function WatchlistSection() {
     }
 
     refresh();
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate from localStorage after mount
     setMounted(true);
 
     function onStorage(e: StorageEvent) {

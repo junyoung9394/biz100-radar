@@ -1,7 +1,7 @@
-﻿import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import Link from "next/link";
-import WatchlistNavBadge from "@/components/WatchlistNavBadge";
+import SiteNav from "@/components/SiteNav";
 import "./globals.css";
 
 const GTM_ID = "GTM-MCRCLL5R";
@@ -45,6 +45,13 @@ export const metadata: Metadata = {
   }
 };
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0e1014" }
+  ]
+};
+
 export default function RootLayout({
   children
 }: Readonly<{
@@ -52,6 +59,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <head>
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+        />
+      </head>
       <body>
         {/* Google Tag Manager */}
         <Script id="gtm-init" strategy="beforeInteractive">
@@ -77,26 +91,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           crossOrigin="anonymous"
         />
 
+        <Script src="/site-analytics.js" strategy="afterInteractive" />
+
         <header className="site-header">
           <div className="container header-inner">
-            <Link href="/" className="brand">
-              <div className="brand-mark">B100</div>
+            <Link href="/" className="brand" aria-label="Biz100 Radar 홈">
+              <div className="brand-mark" aria-hidden="true">B100</div>
               <div>
                 <div className="brand-title">Biz100 Radar</div>
                 <div className="brand-sub">공식자료 기반 기업정보</div>
               </div>
             </Link>
 
-<nav className="nav">
-  <Link href="/kr">한국 기업</Link>
-  <Link href="/us">미국 기업</Link>
-  <Link href="/jp">일본 기업</Link>
-  <Link href="/kr/industry">업종별</Link>
-  <Link href="/kr/compare">기업 비교</Link>
-  <Link href="/ranking">재계순위</Link>
-  <Link href="/disclaimer">면책문구</Link>
-  <WatchlistNavBadge />
-</nav>
+            <SiteNav />
           </div>
         </header>
 
@@ -104,7 +111,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         <footer className="footer">
           <div className="container footer-inner">
-            <strong>Biz100 Radar</strong>
+            <div className="footer-top">
+              <div className="footer-brand">
+                <div className="brand-mark brand-mark-sm" aria-hidden="true">B100</div>
+                <strong>Biz100 Radar</strong>
+              </div>
+              <nav className="footer-links" aria-label="사이트 정보">
+                <Link href="/kr">한국 기업</Link>
+                <Link href="/us">미국 기업</Link>
+                <Link href="/jp">일본 기업</Link>
+                <Link href="/ranking">재계순위</Link>
+                <Link href="/disclaimer">면책문구</Link>
+                <Link href="/privacy">개인정보처리방침</Link>
+                <a href="/feed.xml">RSS</a>
+              </nav>
+            </div>
             <p>
               본 사이트는 투자 추천, 매수·매도 의견, 목표가 제시를 제공하지 않습니다.
               기업의 공식 공시, 공개자료, 공식 홈페이지 링크를 바탕으로 기업정보를 정리하는

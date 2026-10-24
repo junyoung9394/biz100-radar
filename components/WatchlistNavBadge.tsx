@@ -20,6 +20,7 @@ export default function WatchlistNavBadge() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate from localStorage after mount
     setCount(getCount());
 
     function onStorage(e: StorageEvent) {

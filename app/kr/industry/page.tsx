@@ -29,10 +29,10 @@ export default function IndustryIndexPage() {
   return (
     <main className="container">
       <section className="page-title">
-        <Link href="/kr" style={{ color: "#2563eb", fontWeight: 950 }}>
+        <Link href="/kr" className="back-link">
           ← 한국 기업 전체 목록
         </Link>
-        <span className="badge" style={{ marginTop: "12px" }}>Industry Index</span>
+        <span className="badge">Industry Index</span>
         <h1>업종별 기업 목록</h1>
         <p>
           반도체, 2차전지, 자동차, 제약·바이오, 방산, 조선 등 주요 업종별로

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import AdBanner from "@/components/AdBanner";
 import GlobalCompanySearch from "@/components/GlobalCompanySearch";
@@ -237,7 +237,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <Link href="/kr" style={{ color: "#2563eb", fontWeight: 950 }}>
+          <Link href="/kr" className="text-link">
             전체 기업 보기 →
           </Link>
         </div>
@@ -307,7 +307,7 @@ export default function HomePage() {
             <h2>한국 주요 기업</h2>
           </div>
 
-          <Link href="/kr" style={{ color: "#2563eb", fontWeight: 950 }}>
+          <Link href="/kr" className="text-link">
             전체 보기 →
           </Link>
         </div>
@@ -350,7 +350,7 @@ export default function HomePage() {
           <div>
             <h2>미국 주요 기업</h2>
           </div>
-          <Link href="/us" style={{ color: "#2563eb", fontWeight: 950 }}>
+          <Link href="/us" className="text-link">
             전체 보기 →
           </Link>
         </div>
@@ -384,7 +384,7 @@ export default function HomePage() {
           <div>
             <h2>일본 주요 기업</h2>
           </div>
-          <Link href="/jp" style={{ color: "#2563eb", fontWeight: 950 }}>
+          <Link href="/jp" className="text-link">
             전체 보기 →
           </Link>
         </div>

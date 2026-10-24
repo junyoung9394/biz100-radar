@@ -95,11 +95,11 @@ export default async function IndustryCategoryPage({ params }: Props) {
         <section className="page-title">
           <Link
             href="/kr/industry"
-            style={{ color: "#2563eb", fontWeight: 950 }}
+            className="back-link"
           >
             ← 업종별 목록
           </Link>
-          <span className="badge" style={{ marginTop: "12px" }}>
+          <span className="badge">
             {category.nameEn}
           </span>
           <h1>{category.name} 기업 목록</h1>

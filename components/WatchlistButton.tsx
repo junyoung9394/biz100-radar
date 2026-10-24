@@ -60,6 +60,7 @@ export default function WatchlistButton({
 
   useEffect(() => {
     const list = loadWatchlist();
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate from localStorage after mount
     setSaved(list.some((item) => item.slug === slug && item.country === country));
     setMounted(true);
   }, [slug, country]);

@@ -123,10 +123,10 @@ export default function ComparePage() {
   return (
     <main className="container">
       <section className="page-title">
-        <Link href="/kr" style={{ color: "#2563eb", fontWeight: 950 }}>
+        <Link href="/kr" className="back-link">
           ← 한국 기업 목록
         </Link>
-        <span className="badge" style={{ marginTop: "12px" }}>Compare</span>
+        <span className="badge">Compare</span>
         <h1>기업 비교</h1>
         <p>
           두 기업의 업종, 시장, 주요 사업, 키워드를 나란히 비교합니다.

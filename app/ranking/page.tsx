@@ -27,6 +27,22 @@ function formatRankChange(rankChange: string) {
   return `전년 대비 ${rankChange}`;
 }
 
+function getRankChangeTone(rankChange: string) {
+  if (rankChange === "신규") {
+    return "is-new";
+  }
+
+  if (rankChange.includes("↑")) {
+    return "is-up";
+  }
+
+  if (rankChange.includes("↓")) {
+    return "is-down";
+  }
+
+  return "is-flat";
+}
+
 export default function RankingPage() {
   return (
     <main className="container">
@@ -70,72 +86,79 @@ export default function RankingPage() {
           기업집단 정보를 이해하기 위한 정보성 페이지입니다.
         </p>
       </section>
-      <section className="ranking-list">
-        {businessGroups.map((group) => (
-          <article
-            key={`${group.rank}-${group.groupName}`}
-            className="card ranking-card"
-          >
-            <div className="ranking-rank">
-              <span>{group.rank}</span>
-              <strong>위</strong>
-            </div>
+      <section className="card table-card ranking-table-card">
+        <div className="table-card-head">
+          <h2>기업집단 순위표</h2>
+          <span className="table-card-meta">
+            총 {businessGroups.length}개 · 단위: 십억 원
+          </span>
+        </div>
 
-            <div className="ranking-content">
-              <div className="ranking-card-head">
-                <div>
-                  <div className="meta">
-                    {group.baseYear}년 기준 · {formatRankChange(group.rankChange)}
+        <table className="data-table ranking-table">
+          <thead>
+            <tr>
+              <th scope="col" className="col-rank">순위</th>
+              <th scope="col">기업집단</th>
+              <th scope="col">대표자명</th>
+              <th scope="col" className="num">계열회사 수</th>
+              <th scope="col" className="num">공정자산총액</th>
+              <th scope="col" className="num">전년 순위</th>
+            </tr>
+          </thead>
+          <tbody>
+            {businessGroups.map((group) => (
+              <tr key={`${group.rank}-${group.groupName}`} className="ranking-row">
+                <td className="col-rank">
+                  <span className="rank-number">{group.rank}</span>
+                  <span className="rank-unit">위</span>
+                </td>
+
+                <td className="col-group">
+                  <div className="ranking-group-head">
+                    <h2>{group.displayName}</h2>
+                    <span className={`rank-change ${getRankChangeTone(group.rankChange)}`}>
+                      {formatRankChange(group.rankChange)}
+                    </span>
                   </div>
 
-                  <h2>{group.displayName}</h2>
-                </div>
+                  <div className="ranking-group-meta">
+                    {group.baseYear}년 기준 · <span className="ranking-badge">공시대상기업집단</span>
+                  </div>
 
-                <span className="ranking-badge">공시대상기업집단</span>
-              </div>
-
-              <div className="ranking-stats">
-                <div>
-                  <span>대표자명</span>
-                  <strong>{group.controller}</strong>
-                </div>
-
-                <div>
-                  <span>계열회사 수</span>
-                  <strong>
-                    {group.affiliateCount.toLocaleString("ko-KR")}개
-                  </strong>
-                </div>
-
-                <div>
-                  <span>공정자산총액</span>
-                  <strong>{formatFairAssetTotal(group.fairAssetTotalBillion)}</strong>
-                </div>
-
-                <div>
-                  <span>전년 순위</span>
-                  <strong>
-                    {group.previousRank ? `${group.previousRank}위` : "신규"}
-                  </strong>
-                </div>
-              </div>
-
-              {group.majorCompanies.length > 0 && (
-                <div className="ranking-company-links">
-                  {group.majorCompanies.map((company) =>
-                    company.href ? (
-                      <Link key={company.name} href={company.href}>
-                        {company.name}
-                      </Link>
-                    ) : (
-                      <span key={company.name}>{company.name}</span>
-                    )
+                  {group.majorCompanies.length > 0 && (
+                    <div className="ranking-company-links">
+                      {group.majorCompanies.map((company) =>
+                        company.href ? (
+                          <Link key={company.name} href={company.href}>
+                            {company.name}
+                          </Link>
+                        ) : (
+                          <span key={company.name}>{company.name}</span>
+                        )
+                      )}
+                    </div>
                   )}
-                </div>
-              )}
-            </div>
-          </article>
-        ))}
+                </td>
+
+                <td className="col-controller" data-label="대표자명">
+                  {group.controller}
+                </td>
+
+                <td className="num" data-label="계열회사 수">
+                  {group.affiliateCount.toLocaleString("ko-KR")}개
+                </td>
+
+                <td className="num col-asset" data-label="공정자산총액">
+                  {formatFairAssetTotal(group.fairAssetTotalBillion)}
+                </td>
+
+                <td className="num" data-label="전년 순위">
+                  {group.previousRank ? `${group.previousRank}위` : "신규"}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </section>
 
       <AdBanner slot="9393781074" />

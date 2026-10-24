@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Shared analytics snippet copied verbatim from the sister sites.
+    "public/site-analytics.js",
   ]),
 ]);
 

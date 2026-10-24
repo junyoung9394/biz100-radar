@@ -21,18 +21,6 @@ type ModalCompany = {
   href: string;
 };
 
-const countryColors: Record<ModalCompany["country"], string> = {
-  KR: "#1d4ed8",
-  US: "#7c3aed",
-  JP: "#b45309"
-};
-
-const countryBgs: Record<ModalCompany["country"], string> = {
-  KR: "#eff6ff",
-  US: "#f5f3ff",
-  JP: "#fffbeb"
-};
-
 function buildAllCompanies(): ModalCompany[] {
   return [
     ...companies.map((c) => ({
@@ -103,6 +91,7 @@ export default function AddToWatchlistModal({ onClose }: Props) {
   const allCompanies = useMemo(() => buildAllCompanies(), []);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate from localStorage after mount
     setWatchlist(loadWatchlist());
     inputRef.current?.focus();
 
@@ -156,6 +145,7 @@ export default function AddToWatchlistModal({ onClose }: Props) {
           market: company.market,
           industry: company.industry,
           href: company.href,
+          // eslint-disable-next-line react-hooks/purity -- runs in a click handler, not during render
           savedAt: Date.now()
         }
       ];
@@ -205,11 +195,7 @@ export default function AddToWatchlistModal({ onClose }: Props) {
                   <div className="modal-company-name-row">
                     <span className="modal-company-name">{company.name}</span>
                     <span
-                      className="modal-country-badge"
-                      style={{
-                        color: countryColors[company.country],
-                        background: countryBgs[company.country]
-                      }}
+                      className={`modal-country-badge country-${company.country.toLowerCase()}`}
                     >
                       {company.countryLabel}
                     </span>

@@ -121,7 +121,7 @@ export default function UsCompanySearchList({
                 </div>
               </div>
 
-              <strong style={{ color: "#2563eb", whiteSpace: "nowrap" }}>
+              <strong className="list-cta">
                 기업정보 보기 →
               </strong>
             </div>

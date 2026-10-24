@@ -126,11 +126,11 @@ export default async function UsCompanyDetailPage({
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <main>
       <section className="container detail-hero">
-        <Link href="/us" style={{ color: "#2563eb", fontWeight: 950 }}>
+        <Link href="/us" className="back-link">
           ← 미국 주요 기업 목록
         </Link>
 
-        <div className="card detail-head" style={{ marginTop: 18 }}>
+        <div className="card detail-head">
           <div className="detail-title">
             <div className="big-initial">{company.initials}</div>
 
@@ -145,7 +145,7 @@ export default async function UsCompanyDetailPage({
             </div>
           </div>
 
-          <p className="summary" style={{ marginTop: 24, fontSize: 16 }}>
+          <p className="detail-summary">
             {company.businessSummary}
           </p>
         </div>

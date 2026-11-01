@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 
 type StockQuoteData = {
   stockCode: string;
+  currentPrice: number | null;
+  changePrice: number | null;
+  previousClose: number | null;
   changeRate: number | null;
   direction: "up" | "down" | "flat" | "unknown";
 };
@@ -17,6 +20,24 @@ type StockQuoteResponse = {
   message?: string;
   quote: StockQuoteData | null;
 };
+
+function formatWon(value: number | null) {
+  if (value === null) {
+    return "확인 필요";
+  }
+
+  return `${Math.round(value).toLocaleString("ko-KR")}원`;
+}
+
+function formatChange(value: number | null) {
+  if (value === null) {
+    return "";
+  }
+
+  const sign = value > 0 ? "+" : "";
+
+  return `${sign}${Math.round(value).toLocaleString("ko-KR")}원`;
+}
 
 function formatRate(value: number | null) {
   if (value === null) {
@@ -115,17 +136,26 @@ export default function StockQuote({ stockCode }: StockQuoteProps) {
       {!isLoading && result?.ok && result.quote && (
         <>
           <div className="stock-summary">
+            <div>
+              <div className="stock-label">현재가</div>
+              <div className="stock-price">
+                {formatWon(result.quote.currentPrice)}
+              </div>
+            </div>
+
             <div className={`stock-change stock-${result.quote.direction}`}>
               <div className="stock-label">전일 대비</div>
               <div className="stock-change-value">
                 {getDirectionLabel(result.quote.direction)}{" "}
+                {formatChange(result.quote.changePrice)}{" "}
                 {formatRate(result.quote.changeRate)}
               </div>
             </div>
           </div>
 
           <div className="stock-meta">
-            출처: Yahoo Finance (15분 지연)
+            이전 종가: {formatWon(result.quote.previousClose)} · 출처: Yahoo
+            Finance (15분 지연)
           </div>
 
           <div className="stock-notice">

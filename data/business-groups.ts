@@ -24,9 +24,9 @@ export const businessGroups: BusinessGroup[] = [
     baseYear: 2025,
     majorCompanies: [
       { name: "삼성전자", href: "/kr/company/samsung-electronics" },
-      { name: "삼성물산", href: "/kr/company/samsung-cnt" },
+      { name: "삼성물산", href: "/kr/company/samsung-c-and-t" },
       { name: "삼성생명", href: "/kr/company/samsung-life" },
-      { name: "삼성화재", href: "/kr/company/samsung-fire-marine" },
+      { name: "삼성화재", href: "/kr/company/samsung-fire" },
       { name: "삼성SDS", href: "/kr/company/samsung-sds" },
     ]
   },
@@ -42,7 +42,7 @@ export const businessGroups: BusinessGroup[] = [
     baseYear: 2025,
     majorCompanies: [
       { name: "SK하이닉스", href: "/kr/company/sk-hynix" },
-      { name: "SK", href: "/kr/company/sk-inc" },
+      { name: "SK", href: "/kr/company/sk" },
       { name: "SK텔레콤", href: "/kr/company/sk-telecom" },
       { name: "SKC", href: "/kr/company/skc" },
       { name: "SK바이오팜", href: "/kr/company/sk-biopharmaceuticals" },
@@ -95,7 +95,7 @@ export const businessGroups: BusinessGroup[] = [
     fairAssetTotalBillion: 143316.479,
     baseYear: 2025,
     majorCompanies: [
-      { name: "롯데지주", href: "/kr/company/lotte-holdings" },
+      { name: "롯데지주", href: "/kr/company/lotte-holdings-korea" },
       { name: "롯데쇼핑", href: "/kr/company/lotte-shopping" },
       { name: "롯데케미칼", href: "/kr/company/lotte-chemical" },
       { name: "롯데웰푸드", href: "/kr/company/lotte-wellfood" },

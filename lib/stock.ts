@@ -1,5 +1,8 @@
 export type StockQuote = {
   stockCode: string;
+  currentPrice: number | null;
+  changePrice: number | null;
+  previousClose: number | null;
   changeRate: number | null;
   direction: "up" | "down" | "flat" | "unknown";
 };
@@ -63,6 +66,9 @@ export async function fetchStockQuote({
   if (price === null || prevClose === null || prevClose === 0) {
     return {
       stockCode,
+      currentPrice: price,
+      changePrice: null,
+      previousClose: prevClose,
       changeRate: null,
       direction: "unknown"
     };
@@ -73,6 +79,9 @@ export async function fetchStockQuote({
 
   return {
     stockCode,
+    currentPrice: price,
+    changePrice: change,
+    previousClose: prevClose,
     changeRate,
     direction: getDirection(change)
   };

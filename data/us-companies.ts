@@ -27,7 +27,7 @@ function createUsCompany(company: Omit<UsCompany, "country" | "secSearchUrl" | "
     country: "US",
     secSearchUrl: makeSecSearchUrl(company.ticker),
     sourceNote:
-      "초기 미국 기업 MVP 데이터입니다. SEC EDGAR 공시와 재무정보는 다음 단계에서 자동 연동할 예정입니다.",
+      "기업 개요는 Biz100 Radar가 정리했고, 공시와 재무정보는 SEC EDGAR 공식 자료에서 자동으로 불러옵니다. 주가는 Yahoo Finance 기준(15분 지연)입니다.",
     updatedAt: "2026-05-14"
   };
 }

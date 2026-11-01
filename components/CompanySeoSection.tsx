@@ -1,46 +1,128 @@
-import type { Company } from "@/data/companies";
+import Link from "next/link";
+import { businessGroups } from "@/data/business-groups";
+import { companies, type Company } from "@/data/companies";
+import { getCategoryForIndustry } from "@/lib/industry-categories";
+import { withTopicParticle } from "@/lib/korean";
 
 type CompanySeoSectionProps = {
   company: Company;
 };
 
+const marketDescriptions: Record<string, string> = {
+  KOSPI: "대형 상장기업 중심의 유가증권시장(KOSPI)",
+  KOSDAQ: "기술·성장기업 중심의 코스닥 시장(KOSDAQ)"
+};
+
+function getPeerCompanies(company: Company) {
+  const category = getCategoryForIndustry(company.industry);
+
+  if (!category) {
+    return { category, peers: [] as Company[] };
+  }
+
+  const peers = companies.filter(
+    (other) =>
+      other.slug !== company.slug &&
+      category.industryKeywords.some(
+        (keyword) => keyword.toLowerCase() === other.industry.toLowerCase()
+      )
+  );
+
+  return { category, peers };
+}
+
+function getBusinessGroup(company: Company) {
+  return businessGroups.find((group) =>
+    group.majorCompanies.some(
+      (member) =>
+        member.href === `/kr/company/${company.slug}` ||
+        member.name === company.name
+    )
+  );
+}
+
 export default function CompanySeoSection({ company }: CompanySeoSectionProps) {
   const keyBusinessText = company.keyBusinesses.join(", ");
+  const subject = withTopicParticle(company.name);
+  const marketText = marketDescriptions[company.market] ?? company.market;
+  const { category, peers } = getPeerCompanies(company);
+  const shownPeers = peers.slice(0, 6);
+  const group = getBusinessGroup(company);
+  const groupMates = group
+    ? group.majorCompanies.filter((member) => member.name !== company.name)
+    : [];
 
   return (
     <section className="card article-section seo-section">
-      <h2>{company.name}는 어떤 회사인가요?</h2>
+      <h2>{subject} 어떤 회사인가요?</h2>
 
       <p>
-        {company.name}는 {company.industry} 분야에서 사업을 운영하는
-        {company.market} 상장 기업입니다. 이 페이지에서는 {company.name}의
-        주요 사업, 공식자료 링크, 최근 공시, 실적 변화, 시장 데이터를 한눈에
-        확인할 수 있도록 정리합니다.
+        {subject} {marketText}에 상장된 {company.industry} 기업으로,
+        종목코드는 {company.ticker}입니다. 주요 사업 키워드는 {keyBusinessText}
+        입니다.
       </p>
 
-      <h3>{company.name}의 주요 사업</h3>
-      <p>
-        {company.name}의 주요 사업 키워드는 {keyBusinessText}입니다.{" "}
-        {company.businessSummary} 기업을 볼 때는 단순한 주가 흐름뿐 아니라
-        어떤 사업을 하고 있는지, 최근 공시에서 어떤 변화가 있었는지, 실적
-        항목이 어떻게 움직이는지를 함께 확인하는 것이 중요합니다.
-      </p>
+      {group && (
+        <>
+          <h3>{group.displayName} 그룹 소속</h3>
+          <p>
+            {subject} 공정거래위원회가 지정한 {group.baseYear}년 공시대상
+            기업집단 중 자산 기준 {group.rank}위인 {group.displayName} 그룹의
+            계열사입니다. {group.displayName} 그룹은 계열사{" "}
+            {group.affiliateCount}개, 공정자산 총액{" "}
+            {(group.fairAssetTotalBillion / 1000).toFixed(1)}조 원 규모입니다.
+            {groupMates.length > 0 && (
+              <>
+                {" "}같은 그룹의 주요 상장사로는{" "}
+                {groupMates.map((member, index) => (
+                  <span key={member.name}>
+                    {index > 0 && ", "}
+                    {member.href ? (
+                      <Link href={member.href} style={{ color: "#2563eb" }}>
+                        {member.name}
+                      </Link>
+                    ) : (
+                      member.name
+                    )}
+                  </span>
+                ))}
+                {" "}등이 있습니다.
+              </>
+            )}
+          </p>
+        </>
+      )}
 
-      <h3>공식자료로 확인할 수 있는 정보</h3>
-      <p>
-        이 페이지의 DART 공시 검색, 공식 홈페이지, IR 페이지 링크를 통해{" "}
-        {company.name}의 사업보고서, 분기보고서, 주요 공시, 투자자 대상 자료를
-        직접 확인할 수 있습니다. Biz100 Radar는 매수·매도 추천이 아니라
-        기업정보 확인을 돕기 위한 정보성 페이지입니다.
-      </p>
+      {category && shownPeers.length > 0 && (
+        <>
+          <h3>같은 업종의 상장 기업</h3>
+          <p>
+            Biz100 Radar가 정리한{" "}
+            <Link href={`/kr/industry/${category.slug}`} style={{ color: "#2563eb" }}>
+              {category.name}
+            </Link>{" "}
+            업종 기업은 {company.name} 포함 {peers.length + 1}곳입니다. 함께
+            비교해볼 만한 기업으로는{" "}
+            {shownPeers.map((peer, index) => (
+              <span key={peer.slug}>
+                {index > 0 && ", "}
+                <Link href={`/kr/company/${peer.slug}`} style={{ color: "#2563eb" }}>
+                  {peer.name}
+                </Link>
+              </span>
+            ))}
+            {peers.length > shownPeers.length ? " 등" : ""}이 있습니다.
+          </p>
+        </>
+      )}
 
-      <h3>최근 공시와 실적을 보는 방법</h3>
+      <h3>공식자료로 확인하는 방법</h3>
       <p>
-        최근 공식 공시 영역에서는 OpenDART 기준으로 확인 가능한 공시를
-        정리합니다. 실적 변화 카드는 매출액, 영업이익, 순이익, 부채비율 같은
-        주요 항목을 중심으로 기업의 체급 변화를 확인하기 위한 참고 정보입니다.
-        표시된 수치와 시장 데이터는 투자 판단의 근거가 아니며, 최종 확인은
-        공식 공시와 거래소 또는 증권사 원문을 기준으로 해야 합니다.
+        {company.name}의 사업보고서, 분기보고서, 주요 공시는 금융감독원
+        전자공시시스템(DART)에서 회사명이나 종목코드를 검색해 원문을 볼 수
+        있습니다. 이 페이지의 실적 변화 카드와 최근 공시 목록도
+        OpenDART 공식 API에서 바로 불러온 값입니다. 표시된 수치는 투자 판단의
+        근거가 아니며, 최종 확인은 공시 원문을 기준으로 해야 합니다.
       </p>
     </section>
   );

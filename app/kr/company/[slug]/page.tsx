@@ -10,6 +10,7 @@ import { companies, getCompanyBySlug } from "@/data/companies";
 import RelatedCompanies from "@/components/RelatedCompanies";
 import WatchlistButton from "@/components/WatchlistButton";
 import { getCategoryForIndustry } from "@/lib/industry-categories";
+import { withTopicParticle } from "@/lib/korean";
 
 type CompanyPageProps = {
   params: Promise<{
@@ -38,7 +39,7 @@ export async function generateMetadata({
   const descSnippet = company.businessSummary.slice(0, 70);
   return {
     title: `${company.name}(${company.ticker}) 기업정보`,
-    description: `${company.name}(${company.ticker})은 ${descSnippet}. ${company.market} 상장. DART 공시·재무정보·공식자료 링크 제공.`,
+    description: `${withTopicParticle(`${company.name}(${company.ticker})`)} ${descSnippet}. ${company.market} 상장. DART 공시·재무정보·공식자료 링크 제공.`,
     alternates: {
       canonical: `/kr/company/${company.slug}`
     },
@@ -103,7 +104,7 @@ export default async function CompanyDetailPage({
         "mainEntity": [
           {
             "@type": "Question",
-            "name": `${company.name}은 어떤 회사입니까?`,
+            "name": `${withTopicParticle(company.name)} 어떤 회사입니까?`,
             "acceptedAnswer": { "@type": "Answer", "text": company.businessSummary }
           },
           {
@@ -171,8 +172,7 @@ export default async function CompanyDetailPage({
       <section className="container detail-layout">
         <article>
           <section className="card article-section">
-            <h2>기업 개요</h2>
-            <p>{company.businessSummary}</p>
+            <h2>주요 사업</h2>
 
             <div className="chips">
               {company.keyBusinesses.map((business) => (
@@ -221,7 +221,7 @@ export default async function CompanyDetailPage({
               <span>↗</span>
             </a>
 
-            {hasOfficialWebsite ? (
+            {hasOfficialWebsite && (
               <a
                 className="side-link"
                 href={company.officialWebsite}
@@ -231,14 +231,9 @@ export default async function CompanyDetailPage({
                 <span>공식 홈페이지</span>
                 <span>↗</span>
               </a>
-            ) : (
-              <div className="side-link">
-                <span>공식 홈페이지</span>
-                <span>검증 예정</span>
-              </div>
             )}
 
-            {hasIrUrl ? (
+            {hasIrUrl && (
               <a
                 className="side-link"
                 href={company.irUrl}
@@ -248,11 +243,6 @@ export default async function CompanyDetailPage({
                 <span>IR 페이지</span>
                 <span>↗</span>
               </a>
-            ) : (
-              <div className="side-link">
-                <span>IR 페이지</span>
-                <span>검증 예정</span>
-              </div>
             )}
           </div>
 

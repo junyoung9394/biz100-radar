@@ -69,6 +69,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+        {/* 자동 광고의 고정(앵커) 광고를 화면 아래쪽에만 띄웁니다.
+            휴대폰에서 상단 고정 광고가 첫 화면을 가리던 문제 때문입니다.
+            애드센스 설정은 luckygrampus.com 전체에 걸려 있어 이 사이트만 코드로 조정합니다. */}
+        <Script id="adsense-anchor-bottom" strategy="beforeInteractive">
+          {`(window.adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: "ca-pub-8518556382646891",
+  enable_page_level_ads: true,
+  overlays: { bottom: true }
+});`}
+        </Script>
         <Script
           id="adsense-script"
           async

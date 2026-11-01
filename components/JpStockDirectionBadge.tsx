@@ -29,7 +29,7 @@ function getDirectionLabel(direction: StockDirection) {
     return "보합";
   }
 
-  return "확인중";
+  return "···";
 }
 
 function formatRate(value: number | null | undefined) {
@@ -49,6 +49,7 @@ export default function JpStockDirectionBadge({
   const [hasEnteredView, setHasEnteredView] = useState(false);
   const [direction, setDirection] = useState<StockDirection>("unknown");
   const [changeRate, setChangeRate] = useState<number | null>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const element = wrapperRef.current;
@@ -102,10 +103,12 @@ export default function JpStockDirectionBadge({
           setDirection(data.quote.direction);
           setChangeRate(data.quote.changeRate);
         }
+        setIsLoaded(true);
       } catch {
         if (isMounted) {
           setDirection("unknown");
           setChangeRate(null);
+          setIsLoaded(true);
         }
       }
     }
@@ -116,6 +119,11 @@ export default function JpStockDirectionBadge({
       isMounted = false;
     };
   }, [hasEnteredView, ticker]);
+
+  // 시세를 못 받아온 경우 '확인중'을 남기지 않고 배지를 숨깁니다.
+  if (isLoaded && direction === "unknown") {
+    return null;
+  }
 
   return (
     <span

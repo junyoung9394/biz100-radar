@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { withAndParticle } from "@/lib/korean";
 import type { UsCompany } from "@/data/us-companies";
 
 type RelatedUsCompaniesProps = {
@@ -56,7 +57,7 @@ export default function RelatedUsCompanies({
         <div>
           <h2>같이 확인할 미국 기업</h2>
           <p>
-            {currentCompany.name}와 업종 또는 거래소 기준이 가까운 미국 기업을
+            {withAndParticle(currentCompany.name)} 업종 또는 거래소 기준이 가까운 미국 기업을
             함께 확인할 수 있습니다.
           </p>
         </div>

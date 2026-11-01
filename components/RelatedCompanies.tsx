@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { withAndParticle } from "@/lib/korean";
 import type { Company } from "@/data/companies";
+import { getCategoryForIndustry } from "@/lib/industry-categories";
 
 type RelatedCompaniesProps = {
   currentCompany: Company;
@@ -10,23 +12,27 @@ function getRelatedCompanies({
   currentCompany,
   companies
 }: RelatedCompaniesProps) {
+  const category = getCategoryForIndustry(currentCompany.industry);
+  const isSameIndustry = (company: Company) =>
+    company.industry === currentCompany.industry ||
+    (category !== undefined &&
+      getCategoryForIndustry(company.industry)?.slug === category.slug);
+
   const sameIndustryCompanies = companies.filter(
-    (company) =>
-      company.slug !== currentCompany.slug &&
-      company.industry === currentCompany.industry
+    (company) => company.slug !== currentCompany.slug && isSameIndustry(company)
   );
 
   const sameMarketCompanies = companies.filter(
     (company) =>
       company.slug !== currentCompany.slug &&
-      company.industry !== currentCompany.industry &&
+      !isSameIndustry(company) &&
       company.market === currentCompany.market
   );
 
   const otherCompanies = companies.filter(
     (company) =>
       company.slug !== currentCompany.slug &&
-      company.industry !== currentCompany.industry &&
+      !isSameIndustry(company) &&
       company.market !== currentCompany.market
   );
 
@@ -56,7 +62,7 @@ export default function RelatedCompanies({
         <div>
           <h2>같이 확인할 기업</h2>
           <p>
-            {currentCompany.name}와 업종 또는 시장 기준이 가까운 기업을 함께
+            {withAndParticle(currentCompany.name)} 업종 또는 시장 기준이 가까운 기업을 함께
             확인할 수 있습니다.
           </p>
         </div>

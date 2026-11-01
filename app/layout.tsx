@@ -71,7 +71,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
         {/* 자동 광고의 고정(앵커) 광고를 화면 아래쪽에만 띄웁니다.
             휴대폰에서 상단 고정 광고가 첫 화면을 가리던 문제 때문입니다.
-            애드센스 설정은 luckygrampus.com 전체에 걸려 있어 이 사이트만 코드로 조정합니다. */}
+            애드센스 설정은 luckygrampus.com 전체에 걸려 있어 이 사이트만 코드로 조정합니다.
+            스크립트 주소에 ?client=를 붙이면 자동 광고가 먼저 켜져 이 설정이
+            "Only one 'enable_page_level_ads'" 오류로 무시되므로 주소에서는 뺍니다. */}
         <Script id="adsense-anchor-bottom" strategy="beforeInteractive">
           {`(window.adsbygoogle = window.adsbygoogle || []).push({
   google_ad_client: "ca-pub-8518556382646891",
@@ -83,7 +85,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           id="adsense-script"
           async
           strategy="afterInteractive"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8518556382646891"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
           crossOrigin="anonymous"
         />
 
